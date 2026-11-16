@@ -1,11 +1,11 @@
 # Samur · homepage spec (as built)
 
 ## Brief
-A single-page site for **Samur**, a Saudi company selling East African safaris to Saudi travellers. Samur (سمر) is the Arabic name of the umbrella acacia, so the acacia is the symbol of the page: the hero title rises behind an acacia canopy, the emblem is an acacia in a double ring, and the closing section is an acacia at sunset.
+A single-page site for **Samur**, a Saudi company selling East African safaris to Saudi travellers. Samur (سمر) is the Arabic name of the umbrella acacia, so the acacia is the symbol of the page: the hero title rises behind a lion asleep on an acacia branch, the emblem is an acacia in a double ring, and the closing section is an acacia at sunset.
 Aesthetic: quiet nature magazine, visually heavy. Paper `#ECE3D1` / `#E6DCC8`, ink `#43282A`, rust `#A86438`, hairlines ink 16%. Bodoni Moda 500 (opsz 11) for display, Inter for labels and body, Noto Naskh Arabic for Arabic accents. Fixed fractal-noise grain, multiply, 38%.
 
 ## Media
-All real photographs from Wikimedia Commons, resized to 1600–2600px, listed with licences in `CREDITS.md`. Hero cut-out made by a darkness key on the silhouette (`assets/hero-cutout.webp`), placed at left 5.12%, top 17.61%, width 64.81% of the hero frame (2600×1442).
+All real photographs from Wikimedia Commons, resized to 1600–2600px, listed with licences in `CREDITS.md`. Hero: a male lion asleep on a branch (Salix Oculus, CC BY-SA 4.0), cropped to 2600×1373; the lion-and-branch cut-out (`assets/hero-lion-cutout.webp`, sky keyed out, twigs removed) sits at top 10.85%, full width, so the title rises behind the mane.
 
 ## Sections
 1. **Hero** (100svh). Stage `max(100vw, 180.3svh)` wide, photo settles 1.06→1 over 2.2s. Nav: wordmark "Samur سمر" left, five links right, all paper-coloured. Eyebrow "AFRICAN SAFARIS · FROM THE KINGDOM", title "SAMUR" at 13.2cqw in paper, letters rising .18em out of 10px blur 95ms apart; the acacia cut-out covers the lower half. Pill "SEE THE JOURNEYS" bottom centre; one-line brand sentence bottom left. On scroll the stage drifts .32×, the photo and cut-out blur to 6px, and a paper gradient melts the bottom (full opacity by ~17% scrolled).

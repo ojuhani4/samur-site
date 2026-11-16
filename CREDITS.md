@@ -16,7 +16,7 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 | assets/elephant.jpg | Elephant Parade.jpg | Eric Kilby | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Elephant_Parade.jpg |
 | assets/giraffe.jpg | 042 Masai giraffe in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:042_Masai_giraffe_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
 | assets/giraffe-acacia.jpg | Giraffes Serengeti.jpg | Naturedata | CC0 | https://commons.wikimedia.org/wiki/File:Giraffes_Serengeti.jpg |
-| assets/hero-acacia.jpg | Acacia tree on a sunrise safari at the Serengeti National Park, Tanzania.jpg | Daniel Zaas | Public domain | https://commons.wikimedia.org/wiki/File:Acacia_tree_on_a_sunrise_safari_at_the_Serengeti_National_Park,_Tanzania.jpg |
+| assets/hero-lion.jpg | Lion on tree.jpg | Salix Oculus | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lion_on_tree.jpg |
 | assets/leopard-face.jpg | 001 Juvenile leopard in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:001_Juvenile_leopard_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
 | assets/leopard-tree.jpg | Serengeti National Park 06 - Leopard - Panthera pardus.jpg | Thomas Fuhrmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Serengeti_National_Park_06_-_Leopard_-_Panthera_pardus.jpg |
 | assets/lion.jpg | 002 The lion king Snyggve in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |

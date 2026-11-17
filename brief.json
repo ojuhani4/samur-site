@@ -4,24 +4,62 @@
   "negocio": "Saudi safari company selling East African safaris (Serengeti, Ngorongoro, Tarangire, Zanzibar) to Saudi travellers: flying safaris, open-vehicle game drives, luxury camps, Arabic-speaking guides, halal kitchens, prayer times kept",
   "publico": "Saudi families, couples and groups from Riyadh and Jeddah, 30 to 60, used to five-star travel, travelling for Eid and school holidays",
   "identidade": {
-    "cores": { "fundo": "#ECE3D1", "fundo2": "#E6DCC8", "texto": "#43282A", "acento": "#A86438" },
-    "fontes": { "titulo": "Bodoni Moda", "texto": "Inter" },
-    "clima": ["quiet", "editorial", "warm"],
+    "cores": {
+      "fundo": "#ECE3D1",
+      "fundo2": "#E6DCC8",
+      "texto": "#43282A",
+      "acento": "#A86438"
+    },
+    "fontes": {
+      "titulo": "Bodoni Moda",
+      "texto": "Inter"
+    },
+    "clima": [
+      "quiet",
+      "editorial",
+      "warm"
+    ],
     "tema": "claro",
     "simbolo": "the umbrella acacia (samur, سمر, is its Arabic name)"
   },
   "logo": "",
   "copy": {
     "frase_abertura": "From Riyadh to the Serengeti in a day",
-    "diferenciais": ["Arabic-speaking guides", "halal kitchens and prayer times kept", "flying safaris between camps", "Zanzibar at the end of every long journey"],
+    "diferenciais": [
+      "Arabic-speaking guides",
+      "halal kitchens and prayer times kept",
+      "flying safaris between camps",
+      "Zanzibar at the end of every long journey"
+    ],
     "textos_prontos": "reuse the five journeys, stays and Samur-way copy from the editorial homepage",
     "depoimentos_reais": []
   },
-  "referencias": ["Tana Camps editorial species page (MotionSites)", "quiet nature magazines", "Diego Delso Serengeti photography"],
-  "whatsapp": { "numero": "966500000000", "mensagem": "Hello Samur, I would like to plan a safari." },
+  "referencias": [
+    "Tana Camps editorial species page (MotionSites)",
+    "quiet nature magazines",
+    "Diego Delso Serengeti photography"
+  ],
+  "whatsapp": {
+    "numero": "966500000000",
+    "mensagem": "Hello Samur, I would like to plan a safari."
+  },
   "email_contato": "hello@samur.sa",
-  "secoes": ["opening", "about", "journeys", "how it works", "stays", "contact"],
-  "conceito": "",
-  "media": "real footage and photographs only (Wikimedia Commons, credited); no AI generation",
-  "modelos": { "video": "none", "imagem": "none" }
+  "secoes": [
+    "opening",
+    "about",
+    "journeys",
+    "how it works",
+    "stays",
+    "contact"
+  ],
+  "conceito": "One family's safari told in order: the airstrip film, the flight, the drive, the animals, the camp, the tent, the pool, the table, the Maasai boma, Zanzibar, then the five journeys and the form.",
+  "media": "AI-generated story: Nano Banana Pro images + Veo 3.1 opening film (approved by Omar 17 Nov 2026); accuracy rules: modest Saudi guests, Tanzanian guides, closed pop-up-roof Land Cruisers, animals at distance, canvas camps, no logos",
+  "modelos": {
+    "video": "google/veo-3.1",
+    "imagem": "google/gemini-3-pro-image"
+  },
+  "custo_usd": {
+    "imagens": 1.48,
+    "video": 1.6
+  }
 }

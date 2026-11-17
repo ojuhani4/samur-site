@@ -30,4 +30,7 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 | assets/zebra.jpg | Serengeti National Park 20 - Zebra - Equus quagga.jpg | Thomas Fuhrmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Serengeti_National_Park_20_-_Zebra_-_Equus_quagga.jpg |
 | assets/zebra-close.jpg | Serengeti National Park 18 - Zebra - Equus quagga.jpg | Thomas Fuhrmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Serengeti_National_Park_18_-_Zebra_-_Equus_quagga.jpg |
 | assets/znz-pool.jpg | Baraza Zanzibar.jpg | Rob from United Kingdom | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Baraza_Zanzibar.jpg |
-| assets/frames/* (opening film) | Derived from the same Diego Delso acacia photograph as assets/hero-acacia.jpg (slow push-in rendered with ffmpeg) | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
+
+## Generated media on the homepage (index.html)
+
+The opening film (`assets/frames/`) and the eleven section images (`assets/img/01-flight` to `10-acacia-dusk`) were generated on 17 November 2026 with Google Nano Banana Pro (images) and Google Veo 3.1 (film) via OpenRouter, from prompts written for accuracy to a real Tanzanian safari. They depict no real people. The Wikimedia Commons credits above apply to the photographs still used on `editorial.html` and `oryx.html`.

@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Samur · African Safaris</title>
+<meta name="description" content="Samur takes Saudi travellers to the Serengeti, Ngorongoro, Tarangire and Zanzibar. Flying safaris, open vehicles, luxury camps, Arabic-speaking guides.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ECE3D1'/%3E%3Cpath d='M12 26c6-10 34-10 40 0-6 2-12 2-18 2 0 8 0 16 2 24h-6c2-8 2-16 2-24-6 0-14 0-20-2z' fill='%23A86438'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{background:#ECE3D1;color:#43282A;margin:0}
+:root{
+  --paper:#ECE3D1;--paper-2:#E6DCC8;--ink:#43282A;
+  --body:rgba(67,40,42,.72);--rust:#A86438;--line:rgba(67,40,42,.16);
+  --display:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --arabic:"Noto Naskh Arabic","Geeza Pro",serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --p:0;--y:0px;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--rust);outline-offset:4px;border-radius:2px}
+
+.display{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 11;font-optical-sizing:none;text-transform:uppercase}
+.label{font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;line-height:1}
+.ar{font-family:var(--arabic);font-weight:500;letter-spacing:0;text-transform:none;direction:rtl}
+.rust{color:var(--rust)}
+.body{font-size:13.4px;line-height:1.65;color:var(--body)}
+.wrap{width:min(1180px,100% - 64px);margin:0 auto}
+
+/* grain */
+.grain{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.38;mix-blend-mode:multiply;background-size:200px 200px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E")}
+
+/* shared letter + reveal system */
+.ch{display:inline-block;opacity:0;transform:translateY(.55em) rotate(4deg);transform-origin:50% 100%}
+.sp{display:inline-block;width:.24em}
+.w{display:inline-block;white-space:nowrap}
+.is-in .ch{animation:climb .9s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + var(--i) * var(--step,26ms))}
+@keyframes climb{to{opacity:1;transform:none}}
+.line{display:block}
+.rv{opacity:0;transform:translateY(22px)}
+.is-in .rv{animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + var(--d,0s))}
+@keyframes rise{to{opacity:1;transform:none}}
+.frame{position:relative;overflow:hidden;background:var(--paper-2);clip-path:inset(100% 0 0 0)}
+.frame img{position:absolute;left:0;top:-7%;width:100%;height:114%;object-fit:cover;transform:translateY(var(--py,0)) scale(1.18);will-change:transform}
+.is-in .frame{animation:wipe 1.2s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + var(--d,.15s))}
+.is-in .frame img{animation:settleImg 1.6s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + var(--d,.15s))}
+.frame.settled img{animation:none;transform:translateY(var(--py,0))}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes settleImg{to{transform:translateY(var(--py,0)) scale(1)}}
+.ppill{display:inline-block;vertical-align:middle;width:.86em;height:.86em;border-radius:50%;overflow:hidden;margin:0 .06em;position:relative;top:-.06em;transform:scale(0);background:var(--paper-2)}
+.ppill img{width:100%;height:100%;object-fit:cover;transform:scale(1.5)}
+.is-in .ppill{animation:pop 1s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(var(--rd,0s) + var(--i) * 26ms)}
+.is-in .ppill img{animation:unzoom 1.4s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + var(--i) * 26ms)}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes unzoom{to{transform:scale(1)}}
+.pillbtn{display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;border-radius:999px;background:var(--paper);color:var(--ink);box-shadow:0 10px 30px rgba(67,40,42,.14);transition:background .3s,transform .4s var(--ease)}
+.pillbtn:hover{background:#fff;transform:translateY(-2px)}
+.pillbtn .dot{width:28px;height:28px;border-radius:50%;background:var(--rust);display:grid;place-items:center;flex:none}
+.pillbtn .dot svg{width:13px;height:13px;fill:none;stroke:var(--paper);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pillbtn .arrow{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pillbtn--ink{background:var(--ink);color:var(--paper);box-shadow:none}
+.pillbtn--ink:hover{background:#2f1b1d}
+.pillbtn--ink .dot{background:var(--rust)}
+.hair{border-top:1px solid var(--line)}
+
+/* ───────────── 1 · HERO ───────────── */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:#dcdfe1}
+.hero__stage{position:absolute;left:50%;top:50%;width:max(100vw,192.3svh);aspect-ratio:3000/1560;container-type:inline-size;
+  transform:translate(-50%,calc(-50% + var(--y)));will-change:transform}
+.hero__scene{position:absolute;inset:0}
+.hero__photo{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:settle 2.2s var(--ease) forwards;filter:blur(calc(6px * var(--p)))}
+@keyframes settle{to{transform:scale(1)}}
+.hero__title{position:absolute;z-index:3;left:0;right:0;top:7%;text-align:center;pointer-events:none}
+.hero__eyebrow{display:block;font-size:.66cqw;color:rgba(67,40,42,.82);margin-bottom:1.1cqw;opacity:0;transform:translateY(-12px);animation:fadeDown .9s var(--ease) .25s forwards}
+.hero__word{margin:0;font-size:13.2cqw;line-height:.8;letter-spacing:.02em;color:var(--ink);white-space:nowrap}
+.hero__word .hc{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(.18em);animation:riseIn 1.1s var(--ease) forwards;animation-delay:calc(.45s + var(--i) * 95ms)}
+@keyframes riseIn{to{opacity:1;filter:blur(0);transform:none}}
+@keyframes fadeDown{to{opacity:1;transform:none}}
+.hero__cut{position:absolute;z-index:4;left:0;top:17.82%;width:100%;height:auto;pointer-events:none;filter:blur(calc(6px * var(--p)))}
+.hero__fade{position:absolute;z-index:4;left:0;right:0;bottom:-1px;height:calc(34% + 66% * var(--p));opacity:min(1, .3 + 2.4 * var(--p));pointer-events:none;
+  background:linear-gradient(to bottom,rgba(236,227,209,0) 0%,rgba(236,227,209,.55) 38%,var(--paper) 100%)}
+.hero__pill{position:absolute;z-index:5;left:50%;bottom:6%;transform:translate(-50%,16px);opacity:0;animation:pillIn 1s var(--ease) 1.05s forwards}
+@keyframes pillIn{to{opacity:1;transform:translate(-50%,0)}}
+.hero__sub{position:absolute;z-index:3;left:32px;bottom:6.5%;max-width:300px;color:var(--ink);font-size:12.5px;line-height:1.6;opacity:0;animation:fadeUp 1s var(--ease) .9s forwards}
+@keyframes fadeUp{from{transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.nav{position:absolute;z-index:6;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:24px 32px;color:var(--ink);
+  opacity:0;transform:translateY(-12px);animation:fadeDown .9s var(--ease) .25s forwards}
+.nav__brand{display:flex;align-items:baseline;gap:12px;line-height:1}
+.nav__brand .wm{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 11;font-size:21px;letter-spacing:.01em}
+.nav__brand .ar{font-size:17px;color:var(--rust)}
+.nav__links{display:flex;gap:28px;align-items:center}
+.nav__links a{position:relative;padding:12px 0;transition:opacity .3s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav__links a:hover::after{transform:scaleX(1)}
+.nav__burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.nav__burger svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round}
+
+/* ───────────── 2 · INTRO STATEMENT ───────────── */
+.intro{min-height:100svh;display:grid;place-items:center;text-align:center;padding:96px 24px;background:var(--paper)}
+.intro__label{color:var(--rust);margin-bottom:40px}
+.intro__text{margin:0;font-size:clamp(40px,7.2vw,132px);line-height:1.06;letter-spacing:.005em;color:var(--ink)}
+.intro__text .line{white-space:nowrap}
+.emblem{width:66px;height:66px;margin:52px auto 0;color:var(--rust);opacity:0;transform:rotate(-90deg) scale(.6)}
+.emblem svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.is-in .emblem{animation:turnIn 1.1s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + .55s)}
+@keyframes turnIn{to{opacity:1;transform:none}}
+.intro__p{max-width:52ch;margin:36px auto 0;font-size:14.5px}
+
+/* ───────────── 3 · THE CAST ───────────── */
+.cast{height:260svh;background:var(--paper)}
+.cast__pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:40px;overflow:hidden;padding:48px 0}
+.cast__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.cast__title{margin:0;font-size:clamp(44px,8vw,128px);line-height:.9;letter-spacing:.005em}
+.cast__note{max-width:34ch;text-align:right}
+.cast__rail{display:flex;gap:18px;padding:0 32px;will-change:transform;width:max-content}
+.card{position:relative;flex:none;width:clamp(240px,24vw,360px);aspect-ratio:2/3;overflow:hidden;background:var(--paper-2);border-radius:2px}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover img{transform:scale(1.06)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,15,12,.55) 0%,rgba(30,15,12,0) 45%)}
+.card__meta{position:absolute;z-index:2;left:18px;right:18px;bottom:18px;color:var(--paper);display:flex;justify-content:space-between;align-items:baseline}
+.card__name{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 11;font-size:26px;text-transform:uppercase;letter-spacing:.02em}
+.card__ar{font-family:var(--arabic);font-size:17px;direction:rtl}
+.card:nth-child(even){transform:translateY(48px)}
+
+/* ───────────── 4 · HOW WE TRAVEL ───────────── */
+.ways{padding:48px 0 112px;background:var(--paper)}
+.ways__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.way{display:block}
+.way .frame{aspect-ratio:3/4;border-radius:2px}
+.way__num{display:block;color:var(--rust);margin:22px 0 10px}
+.way__title{margin:0 0 10px;font-size:clamp(26px,2.6vw,38px);line-height:1}
+.way p{margin:0;max-width:34ch}
+
+/* ───────────── 5 · JOURNEYS ───────────── */
+.journeys{padding:96px 0 48px;background:var(--paper-2)}
+.journeys__head{text-align:center;margin-bottom:72px}
+.journeys__title{margin:14px 0 0;font-size:clamp(44px,8.6vw,140px);line-height:.9}
+.journeys__sub{max-width:44ch;margin:24px auto 0}
+.journey{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,6vw,96px);align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.journey:nth-child(even){grid-template-columns:5fr 7fr}
+.journey:nth-child(even) .journey__media{order:2}
+.journey__media .frame{aspect-ratio:4/3;border-radius:2px}
+.journey__num{color:var(--rust)}
+.journey__title{margin:16px 0 14px;font-size:clamp(34px,4.2vw,66px);line-height:.96}
+.journey__route{font-weight:500;color:var(--ink);font-size:13px;letter-spacing:.02em;margin:0 0 18px}
+.journey__p{margin:0 0 22px;max-width:44ch}
+.journey__facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:0 0 24px;padding:0;list-style:none;font-size:12px;line-height:1.4}
+.journey__facts b{display:block;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.journey__facts span{color:var(--rust)}
+.journey__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+.journey__price{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 11;font-size:28px;line-height:1;color:var(--ink)}
+.journey__price small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--rust);margin-bottom:8px}
+
+/* ───────────── 6 · STAYS ───────────── */
+.stays{padding:96px 0 112px;background:var(--paper)}
+.stays__head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+.stays__title{margin:14px 0 0;font-size:clamp(40px,6.4vw,104px);line-height:.92}
+.stays__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.stay{position:relative;display:block}
+.stay .frame{border-radius:2px;height:100%}
+.stay--a{grid-column:span 7;aspect-ratio:16/10}
+.stay--b{grid-column:span 5;aspect-ratio:4/5}
+.stay--c{grid-column:span 5;aspect-ratio:4/5}
+.stay--d{grid-column:span 7;aspect-ratio:16/10}
+.stay__meta{position:absolute;left:22px;bottom:22px;right:22px;z-index:2;color:var(--paper);text-shadow:0 1px 16px rgba(30,15,12,.6)}
+.stay__tier{display:block;margin-bottom:10px;color:rgba(236,227,209,.85)}
+.stay__name{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 11;text-transform:uppercase;font-size:clamp(24px,2.6vw,38px);line-height:1}
+.stay .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,15,12,.5) 0%,rgba(30,15,12,0) 50%);pointer-events:none}
+
+/* ───────────── 7 · THE SAMUR WAY ───────────── */
+.way-sec{min-height:100svh;display:grid;align-items:center;padding:72px 32px;background:var(--paper-2)}
+.way-sec__inner{width:100%;max-width:1180px;margin:0 auto;border-top:1px solid var(--line);padding-top:48px;display:grid;grid-template-columns:1.12fr 1.12fr .96fr;gap:56px;align-items:start}
+.facts__label{color:var(--rust);margin-bottom:28px}
+.facts__title{margin:0 0 44px;font-size:clamp(34px,4.25vw,66px);line-height:.96;letter-spacing:.005em}
+.badge{display:flex;align-items:center;gap:18px;color:var(--ink)}
+.badge__ring{position:relative;width:84px;height:84px;flex:none}
+.badge__ring .ticks{position:absolute;inset:0;width:100%;height:100%;animation:spin 16s linear infinite;stroke:var(--ink);stroke-width:1.1;opacity:.8}
+.badge__ring .play{position:absolute;inset:0;margin:auto;width:16px;height:16px;fill:var(--ink);transition:transform .4s var(--ease)}
+.badge:hover .play{transform:scale(1.2)}
+.badge:hover .badge__ring .ticks{animation-duration:6s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.facts__p{margin:0 0 32px;max-width:40ch}
+.table{width:100%;border-collapse:collapse;border-top:1px solid var(--line)}
+.table tr{border-bottom:1px solid var(--line);opacity:0}
+.is-in .table tr{animation:fadeIn .8s var(--ease) forwards;animation-delay:calc(var(--rd,0s) + .55s + var(--i) * .1s)}
+@keyframes fadeIn{to{opacity:1}}
+.table th,.table td{padding:14px 0;font-size:12px;line-height:1.35;vertical-align:top}
+.table th{text-align:left;font-weight:500;color:var(--ink);letter-spacing:.02em;width:38%}
+.table td{text-align:right;color:var(--rust);font-weight:500}
+.portrait{aspect-ratio:2/3}
+
+/* ───────────── 8 · PLAN ───────────── */
+.plan{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;background:#3a1c22;color:var(--paper)}
+.plan__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:translateY(var(--py,0)) scale(1.1);will-change:transform}
+.plan::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,28,34,.15) 0%,rgba(58,28,34,.35) 55%,rgba(40,18,22,.85) 100%);z-index:1}
+.plan__inner{position:relative;z-index:2;width:min(1180px,100% - 64px);margin:0 auto;padding:120px 0 40px}
+.plan__label{color:var(--paper);opacity:.85}
+.plan__title{margin:18px 0 28px;font-size:clamp(44px,9vw,150px);line-height:.88;color:var(--paper)}
+.plan__row{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center}
+.plan__ar{font-size:22px;color:rgba(236,227,209,.9);margin-left:auto}
+.plan__foot{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;margin-top:88px;padding-top:22px;border-top:1px solid rgba(236,227,209,.22);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(236,227,209,.75)}
+.plan__foot a{transition:color .3s}
+.plan__foot a:hover{color:#fff}
+.plan__foot nav{display:flex;gap:24px;flex-wrap:wrap}
+
+/* ───────────── PHONE ───────────── */
+@media (max-width:760px){
+  .wrap{width:min(1180px,100% - 32px)}
+  .nav{padding:18px 18px}
+  .nav__links{display:none}
+  .nav__burger{display:flex}
+  .hero__photo{animation:none;transform:none}
+  .hero__title{top:12%}
+  .hero__word{font-size:19vw}
+  .hero__eyebrow{font-size:9px;margin-bottom:12px}
+  .hero__sub{display:none}
+  .intro{padding:80px 16px}
+  .intro__text{font-size:8.6vw}
+  .intro__label{margin-bottom:28px}
+  .cast{height:auto;padding:56px 0 48px}
+  .cast__pin{position:static;height:auto;overflow:visible;padding:0;gap:28px}
+  .cast__head{flex-direction:column;align-items:flex-start}
+  .cast__note{text-align:left}
+  .cast__rail{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding:0 16px 16px;transform:none!important;-webkit-overflow-scrolling:touch}
+  .card{width:72vw;scroll-snap-align:start}
+  .card:nth-child(even){transform:none}
+  .ways{padding:24px 0 80px}
+  .ways__grid{grid-template-columns:1fr;gap:36px}
+  .journeys{padding:72px 0 24px}
+  .journeys__head{margin-bottom:40px}
+  .journey,.journey:nth-child(even){grid-template-columns:1fr;gap:24px;padding:40px 0}
+  .journey:nth-child(even) .journey__media{order:0}
+  .journey__title{font-size:11vw}
+  .stays{padding:72px 0 80px}
+  .stays__head{grid-template-columns:1fr;gap:20px;margin-bottom:28px}
+  .stays__grid{grid-template-columns:1fr;gap:14px}
+  .stay--a,.stay--b,.stay--c,.stay--d{grid-column:auto;aspect-ratio:4/3}
+  .way-sec{padding:64px 16px}
+  .way-sec__inner{grid-template-columns:1fr;gap:40px;padding-top:32px}
+  .facts__title{font-size:12vw;margin-bottom:28px}
+  .facts__p{max-width:none}
+  .plan__inner{width:min(1180px,100% - 32px);padding:96px 0 28px}
+  .plan__ar{margin-left:0}
+  .plan__foot{margin-top:56px}
+}
+@media (max-height:720px) and (min-width:761px){.intro{padding:72px 24px}.way-sec{padding:48px 32px}}
+
+/* ───────────── REDUCED MOTION ───────────── */
+@media (prefers-reduced-motion:reduce){
+  .hero__photo,.hero__eyebrow,.nav,.hero__word .hc,.hero__pill,.hero__sub,.ch,.ppill,.ppill img,.emblem,.rv,.table tr,.frame,.frame img,.badge__ring .ticks{
+    animation:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
+  .hero__pill{transform:translate(-50%,0)!important}
+  .hero__stage{transform:translate(-50%,-50%)!important}
+  .cast__rail{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div id="page">
+
+<!-- ───────────── 1 · HERO ───────────── -->
+<section class="hero" id="top" aria-label="Samur, African safaris from the Kingdom">
+  <div class="hero__stage">
+    <div class="hero__scene">
+      <img class="hero__photo" src="assets/hero-acacia.jpg" alt="A lone umbrella acacia on the Serengeti plain under a pale sky" width="3000" height="1560" fetchpriority="high">
+      <div class="hero__title">
+        <span class="hero__eyebrow label">African safaris · from the Kingdom</span>
+        <h1 class="hero__word display" id="heroWord">Samur</h1>
+      </div>
+      <picture>
+        <source srcset="assets/hero-acacia-cutout.webp" type="image/webp">
+        <img class="hero__cut" src="assets/hero-acacia-cutout.png" alt="" width="3000" height="1208" aria-hidden="true">
+      </picture>
+    </div>
+    <a class="pillbtn label hero__pill" href="#journeys">
+      <span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7 7 7-7"/></svg></span>
+      <span>See the journeys</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="hero__fade" aria-hidden="true"></div>
+  <p class="hero__sub">Samur is the Arabic name of the acacia, the tree under which every great safari rests. We take Saudi travellers to the Serengeti and Zanzibar.</p>
+  <nav class="nav" aria-label="Primary">
+    <a class="nav__brand" href="#top" aria-label="Samur"><span class="wm">Samur</span><span class="ar" aria-hidden="true">سمر</span></a>
+    <div class="nav__links label">
+      <a href="#cast">The cast</a><a href="#journeys">Journeys</a><a href="#stays">Stays</a><a href="#way">The Samur way</a><a href="#plan">Enquire</a>
+    </div>
+    <button class="nav__burger" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18M3 15h18"/></svg></button>
+  </nav>
+</section>
+
+<!-- ───────────── 2 · INTRO ───────────── -->
+<section class="intro" id="intro" data-reveal>
+  <div>
+    <p class="intro__label label">Under the acacia · <span class="ar">تحت شجرة السمر</span></p>
+    <h2 class="intro__text display" data-letters>
+      <span class="line">From <span class="ppill"><img src="assets/lion-rock.jpg" alt="" loading="lazy"></span> Riyadh</span>
+      <span class="line">to the <span class="ppill"><img src="assets/zebra-close.jpg" alt="" loading="lazy"></span> Serengeti</span>
+      <span class="line">in a day</span>
+    </h2>
+    <div class="emblem" aria-hidden="true">
+      <svg viewBox="0 0 66 66">
+        <circle cx="33" cy="33" r="31.5"/><circle cx="33" cy="33" r="26"/>
+        <path d="M14 29c5-9 33-9 38 0"/><path d="M16 29c6 3 28 3 34 0"/>
+        <path d="M33 31v15M33 34c-3 1-5 3-6 7M33 36c3 1 5 3 6 6M24 46h18"/>
+      </svg>
+    </div>
+    <p class="intro__p body rv" style="--d:.7s">Samur is a Saudi company for Saudi travellers who want the real Africa without the hard edges. We fly you from Riyadh or Jeddah to northern Tanzania, hand you to Arabic-speaking guides, and keep the days simple: dawn game drives, long lunches in the shade, halal kitchens, prayer times kept, and the sea at the end.</p>
+  </div>
+</section>
+
+<!-- ───────────── 3 · THE CAST ───────────── -->
+<section class="cast" id="cast" data-reveal>
+ <div class="cast__pin">
+  <div class="wrap cast__head">
+    <div>
+      <p class="label rust rv" style="--d:0s">Who you will meet</p>
+      <h2 class="cast__title display" data-letters style="--step:40ms"><span class="line">The cast</span></h2>
+    </div>
+    <p class="cast__note body rv" style="--d:.3s">Lion, zebra, elephant, giraffe, leopard, cheetah. In the Serengeti and Ngorongoro you meet them all in a week, often before breakfast.</p>
+  </div>
+  <div class="cast__rail" id="rail">
+    <figure class="card" style="margin:0"><img src="assets/lion.jpg" alt="A male lion in golden grass" loading="lazy"><figcaption class="card__meta"><span class="card__name">Lion</span><span class="card__ar">أسد</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/zebra.jpg" alt="A zebra herd on the plains" loading="lazy"><figcaption class="card__meta"><span class="card__name">Zebra</span><span class="card__ar">حمار وحشي</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/elephant.jpg" alt="An elephant family passing acacias" loading="lazy"><figcaption class="card__meta"><span class="card__name">Elephant</span><span class="card__ar">فيل</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/giraffe.jpg" alt="A giraffe walking through tall grass" loading="lazy"><figcaption class="card__meta"><span class="card__name">Giraffe</span><span class="card__ar">زرافة</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/leopard-face.jpg" alt="A leopard resting on a branch" loading="lazy" style="object-position:40% 50%"><figcaption class="card__meta"><span class="card__name">Leopard</span><span class="card__ar">نمر</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/cheetah.jpg" alt="A cheetah looking across the plain" loading="lazy" style="object-position:40% 50%"><figcaption class="card__meta"><span class="card__name">Cheetah</span><span class="card__ar">فهد</span></figcaption></figure>
+    <figure class="card" style="margin:0"><img src="assets/crossing-jump.jpg" alt="Wildebeest leaping into the Mara river" loading="lazy" style="object-position:60% 50%"><figcaption class="card__meta"><span class="card__name">Wildebeest</span><span class="card__ar">النو</span></figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<!-- ───────────── 4 · HOW WE TRAVEL ───────────── -->
+<section class="ways" id="ways" data-reveal>
+  <div class="wrap">
+    <p class="label rust rv" style="--d:0s">How we travel</p>
+    <div class="ways__grid">
+      <a class="way" href="#journeys">
+        <div class="frame" style="--d:.1s"><img src="assets/plane-airstrip.jpg" alt="A giraffe crossing a bush airstrip beside a light aircraft" loading="lazy" data-parallax></div>
+        <span class="way__num label">01 · Flying safari</span>
+        <h3 class="way__title display">By air</h3>
+        <p class="body">Light aircraft hop you between camps in forty minutes. No eight-hour drives, more hours with the animals.</p>
+      </a>
+      <a class="way" href="#journeys">
+        <div class="frame" style="--d:.25s"><img src="assets/vehicle.jpg" alt="An open-roof safari vehicle among a wildebeest herd" loading="lazy" data-parallax></div>
+        <span class="way__num label">02 · Game drives</span>
+        <h3 class="way__title display">Open vehicle</h3>
+        <p class="body">Private open-roof Land Cruisers, a guide who speaks Arabic, and a cool box that never empties.</p>
+      </a>
+      <a class="way" href="#journeys">
+        <div class="frame" style="--d:.4s"><img src="assets/dhow.jpg" alt="A dhow sailing off a Zanzibar beach" loading="lazy" data-parallax></div>
+        <span class="way__num label">03 · Zanzibar</span>
+        <h3 class="way__title display">By the sea</h3>
+        <p class="body">Every long journey ends on the white sand of Zanzibar: dhows, spice gardens and the old stone town.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 5 · JOURNEYS ───────────── -->
+<section class="journeys" id="journeys">
+  <div class="wrap">
+    <header class="journeys__head" data-reveal>
+      <p class="label rust rv" style="--d:0s">Five journeys · <span class="ar">خمس رحلات</span></p>
+      <h2 class="journeys__title display" data-letters style="--step:40ms"><span class="line">The journeys</span></h2>
+      <p class="journeys__sub body rv" style="--d:.4s">Each one is a finished itinerary with flights, camps, guides and transfers. Change anything; we rebuild the price the same day.</p>
+    </header>
+
+    <article class="journey" data-reveal>
+      <div class="journey__media"><div class="frame"><img src="assets/crossing.jpg" alt="Thousands of wildebeest crossing the Mara river" loading="lazy" data-parallax></div></div>
+      <div>
+        <p class="journey__num label rv" style="--d:.1s">01 · July to October</p>
+        <h3 class="journey__title display" data-letters style="--step:22ms"><span class="line">The Great</span><span class="line">Migration</span></h3>
+        <p class="journey__route rv" style="--d:.3s">Arusha → Ngorongoro → Northern Serengeti → Arusha</p>
+        <p class="journey__p body rv" style="--d:.38s">Two mobile camps that follow the herds, a full day on the floor of the crater, and a dawn balloon over the river crossings. The safari people cross the world for.</p>
+        <ul class="journey__facts rv" style="--d:.46s">
+          <li><b>Duration</b><span>8 days · 7 nights</span></li><li><b>Travel</b><span>Flying safari, 2 bush flights</span></li>
+          <li><b>Stay</b><span>Luxury mobile camps</span></li><li><b>Group</b><span>Private, 2 to 6 guests</span></li>
+        </ul>
+        <div class="journey__foot rv" style="--d:.54s">
+          <p class="journey__price"><small>From, per person</small>SAR 29,500</p>
+          <a class="pillbtn pillbtn--ink label" href="#plan"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Enquire</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="journey" data-reveal>
+      <div class="journey__media"><div class="frame"><img src="assets/nungwi.jpg" alt="Turquoise water and white sand at Nungwi, Zanzibar" loading="lazy" data-parallax></div></div>
+      <div>
+        <p class="journey__num label rv" style="--d:.1s">02 · All year</p>
+        <h3 class="journey__title display" data-letters style="--step:22ms"><span class="line">Bush &amp;</span><span class="line">Zanzibar</span></h3>
+        <p class="journey__route rv" style="--d:.3s">Tarangire → Central Serengeti → Zanzibar</p>
+        <p class="journey__p body rv" style="--d:.38s">Five nights of game drives among elephants and big cats, then a short flight to the coast for four nights on Nungwi beach. The journey most of our families book first.</p>
+        <ul class="journey__facts rv" style="--d:.46s">
+          <li><b>Duration</b><span>10 days · 9 nights</span></li><li><b>Travel</b><span>Open vehicle + 2 flights</span></li>
+          <li><b>Stay</b><span>Lodges and a beach resort</span></li><li><b>Group</b><span>Private, 2 to 8 guests</span></li>
+        </ul>
+        <div class="journey__foot rv" style="--d:.54s">
+          <p class="journey__price"><small>From, per person</small>SAR 34,900</p>
+          <a class="pillbtn pillbtn--ink label" href="#plan"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Enquire</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="journey" data-reveal>
+      <div class="journey__media"><div class="frame"><img src="assets/balloon.jpg" alt="A hot-air balloon lifting off the Serengeti plain at dawn" loading="lazy" data-parallax></div></div>
+      <div>
+        <p class="journey__num label rv" style="--d:.1s">03 · June to March</p>
+        <h3 class="journey__title display" data-letters style="--step:22ms"><span class="line">The Flying</span><span class="line">Safari</span></h3>
+        <p class="journey__route rv" style="--d:.3s">Arusha ✈ Southern Serengeti ✈ Northern Serengeti ✈ Arusha</p>
+        <p class="journey__p body rv" style="--d:.38s">Not one long drive. Bush planes carry you between three camps, so every morning and every afternoon is spent with the animals, not on the road.</p>
+        <ul class="journey__facts rv" style="--d:.46s">
+          <li><b>Duration</b><span>7 days · 6 nights</span></li><li><b>Travel</b><span>4 bush flights, balloon included</span></li>
+          <li><b>Stay</b><span>Luxury tented camps</span></li><li><b>Group</b><span>Private, 2 to 6 guests</span></li>
+        </ul>
+        <div class="journey__foot rv" style="--d:.54s">
+          <p class="journey__price"><small>From, per person</small>SAR 38,500</p>
+          <a class="pillbtn pillbtn--ink label" href="#plan"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Enquire</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="journey" data-reveal>
+      <div class="journey__media"><div class="frame"><img src="assets/giraffe-acacia.jpg" alt="Giraffes resting beneath an umbrella acacia" loading="lazy" data-parallax></div></div>
+      <div>
+        <p class="journey__num label rv" style="--d:.1s">04 · School holidays &amp; Eid</p>
+        <h3 class="journey__title display" data-letters style="--step:22ms"><span class="line">Family under</span><span class="line">the acacia</span></h3>
+        <p class="journey__route rv" style="--d:.3s">Arusha → Tarangire → Ngorongoro → Zanzibar</p>
+        <p class="journey__p body rv" style="--d:.38s">Short drives, family suites with pools, a guide who turns every drive into a story, and three days of sea at the end. Children from six.</p>
+        <ul class="journey__facts rv" style="--d:.46s">
+          <li><b>Duration</b><span>9 days · 8 nights</span></li><li><b>Travel</b><span>Private vehicle + 1 flight</span></li>
+          <li><b>Stay</b><span>Family lodges, beach villa</span></li><li><b>Group</b><span>One family, up to 8</span></li>
+        </ul>
+        <div class="journey__foot rv" style="--d:.54s">
+          <p class="journey__price"><small>From, per adult · children from SAR 18,900</small>SAR 31,500</p>
+          <a class="pillbtn pillbtn--ink label" href="#plan"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Enquire</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="journey" data-reveal>
+      <div class="journey__media"><div class="frame"><img src="assets/camp-deck.jpg" alt="A breakfast table on a camp deck with zebras grazing beyond" loading="lazy" data-parallax></div></div>
+      <div>
+        <p class="journey__num label rv" style="--d:.1s">05 · By invitation</p>
+        <h3 class="journey__title display" data-letters style="--step:22ms"><span class="line">The Private</span><span class="line">Kingdom</span></h3>
+        <p class="journey__route rv" style="--d:.3s">Private aircraft from Kilimanjaro → Serengeti → Grumeti → Zanzibar villa</p>
+        <p class="journey__p body rv" style="--d:.38s">One private camp, one private aircraft, one private island villa. A chef who cooks what you grew up with, a photographer if you want one, and nobody else on the horizon.</p>
+        <ul class="journey__facts rv" style="--d:.46s">
+          <li><b>Duration</b><span>12 days · 11 nights</span></li><li><b>Travel</b><span>Private aircraft throughout</span></li>
+          <li><b>Stay</b><span>Exclusive-use camps and villa</span></li><li><b>Group</b><span>Private, up to 10 guests</span></li>
+        </ul>
+        <div class="journey__foot rv" style="--d:.54s">
+          <p class="journey__price"><small>From, per person</small>SAR 68,000</p>
+          <a class="pillbtn pillbtn--ink label" href="#plan"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Enquire</span></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────── 6 · STAYS ───────────── -->
+<section class="stays" id="stays" data-reveal>
+  <div class="wrap">
+    <div class="stays__head">
+      <div>
+        <p class="label rust rv" style="--d:0s">Where you sleep</p>
+        <h2 class="stays__title display" data-letters style="--step:30ms"><span class="line">Luxury, then</span><span class="line">more luxury</span></h2>
+      </div>
+      <p class="body rv" style="--d:.4s">Two tiers, both handpicked. <b style="color:var(--ink);font-weight:500">Luxury</b> is lodges on the crater rim and tented camps with real beds, hot showers and a view. <b style="color:var(--ink);font-weight:500">Beyond</b> is exclusive-use camps, private butlers, infinity pools over the plains and island villas with their own stretch of sand.</p>
+    </div>
+    <div class="stays__grid">
+      <a class="stay stay--a" href="#plan"><div class="frame" style="--d:.1s"><img src="assets/camp-deck.jpg" alt="Breakfast on a tented camp deck overlooking the plains" loading="lazy" data-parallax></div><div class="stay__meta"><span class="stay__tier label">Beyond · Serengeti</span><span class="stay__name">Private tented camps</span></div></a>
+      <a class="stay stay--b" href="#plan"><div class="frame" style="--d:.25s"><img src="assets/lodge-view.jpg" alt="A thatched lodge above the forest of the Ngorongoro highlands" loading="lazy" data-parallax></div><div class="stay__meta"><span class="stay__tier label">Luxury · Ngorongoro</span><span class="stay__name">Lodges on the rim</span></div></a>
+      <a class="stay stay--c" href="#plan"><div class="frame" style="--d:.4s"><img src="assets/camp-sunset.jpg" alt="Sunset over a tented camp in the Rift Valley" loading="lazy" data-parallax></div><div class="stay__meta"><span class="stay__tier label">Luxury · Tarangire</span><span class="stay__name">Tented camps</span></div></a>
+      <a class="stay stay--d" href="#plan"><div class="frame" style="--d:.55s"><img src="assets/znz-pool.jpg" alt="A long pool between palms at a Zanzibar resort" loading="lazy" data-parallax></div><div class="stay__meta"><span class="stay__tier label">Beyond · Zanzibar</span><span class="stay__name">Island villas</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 7 · THE SAMUR WAY ───────────── -->
+<section class="way-sec" id="way" data-reveal>
+  <div class="way-sec__inner">
+    <div>
+      <p class="facts__label label">The Samur way</p>
+      <h2 class="facts__title display" data-letters style="--step:30ms"><span class="line">Made</span><span class="line">for the</span><span class="line">Kingdom</span></h2>
+      <button class="badge rv" type="button" style="--d:.3s" aria-label="Play the three-minute film">
+        <span class="badge__ring" aria-hidden="true"><svg class="ticks" viewBox="0 0 84 84" id="ticks"></svg><svg class="play" viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span>
+        <span class="label">Watch · 3 minutes</span>
+      </button>
+    </div>
+    <div>
+      <p class="facts__p body rv" style="--d:.25s">We built Samur because the safari we wanted did not exist for travellers from the Gulf: guides who speak our language, food we can eat, days shaped around prayer, and camps that understand a family of eight. Everything else, the lions, the dust, the silence at night, Africa supplies.</p>
+      <table class="table rv" style="--d:.37s">
+        <tbody>
+          <tr style="--i:0"><th scope="row">Flights</th><td>One stop from Riyadh or Jeddah to Kilimanjaro</td></tr>
+          <tr style="--i:1"><th scope="row">Guides</th><td>Arabic-speaking, licensed, ours</td></tr>
+          <tr style="--i:2"><th scope="row">Kitchen</th><td>Halal throughout, Arabic breakfast on request</td></tr>
+          <tr style="--i:3"><th scope="row">Prayer</th><td>Times kept, qibla marked in every room</td></tr>
+          <tr style="--i:4"><th scope="row">Visas</th><td>Tanzania e-visa arranged by us</td></tr>
+          <tr style="--i:5"><th scope="row">Best months</th><td>June to October · January to March</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="frame portrait" style="--d:.2s"><img src="assets/lion-rock.jpg" alt="A lion resting on a granite kopje at sunrise" loading="lazy" data-parallax style="object-position:40% 50%"></div>
+  </div>
+</section>
+
+<!-- ───────────── 8 · PLAN ───────────── -->
+<section class="plan" id="plan" data-reveal>
+  <img class="plan__bg" src="assets/sunset-acacia.jpg" alt="" aria-hidden="true" loading="lazy" data-parallax="bg">
+  <div class="plan__inner">
+    <p class="plan__label label rv" style="--d:0s">Start here · <span class="ar">ابدأ من هنا</span></p>
+    <h2 class="plan__title display" data-letters style="--step:28ms"><span class="line">Plan your</span><span class="line">safari</span></h2>
+    <div class="plan__row rv" style="--d:.5s">
+      <a class="pillbtn label" href="https://wa.me/966500000000"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg></span><span>WhatsApp us</span></a>
+      <a class="pillbtn label" href="mailto:hello@samur.sa"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg></span><span>hello@samur.sa</span></a>
+      <p class="plan__ar ar">نخطّط لك، وأنت تعيش الرحلة</p>
+    </div>
+    <footer class="plan__foot rv" style="--d:.7s">
+      <span>Samur · Riyadh · African safaris</span>
+      <nav aria-label="Footer"><a href="#journeys">Journeys</a><a href="#stays">Stays</a><a href="#way">The Samur way</a><a href="CREDITS.md">Photo credits</a><a href="oryx.html">Species: oryx</a></nav>
+    </footer>
+  </div>
+</section>
+
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  /* hero title letters */
+  const hw = document.getElementById('heroWord');
+  const word = hw.textContent.trim(); hw.setAttribute('aria-label', word); hw.textContent = '';
+  [...word].forEach((c, i) => { const s = document.createElement('span'); s.className = 'hc'; s.textContent = c; s.style.setProperty('--i', i); s.setAttribute('aria-hidden', 'true'); hw.append(s); });
+
+  /* letter splitter for section titles; pills keep their place in the running index */
+  document.querySelectorAll('[data-letters]').forEach(el => {
+    const plain = el.textContent.replace(/\s+/g, ' ').trim();
+    let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 1) { if (n.classList.contains('ppill')) { n.style.setProperty('--i', i++); return; } return walk(n); }
+      if (n.nodeType !== 3) return;
+      if (!n.textContent.trim()) { n.remove(); return; }
+      const frag = document.createDocumentFragment();
+      n.textContent.replace(/\s+/g, ' ').split(/( )/).forEach(part => {
+        if (!part) return;
+        if (part === ' ') { const s = document.createElement('span'); s.className = 'sp'; frag.append(s); return; }
+        const w = document.createElement('span'); w.className = 'w';
+        for (const ch of part) { const s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; s.style.setProperty('--i', i++); w.append(s); }
+        frag.append(w);
+      });
+      n.replaceWith(frag);
+    });
+    walk(el);
+    el.setAttribute('aria-label', plain);
+    el.querySelectorAll('.line').forEach(l => {
+      l.setAttribute('aria-hidden', 'true');
+      while (l.firstElementChild && l.firstElementChild.classList.contains('sp')) l.firstElementChild.remove();
+      while (l.lastElementChild && l.lastElementChild.classList.contains('sp')) l.lastElementChild.remove();
+    });
+  });
+
+  /* play badge ticks */
+  const ticks = document.getElementById('ticks');
+  if (ticks) { let d = ''; for (let k = 0; k < 48; k++) { const a = k / 48 * Math.PI * 2, c = Math.cos(a), s = Math.sin(a), r1 = k % 4 === 0 ? 35 : 38; d += `M${(42 + c * r1).toFixed(2)} ${(42 + s * r1).toFixed(2)}L${(42 + c * 41.5).toFixed(2)} ${(42 + s * 41.5).toFixed(2)}`; } ticks.innerHTML = `<path d="${d}" fill="none"/>`; }
+
+  /* reveals */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: .22, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(s => io.observe(s));
+  document.querySelectorAll('.frame img').forEach(img => img.addEventListener('animationend', () => img.parentElement.classList.add('settled')));
+
+  /* scroll-linked effects: hero melt, parallax frames, cast rail */
+  const par = [...document.querySelectorAll('[data-parallax]')];
+  const rail = document.getElementById('rail'), cast = document.getElementById('cast');
+  let vh = innerHeight, vw = innerWidth, phone = matchMedia('(max-width:760px)').matches;
+  addEventListener('resize', () => { vh = innerHeight; vw = innerWidth; phone = matchMedia('(max-width:760px)').matches; });
+
+  function apply(y) {
+    const p = reduce ? 0 : Math.min(1, Math.max(0, y / vh) / .6);
+    root.style.setProperty('--p', p.toFixed(4));
+    root.style.setProperty('--y', (reduce ? 0 : y * .32).toFixed(1) + 'px');
+    if (reduce) return;
+    for (const img of par) {
+      const r = (img.dataset.parallax === 'bg' ? img.parentElement : img.parentElement).getBoundingClientRect();
+      if (r.bottom < -50 || r.top > vh + 50) continue;
+      const t = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+      img.style.setProperty('--py', (Math.max(-1, Math.min(1, t)) * -7).toFixed(2) + '%');
+    }
+    if (rail && !phone) {
+      const r = cast.getBoundingClientRect();
+      const prog = Math.min(1, Math.max(0, -r.top / (r.height - vh)));
+      const max = Math.max(0, rail.scrollWidth + 64 - vw);
+      rail.style.transform = `translate3d(${(-prog * max).toFixed(1)}px,0,0)`;
+    } else if (rail) rail.style.transform = '';
+  }
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; apply(scrollY); }); } }, { passive: true });
+  apply(scrollY);
+})();
+</script>
+</body>
+</html>

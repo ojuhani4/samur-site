@@ -71,6 +71,7 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 .menu a { text-decoration: none; opacity: .8; transition: opacity .3s; }
 .menu a:hover { opacity: 1; }
 .menu-cta { border: 1px solid var(--linha); padding: 9px 16px; border-radius: 999px; opacity: 1 !important; }
+.menu .lang { font-family: var(--fonte-texto); letter-spacing: .08em; opacity: .7; }
 @media (max-width: 760px) { .menu a:not(.menu-cta) { display: none; } }
 
 /* ── Abertura cinematográfica ──────────────────────────────────────────── */
@@ -108,11 +109,12 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 
 /* ── Painéis (todo texto mora num painel) ──────────────────────────────── */
 .painel {
+  --pad: clamp(24px, 3.2vw, 48px);
   position: relative;
   background: var(--painel);
   border: 1px solid var(--linha);
   border-radius: var(--raio);
-  padding: clamp(24px, 3.2vw, 48px);
+  padding: var(--pad);
   backdrop-filter: blur(18px) saturate(1.1);
   -webkit-backdrop-filter: blur(18px) saturate(1.1);
 }
@@ -134,6 +136,8 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 .painel--cabecalho { width: 100%; max-width: var(--largura); }
 .cartoes { width: 100%; max-width: var(--largura); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
 .cartao h3 { margin-bottom: .4em; }
+.cartao-foto { display: block; width: calc(100% + 2 * var(--pad)); max-width: none; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 20px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--raio) var(--raio) 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%); mask-image: linear-gradient(to bottom, #000 70%, transparent 100%); }
 .cartao-meta { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--acento); margin-bottom: 14px; }
 .cartao-preco { display: block; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--linha); font-family: var(--fonte-titulo); font-weight: 500; font-variation-settings: "opsz" 11; font-size: 20px; color: var(--texto); }
 .cartao { transition: transform .5s var(--ease), border-color .5s; }
@@ -241,3 +245,22 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
   .cine { height: 100svh; }
   .momento:not(:first-of-type), .cine-dica { display: none; }
 }
+
+/* ── Arabic edition (ar.html) ─────────────────────────────────────────── */
+html[lang="ar"] {
+  --fonte-titulo: "Amiri", "Noto Naskh Arabic", "Geeza Pro", serif;
+  --fonte-texto: "IBM Plex Sans Arabic", "Noto Naskh Arabic", system-ui, sans-serif;
+}
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { text-transform: none; letter-spacing: 0; line-height: 1.25; font-weight: 700; }
+html[lang="ar"] h1 { font-size: clamp(34px, 5.4vw, 84px); }
+html[lang="ar"] h2 { font-size: clamp(30px, 3.8vw, 58px); }
+html[lang="ar"] body, html[lang="ar"] p { line-height: 1.85; }
+html[lang="ar"] .rotulo, html[lang="ar"] .menu, html[lang="ar"] .cartao-meta, html[lang="ar"] .cine-dica, html[lang="ar"] .campo label { letter-spacing: 0; text-transform: none; }
+html[lang="ar"] .rotulo, html[lang="ar"] .cartao-meta { font-size: 13px; }
+html[lang="ar"] .menu { font-size: 14px; }
+html[lang="ar"] .marca-texto { font-family: "Bodoni Moda", serif; }
+html[lang="ar"] .marca-ar--primeiro { font-family: var(--fonte-titulo); font-size: 1.15em; margin: 0 0 0 8px; }
+html[lang="ar"] .destaque { line-height: 1.5; }
+html[lang="ar"] .passos li::before { content: counter(p, decimal-leading-zero); }
+html[lang="ar"] .cartao-preco { font-family: var(--fonte-texto); font-weight: 600; font-size: 18px; }
+html[lang="ar"] .menu .lang { font-family: "Inter", system-ui, sans-serif; }

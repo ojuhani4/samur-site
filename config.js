@@ -2,12 +2,12 @@ window.SITE = {
   nome: "Samur",
 
   whatsapp: {
-    numero: "966500000000", // digits only, with country code. Placeholder until the real number is set.
+    numero: "", // Set the verified WhatsApp number, including the country code.
     mensagem: "Hello Samur, I would like to plan a safari.",
   },
 
   contato: {
-    email: "hello@samur.sa", // placeholder inbox; the first FormSubmit message asks this address to activate
+    email: "", // Set the verified enquiry inbox and activate it with FormSubmit, or use a Web3Forms key.
     // Optional: Web3Forms key (https://web3forms.com). Empty = FormSubmit.
     web3formsChave: "",
     assunto: "New enquiry from the Samur website",

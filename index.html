@@ -1,262 +1,265 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Samur · African safaris for Saudi travellers</title>
-  <meta name="description" content="Samur takes Saudi travellers from Riyadh and Jeddah to the Serengeti, Ngorongoro, Tarangire and Zanzibar. Flying safaris, private vehicles, tented camps, Arabic-speaking guides, halal kitchens.">
-  <meta property="og:title" content="Samur · African safaris for Saudi travellers">
-  <meta property="og:description" content="From Riyadh to the Serengeti in a day. Five journeys, Arabic-speaking guides, halal kitchens, prayer times kept.">
+  <title>سمر | رحلات سفاري خاصة في تنزانيا وزنجبار</title>
+  <meta name="description" content="رحلات سفاري خاصة في تنزانيا للمسافر السعودي. من سهول السيرينجيتي وفوهة نجورونجورو إلى شواطئ زنجبار، اختر مسار رحلتك مع سمر.">
+  <meta property="og:title" content="سمر | أفريقيا على مهل">
+  <meta property="og:description" content="من أول جولة في سهول السيرينجيتي إلى آخر مساء على ساحل زنجبار. استكشف رحلات سمر في تنزانيا.">
   <meta property="og:image" content="assets/frames/desktop/f_0001.webp">
   <meta name="theme-color" content="#ECE3D1">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ECE3D1'/%3E%3Cpath d='M12 26c6-10 34-10 40 0-6 2-12 2-18 2 0 8 0 16 2 24h-6c2-8 2-16 2-24-6 0-14 0-20-2z' fill='%23A86438'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
-  <link rel="alternate" hreflang="en" href="index.html">
-  <link rel="alternate" hreflang="ar" href="ar.html">
-  <link rel="preload" as="image" href="assets/frames/desktop/f_0001.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
+  <noscript><style>html[lang="ar"] .cine { height: 100svh; } .revelar { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
 
 <header class="topo">
-  <a href="#inicio" class="marca" aria-label="Samur">
-    <span class="marca-texto">Samur <span class="marca-ar" aria-hidden="true">سمر</span></span>
+  <a href="#inicio" class="marca" aria-label="سمر">
+    <span class="marca-texto"><span class="marca-ar marca-ar--primeiro" aria-hidden="true">سمر</span> <bdi lang="en">Samur</bdi></span>
   </a>
-  <nav class="menu" aria-label="Sections">
-    <a href="#dia">The day</a>
-    <a href="#jornadas">Journeys</a>
-    <a href="#camp">Camps</a>
-    <a href="ar.html" class="lang" lang="ar" hreflang="ar">عربي</a>
-    <a href="#contato" class="menu-cta">Plan a safari</a>
+  <nav class="menu" aria-label="الأقسام">
+    <a href="#dia">تجربة السفاري</a>
+    <a href="#jornadas">الرحلات</a>
+    <a href="#camp">المخيمات</a>
+    <a href="#contato" class="menu-cta">خطّط لرحلتك</a>
   </nav>
 </header>
 
 <main>
 
-  <!-- OPENING: the film plays with the scroll. A family lands on a Serengeti airstrip and walks to the waiting vehicle. -->
+  <!-- الافتتاحية: الفيلم يتحرك مع التمرير. عائلة تهبط في مهبط بالسيرينجيتي وتمشي إلى السيارة -->
   <section id="inicio" class="cine" style="--altura: 460vh">
     <div class="cine-palco">
+      <picture class="cine-poster" aria-hidden="true">
+        <source media="(max-width: 760px), (pointer: coarse) and (max-width: 1000px)" srcset="assets/frames/mobile/f_0001.webp">
+        <img src="assets/frames/desktop/f_0001.webp" alt="" fetchpriority="high">
+      </picture>
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
       <div class="cine-vinheta"></div>
 
-      <div class="momento" data-de="0" data-ate="0.28">
+      <div class="momento ativo" data-de="0" data-ate="0.28">
         <div class="painel painel--vidro">
-          <h1 class="titulo-abertura">From Riyadh to the Serengeti in a day</h1>
-          <p class="apoio">One stop to Kilimanjaro, a forty-minute hop in a light aircraft, and the plains are under your feet before lunch.</p>
+          <h1 class="titulo-abertura">أفريقيا على مهل</h1>
+          <p class="apoio">رحلات سفاري خاصة في تنزانيا، من سهول السيرينجيتي إلى شواطئ زنجبار.</p>
+          <a href="#jornadas" class="botao botao--hero">استكشف الرحلات</a>
         </div>
       </div>
-      <div class="momento momento--direita" data-de="0.36" data-ate="0.64">
+      <div class="momento momento--direita" data-de="0.36" data-ate="0.64" inert>
         <div class="painel painel--vidro">
-          <p class="destaque">Your guide is waiting at the airstrip.</p>
-          <p class="apoio">Arabic-speaking, licensed, with a private pop-up-roof Land Cruiser, cold water in the box and the first game drive on the way to camp.</p>
+          <p class="destaque">أولى جولاتك في الطريق إلى المخيّم</p>
+          <p class="apoio">يستقبلك مرشدك عند المهبط. ومن نافذة السيارة، ترى للمرة الأولى السهل الذي كان قبل قليل تحت جناح الطائرة.</p>
         </div>
       </div>
-      <div class="momento momento--centro" data-de="0.72" data-ate="1">
+      <div class="momento momento--centro" data-de="0.72" data-ate="1" inert>
         <div class="painel painel--vidro">
-          <p class="destaque">Five journeys, eight to twelve days, the Serengeti to Zanzibar.</p>
-          <a href="#contato" class="botao">Plan your safari</a>
+          <p class="destaque">لكلّ رحلة إيقاعها</p>
+          <p class="apoio">خمسة مسارات، من سبعة أيام إلى اثني عشر يومًا.</p>
+          <a href="#contato" class="botao botao--hero">خطّط لرحلتك</a>
         </div>
       </div>
 
-      <div class="cine-dica" aria-hidden="true"><span></span>scroll</div>
+      <div class="cine-dica" aria-hidden="true"><span></span>تابع الرحلة</div>
     </div>
   </section>
 
-  <!-- 01 THE FLIGHT -->
+  <!-- 01 الرحلة الجوية -->
   <section id="dia" class="secao">
     <img class="arte arte--direita" src="assets/img/01-flight.webp" alt="" loading="lazy" data-parallax>
-    <div class="secao-grade">
+    <div class="secao-grade secao-grade--direita">
       <div class="painel revelar">
-        <span class="rotulo">01 · The flight · <span class="ar">الرحلة</span></span>
-        <h2>The plains from the window</h2>
-        <p>You leave Riyadh or Jeddah in the evening and land at Kilimanjaro in the morning. From there a light aircraft takes you over the Serengeti at a height where you can count wildebeest, and sets you down on a red-earth airstrip forty minutes later.</p>
-        <p>Samur is the Arabic name of the acacia, the tree under which every great safari rests. We built the company for Saudi travellers who want the real Africa without the hard edges.</p>
+        <span class="rotulo">الرحلة الجوية</span>
+        <h2>أول نظرة إلى السيرينجيتي</h2>
+        <p>من نافذة طائرة صغيرة، يبدو الطريق الترابي خيطًا رفيعًا في السهل. وكلما اقتربت من المهبط، اتّضحت ظلال الأشجار واتّسعت المسافة بينها. هنا تبدأ رحلتك في تنزانيا.</p>
+        <p>استلهمنا اسم «سمر» من شجرة السَّمُر التي تنمو في الجزيرة العربية وشرق أفريقيا. لعلّك تعرف ظلّها من رحلة برّ في السعودية. وفي السيرينجيتي، قد تلمح على الأفق الهيئة التي تعرفها.</p>
       </div>
     </div>
   </section>
 
-  <!-- 02 THE DRIVE -->
+  <!-- 02 الجولة -->
   <section class="secao">
     <img class="arte arte--esquerda" src="assets/img/02-drive.webp" alt="" loading="lazy" data-parallax>
-    <div class="secao-grade secao-grade--direita">
-      <div class="painel revelar">
-        <span class="rotulo">02 · The drive</span>
-        <h2>Standing up through the roof</h2>
-        <p>Game drives happen in a closed Toyota Land Cruiser with a roof that lifts, which is how Tanzania does it: shade when you want it, the whole sky when you don't. Your guide reads tracks, stops when the children want to stop, and keeps a respectful distance from everything with teeth or tusks.</p>
-        <p>Two drives a day, dawn and late afternoon, with the hot hours in the shade at camp.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 THE ANIMALS -->
-  <section class="secao">
-    <img class="arte arte--direita" src="assets/img/03-lions.webp" alt="" loading="lazy" data-parallax>
     <div class="secao-grade">
       <div class="painel revelar">
-        <span class="rotulo">03 · The animals · <span class="ar">الحيوانات</span></span>
-        <h2>Lions on the rocks, usually before breakfast</h2>
-        <p>Lion, elephant, giraffe, zebra, cheetah and leopard all live within a week's drive of each other in the Serengeti and Ngorongoro. We cannot promise a leopard; nobody honest can. We can promise lions, elephants and more zebra than you can photograph, seen from the vehicle, never on foot and never fed.</p>
-        <p>From July to October the migration crosses the Mara river in the north. From January to March the herds calve in the south.</p>
+        <span class="rotulo">جولات السفاري</span>
+        <h2>أثرٌ على التراب</h2>
+        <p>قد يتوقّف المرشد عند أثرٍ حديث على الطريق، ويشير إلى الجهة التي سلكها الحيوان. وبعد قليل، تجد نفسك تراقب حركة العشب بحثًا عمّا رآه قبلك.</p>
+        <p>تستكشف السهول في سيارة خاصة بسقف قابل للرفع، مع مرشد يختار مواضع التوقّف ويحافظ على مسافة آمنة من الحيوانات. وفي أيام السفاري، تخرج عادةً في الصباح الباكر أو آخر العصر، وبين الجولات وقت للراحة في المخيّم.</p>
       </div>
     </div>
   </section>
 
-  <!-- 04 THE CAMP -->
-  <section id="camp" class="secao">
-    <img class="arte arte--esquerda" src="assets/img/04-camp.webp" alt="" loading="lazy" data-parallax>
+  <!-- 03 الحيوانات -->
+  <section class="secao">
+    <img class="arte arte--direita" src="assets/img/03-lions.webp" alt="" loading="lazy" data-parallax>
     <div class="secao-grade secao-grade--direita">
       <div class="painel revelar">
-        <span class="rotulo">04 · The camp</span>
-        <h2>Cold towels at the tent</h2>
-        <p>A tented camp is canvas on a wooden deck under acacias, with a real bed, a hot shower and a view. Staff meet the vehicle with cold towels and juice, carry the bags, and show you the tent. Camps are chosen for a family of eight as readily as for a couple.</p>
+        <span class="rotulo">الحياة البرّية</span>
+        <h2>حين يتحرّك السهل</h2>
+        <p>قد ترى أسدًا يستريح فوق صخرة في السيرينجيتي، أو قطيع فيلة قرب نهر تارانجيري. وفي فوهة نجورونجورو البركانية، تمضي الجولة بين المراعي والبحيرات بحثًا عمّا يظهر في ذلك اليوم.</p>
+        <p>تتحرّك قطعان النوّ بحثًا عن الماء والمرعى. لها موسم ولادة في سهول الجنوب، وتعبر نهر مارا في الشمال في مرحلة من هجرتها. نختار وجهة الجولة بحسب الموسم وحركة القطعان.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 المخيم -->
+  <section id="camp" class="secao">
+    <img class="arte arte--esquerda" src="assets/img/04-camp.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">الإقامة</span>
+        <h2>في ضيافة السهل</h2>
+        <p>بعد غبار الطريق، تستقبلك الخيمة بسرير مريح ودشّ دافئ وشرفة تطلّ على السهل. هناك متّسع لفنجان شاي وأنت تراقب كيف يتغيّر لون العشب قبل المغيب.</p>
         <ol class="passos passos--tiers">
-          <li><strong>Luxury</strong><span>Tented camps in the Serengeti and Tarangire and lodges on the Ngorongoro crater rim, with a pool and a bar at sunset.</span></li>
-          <li><strong>Beyond</strong><span>Exclusive-use camps, private butlers, pools above the migration, and island villas on Zanzibar with their own sand.</span></li>
+          <li><strong>مخيّمات ونُزُل مختارة</strong><span>خيارات في السيرينجيتي وتارانجيري وعلى حافة فوهة نجورونجورو، من الخيام الهادئة للأزواج إلى الأجنحة العائلية.</span></li>
+          <li><strong>إقامة بخصوصية أكبر</strong><span>مخيّمات يمكن حجزها بالكامل، وفلل خاصة على ساحل زنجبار، بحسب مسار الرحلة والتوافر.</span></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- 05 THE TENT -->
+  <!-- 05 الخيمة -->
   <section class="secao">
     <img class="arte arte--direita" src="assets/img/05-tent.webp" alt="" loading="lazy" data-parallax>
-    <div class="secao-grade">
+    <div class="secao-grade secao-grade--direita">
       <div class="painel revelar">
-        <span class="rotulo">05 · The tent</span>
-        <h2>A bed, a lantern, the plain outside</h2>
-        <p>Inside: linen, a mosquito net, a brass lantern, and the qibla marked by the door. Prayer mats are in every tent, and prayer times are kept in the day's plan without anyone having to ask.</p>
-        <p>At night the flap closes and the plain carries on outside.</p>
+        <span class="rotulo">ليلة في المخيّم</span>
+        <h2>حين تخفت الفوانيس</h2>
+        <p>عند المساء، يضيق الضوء حول الخيمة. وبعد أن تطفئ الفانوس، قد تسمع ما غاب عنك في النهار، من حفيف العشب إلى نداء بعيد في السهل.</p>
+        <p>نتّفق معك قبل السفر على تفاصيل الإقامة التي تهمّك، مثل توفير سجادة صلاة ومراعاة أوقات الصلاة في برنامج اليوم.</p>
       </div>
     </div>
   </section>
 
-  <!-- 06 THE POOL AND THE VIEW -->
+  <!-- 06 الإطلالة -->
   <section class="secao">
     <img class="arte arte--esquerda" src="assets/img/06-pool.webp" alt="" loading="lazy" data-parallax>
-    <div class="secao-grade secao-grade--direita">
+    <div class="secao-grade">
       <div class="painel revelar">
-        <span class="rotulo">06 · The view</span>
-        <h2>The hot hours belong to the pool</h2>
-        <p>Between the morning drive and the afternoon one, the plain goes quiet and so do you. The pools are modest and the views are not: a lodge on the crater rim looks six hundred metres down into Ngorongoro, and a camp in the Serengeti looks out to a horizon with nothing on it but acacias.</p>
+        <span class="rotulo">بين الجولات</span>
+        <h2>فسحة في منتصف النهار</h2>
+        <p>بعد جولة الصباح، قد تختار السباحة في أحد النُّزُل أو الجلوس في الظلّ والتأمّل في السهل. وحين يلين ضوء العصر، يحين وقت الخروج من جديد.</p>
       </div>
     </div>
   </section>
 
-  <!-- 07 THE TABLE -->
+  <!-- 07 المائدة -->
   <section class="secao">
     <img class="arte arte--direita" src="assets/img/07-dinner.webp" alt="" loading="lazy" data-parallax>
-    <div class="secao-grade">
-      <div class="painel revelar">
-        <span class="rotulo">07 · The table · <span class="ar">المائدة</span></span>
-        <h2>Dinner on the deck, halal throughout</h2>
-        <p>Grilled meat, rice, salads, flatbread, dates and tea, with an Arabic breakfast on request. The kitchen is halal in every camp we use, and the guide joins the table if you ask him to. Lanterns, a fire pit, and a sky with more stars than you have seen since childhood.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 08 THE CULTURE -->
-  <section class="secao">
-    <img class="arte arte--esquerda" src="assets/img/08-maasai.webp" alt="" loading="lazy" data-parallax>
     <div class="secao-grade secao-grade--direita">
       <div class="painel revelar">
-        <span class="rotulo">08 · The people</span>
-        <h2>A morning at a Maasai boma</h2>
-        <p>The Maasai have herded cattle on these plains for centuries. A visit to a boma near the Ngorongoro highlands is a walk through the homestead, the cattle enclosure and the beadwork, with a family who have agreed to host you. We go with a Maasai guide, we go in the morning, and we pay the community directly.</p>
+        <span class="rotulo">المائدة</span>
+        <h2>عشاء على ضوء الفوانيس</h2>
+        <p>على الشرفة، تستعيد مع رفاقك مشاهد الجولة، فيما يبرد الشاي وتظهر أوّل النجوم. أخبرنا بما يناسب مائدتك، لنتأكّد مع أماكن الإقامة من ترتيبات الوجبات الحلال وأيّ احتياجات غذائية أخرى.</p>
       </div>
     </div>
   </section>
 
-  <!-- 09 ZANZIBAR -->
+  <!-- 08 الناس -->
   <section class="secao">
-    <img class="arte arte--direita" src="assets/img/09-zanzibar.webp" alt="" loading="lazy" data-parallax>
+    <img class="arte arte--esquerda" src="assets/img/08-maasai.webp" alt="" loading="lazy" data-parallax>
     <div class="secao-grade">
       <div class="painel revelar">
-        <span class="rotulo">09 · The sea · <span class="ar">زنجبار</span></span>
-        <h2>Zanzibar at the end</h2>
-        <p>A short flight from the Serengeti lands you in Zanzibar in time for lunch. White sand at Nungwi, dhows on the water, the spice gardens, and the old stone town with its carved doors and its mosques. Three or four nights, then home.</p>
+        <span class="rotulo">لقاءات محليّة</span>
+        <h2>في ضيافة الماساي</h2>
+        <p>يمكن ترتيب زيارة إلى قرية للماساي قرب مرتفعات نجورونجورو، بالتنسيق مع أهلها. يعرّفك مضيفوك إلى ما يرغبون في مشاركته من تفاصيل يومهم، من رعي الماشية إلى حِرَف الخرز.</p>
       </div>
     </div>
   </section>
 
-  <!-- 10 JOURNEYS: five cards -->
+  <!-- 09 البحر -->
+  <section class="secao">
+    <img class="arte arte--direita" src="assets/img/09-zanzibar.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">ساحل المحيط الهندي</span>
+        <h2>زنجبار بعد السهول</h2>
+        <p>بعد أيام السهول، يتّسع الأفق من جديد على المحيط الهندي. نترك في بعض رحلاتنا بضعة أيام للجزيرة، لتتمشّى صباحًا على رمل نونغوي الأبيض، أو تتأمّل الأبواب الخشبية المنقوشة في أزقّة المدينة الحجرية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 الرحلات: خمس بطاقات -->
   <section id="jornadas" class="secao secao--larga">
     <img class="arte arte--fundo arte--suave" src="assets/img/03-lions.webp" alt="" loading="lazy" data-parallax>
     <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">10 · Five journeys · <span class="ar">خمس رحلات</span></span>
-      <h2>Finished itineraries, changed in a day</h2>
-      <p>Each one comes with flights, camps, guide, transfers and the e-visa, priced in riyals per person. Change anything and we rebuild the price the same day.</p>
+      <h2>رحلات سمر في تنزانيا</h2>
+      <p>اختر المسار الأقرب إلى ما تتطلّع إليه. نساعدك في ترتيب الرحلة من الرياض أو جدة، ونراجع معك تفاصيل الإقامة والتنقّلات وتوافر مرشد يتحدّث العربية قبل الحجز.</p>
+      <p class="nota">الأسعار استرشادية للشخص بالريال السعودي. يتحدّد السعر النهائي وما يشمله بحسب موعد السفر والتوافر وتفاصيل البرنامج.</p>
     </div>
     <div class="cartoes">
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/img/card-migration.webp" alt="" loading="lazy">
-        <span class="cartao-meta">8 days · July to October</span>
-        <h3>The Great Migration</h3>
-        <p>Two mobile camps that follow the herds, a full day on the floor of the Ngorongoro crater, and a dawn balloon over the river crossings. Flying safari between camps.</p>
-        <span class="cartao-preco">From SAR 29,500</span>
+        <span class="cartao-meta">8 أيام · من يوليو إلى أكتوبر</span>
+        <h3>الهجرة الكبرى</h3>
+        <p>تتنقّل جوًّا بين مخيّمين في السيرينجيتي، ونختار مواقع الجولات بحسب حركة القطعان. وفي البرنامج يوم في فوهة نجورونجورو وجولة بالمنطاد عند الفجر إذا سمح الطقس.</p>
+        <span class="cartao-preco">ابتداءً من <bdi dir="ltr">29,500</bdi> ريال سعودي</span>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/img/card-bush-zanzibar.webp" alt="" loading="lazy">
-        <span class="cartao-meta">10 days · All year</span>
-        <h3>Bush &amp; Zanzibar</h3>
-        <p>Five nights of game drives in Tarangire and the central Serengeti, then a short flight to the coast for four nights on Nungwi beach. The journey most families book first.</p>
-        <span class="cartao-preco">From SAR 34,900</span>
+        <span class="cartao-meta">10 أيام · طوال العام</span>
+        <h3>من البرّ إلى زنجبار</h3>
+        <p>خمس ليالٍ بين تارانجيري ووسط السيرينجيتي. بعدها تطير إلى زنجبار لأربع ليالٍ على شاطئ نونغوي، حيث يمكنك أن تبدأ يومك بالمشي على الرمل قبل أن تدفأ الشمس.</p>
+        <span class="cartao-preco">ابتداءً من <bdi dir="ltr">34,900</bdi> ريال سعودي</span>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/img/card-flying.webp" alt="" loading="lazy">
-        <span class="cartao-meta">7 days · June to March</span>
-        <h3>The Flying Safari</h3>
-        <p>Bush planes carry you between three camps in the southern and northern Serengeti, so every morning and afternoon is spent with the animals, not on the road. Balloon included.</p>
-        <span class="cartao-preco">From SAR 38,500</span>
+        <span class="cartao-meta">7 أيام · من يونيو إلى مارس</span>
+        <h3>سفاري بالطائرة</h3>
+        <p>ثلاثة مخيّمات بين جنوب السيرينجيتي وشماله. تقطع المسافات الطويلة بطائرة صغيرة، فيبقى وقت أطول لجولات السفاري. يتضمّن المسار جولة بالمنطاد إذا سمح الطقس.</p>
+        <span class="cartao-preco">ابتداءً من <bdi dir="ltr">38,500</bdi> ريال سعودي</span>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/img/card-family.webp" alt="" loading="lazy">
-        <span class="cartao-meta">9 days · School holidays and Eid</span>
-        <h3>Family under the acacia</h3>
-        <p>Short drives, family suites with pools, a guide who turns every drive into a story, and three days of sea at the end. Children from six; one family of up to eight.</p>
-        <span class="cartao-preco">From SAR 31,500 per adult · children from SAR 18,900</span>
+        <span class="cartao-meta">9 أيام · إجازات المدارس والأعياد</span>
+        <h3>سفاري العائلة</h3>
+        <p>مسافات قصيرة وجولات تتّسع لأسئلة الصغار، مع إقامة في أجنحة عائلية وثلاثة أيام على البحر. المسار لعائلة واحدة من ثمانية أفراد كحدّ أقصى، ويستقبل الأطفال من سن السادسة.</p>
+        <span class="cartao-preco">من <bdi dir="ltr">31,500</bdi> ريال سعودي للبالغ<br>ومن <bdi dir="ltr">18,900</bdi> ريال سعودي للطفل</span>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/img/card-private.webp" alt="" loading="lazy">
-        <span class="cartao-meta">12 days · By invitation</span>
-        <h3>The Private Kingdom</h3>
-        <p>One private camp, one private aircraft, one private island villa. A chef who cooks what you grew up with, and nobody else on the horizon. Up to ten guests.</p>
-        <span class="cartao-preco">From SAR 68,000</span>
+        <span class="cartao-meta">12 يومًا · بالدعوة</span>
+        <h3>السفاري بإقامة خاصة</h3>
+        <p>يُحجز المخيّم لمجموعتك بالكامل، وتتنقّلون بطائرة خاصة. وتختتمون الرحلة في فيلا في زنجبار، مع طاهٍ ينسّق المائدة معكم. يتّسع المسار لعشرة ضيوف.</p>
+        <span class="cartao-preco">ابتداءً من <bdi dir="ltr">68,000</bdi> ريال سعودي</span>
       </article>
     </div>
   </section>
 
-  <!-- 11 CONTACT -->
+  <!-- 11 التواصل -->
   <section id="contato" class="secao secao--contato">
     <img class="arte arte--fundo arte--suave" src="assets/img/10-acacia-dusk.webp" alt="" loading="lazy" data-parallax>
     <div class="painel painel--form revelar">
-      <span class="rotulo">11 · Start here · <span class="ar">ابدأ من هنا</span></span>
-      <h2>Plan your safari</h2>
-      <p>Tell us when you can travel and who is coming. We reply within a day, in Arabic or English, with a first itinerary and price.</p>
+      <h2>خطّط لرحلتك</h2>
+      <p>أخبرنا متى تودّ السفر، ومن سيرافقك، وأيّ المسارات لفت انتباهك. نتواصل معك لنقترح برنامجًا مبدئيًّا وتكلفة تقديرية.</p>
       <form class="form" novalidate>
         <div class="campo">
-          <label for="f-nome">Name</label>
+          <label for="f-nome">الاسم</label>
           <input id="f-nome" name="name" autocomplete="name" required>
         </div>
         <div class="campo">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required>
+          <label for="f-email">البريد الإلكتروني</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required dir="ltr">
         </div>
         <div class="campo">
-          <label for="f-tel">WhatsApp</label>
-          <input id="f-tel" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required>
+          <label for="f-tel">رقم واتساب</label>
+          <input id="f-tel" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required dir="ltr">
         </div>
         <div class="campo">
-          <label for="f-quando">When, and how many travellers?</label>
-          <input id="f-quando" name="dates_and_travellers" placeholder="e.g. Eid, 2 adults and 3 children">
+          <label for="f-quando">موعد السفر وعدد المسافرين</label>
+          <input id="f-quando" name="dates_and_travellers" placeholder="إجازة العيد، بالغان وثلاثة أطفال">
         </div>
         <div class="campo campo--inteiro">
-          <label for="f-msg">Anything else we should know?</label>
+          <label for="f-msg">ما الذي تودّ أن نعرفه عن رحلتك؟</label>
           <textarea id="f-msg" name="message" rows="4"></textarea>
         </div>
         <input type="text" name="_honey" class="pote" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" class="botao campo--inteiro">Send</button>
+        <button type="submit" class="botao campo--inteiro" disabled>أرسل استفسارك</button>
+        <p class="nota campo--inteiro" id="nota-contato" hidden>نسخة للمعاينة. يتاح إرسال الاستفسارات بعد تفعيل بيانات التواصل.</p>
         <p class="form-status campo--inteiro" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -266,17 +269,29 @@
 
 <footer class="rodape">
   <div class="painel rodape-painel">
-    <span class="marca-texto">Samur <span class="marca-ar" aria-hidden="true">سمر</span></span>
-    <span>Riyadh · African safaris for Saudi travellers</span>
-    <span>© <span data-ano></span> Samur</span>
+    <span class="marca-texto"><span class="marca-ar marca-ar--primeiro">سمر</span> <bdi lang="en">Samur</bdi></span>
+    <span>رحلات سفاري في تنزانيا للمسافر السعودي</span>
+    <span>الصور توضيحية</span>
+    <span>© <span data-ano></span> سمر</span>
   </div>
 </footer>
 
-<a class="whats" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="whats" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.1c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3Zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.2 1.3-4-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.5 9.8 10.2 5.2 16 5.2s10.5 4.6 10.5 10.4S21.8 26.1 16 26.1Zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>
 </a>
 
 <script src="config.js"></script>
+<script>
+  // Arabic strings for the shared config: WhatsApp opener, email subject and form messages.
+  window.SITE.whatsapp.mensagem = "السلام عليكم، أودّ الاستفسار عن رحلة سفاري مع سمر.";
+  window.SITE.contato.assunto = "استفسار عن رحلة سفاري من موقع سمر";
+  window.SITE.textos = {
+    checar: "تحقّق من الاسم والبريد الإلكتروني ورقم واتساب، ثم حاول الإرسال مرّة أخرى.",
+    enviando: "جارٍ إرسال استفسارك…",
+    ok: "وصلنا استفسارك. سنتواصل معك بشأن تفاصيل الرحلة.",
+    falha: "تعذّر إرسال استفسارك. حاول مرّة أخرى بعد قليل."
+  };
+</script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -31,6 +31,6 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 | assets/zebra-close.jpg | Serengeti National Park 18 - Zebra - Equus quagga.jpg | Thomas Fuhrmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Serengeti_National_Park_18_-_Zebra_-_Equus_quagga.jpg |
 | assets/znz-pool.jpg | Baraza Zanzibar.jpg | Rob from United Kingdom | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Baraza_Zanzibar.jpg |
 
-## Generated media on the homepage (index.html)
+## Generated media on the homepage (index.html and ar.html)
 
-The opening film (`assets/frames/`) and the eleven section images (`assets/img/01-flight` to `10-acacia-dusk`) were generated on 17 November 2026 with Google Nano Banana Pro (images) and Google Veo 3.1 (film) via OpenRouter, from prompts written for accuracy to a real Tanzanian safari. They depict no real people. The Wikimedia Commons credits above apply to the photographs still used on `editorial.html` and `oryx.html`.
+The opening film (`assets/frames/`), the eleven section images (`assets/img/01-flight` to `10-acacia-dusk`) and the journey card images (`assets/img/card-*`) were generated on 17 November 2026 with Google Nano Banana Pro (images) and Google Veo 3.1 (film) via OpenRouter, from prompts written for accuracy to a real Tanzanian safari. They depict no real people. The Wikimedia Commons credits above apply to the photographs still used on `editorial.html` and `oryx.html`.

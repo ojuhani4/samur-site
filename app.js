@@ -135,6 +135,7 @@
   /* ── Formulário → e-mail ──────────────────────────────────────────────── */
   const form = document.querySelector(".form");
   if (form && S.contato) {
+    const T = Object.assign({ checar: "Please check the highlighted fields.", enviando: "Sending…", ok: "Received. We will be in touch within a day.", falha: "It could not be sent right now. Message us on WhatsApp instead." }, S.textos || {});
     const status = form.querySelector(".form-status");
     const botao = form.querySelector("button[type=submit]");
     const avisar = (txt, tipo) => { status.textContent = txt; status.className = `form-status campo--inteiro ${tipo || ""}`; };
@@ -148,7 +149,7 @@
         c.closest(".campo").classList.toggle("erro", !ok);
         if (!ok) valido = false;
       });
-      if (!valido) return avisar("Please check the highlighted fields.", "falha");
+      if (!valido) return avisar(T.checar, "falha");
 
       const dados = Object.fromEntries(new FormData(form));
       delete dados._honey;
@@ -163,7 +164,7 @@
       }
 
       botao.disabled = true;
-      avisar("Sending…");
+      avisar(T.enviando);
       try {
         const r = await fetch(url, {
           method: "POST",
@@ -173,10 +174,10 @@
         const j = await r.json().catch(() => ({}));
         if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status);
         form.reset();
-        avisar("Received. We will be in touch within a day.", "ok");
+        avisar(T.ok, "ok");
       } catch (e) {
         console.warn("Falha no envio do formulário:", e);
-        avisar("It could not be sent right now. Message us on WhatsApp instead.", "falha");
+        avisar(T.falha, "falha");
       } finally {
         botao.disabled = false;
       }

@@ -31,53 +31,27 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 | assets/zebra-close.jpg | Serengeti National Park 18 - Zebra - Equus quagga.jpg | Thomas Fuhrmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Serengeti_National_Park_18_-_Zebra_-_Equus_quagga.jpg |
 | assets/znz-pool.jpg | Baraza Zanzibar.jpg | Rob from United Kingdom | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Baraza_Zanzibar.jpg |
 
-## Homepage footage and photographs (index.html and ar.html, 18 November 2026)
+## Homepage photographs (index.html and ar.html, 18 November 2026)
 
-The homepage was rebuilt on real footage after client feedback. The opening film (`assets/frames/`) and the 22 chapter loops in `assets/clips/` are Pexels videos (Pexels licence: free for commercial use, no attribution required). The real airstrip, camp, lodge, balloon, Kilimanjaro and Stone Town photographs in `assets/photos/` are Wikimedia Commons files under CC BY / CC BY-SA; the full table with photographer names and source pages is on `credits.html` and in `assets/photos/credits.json`. The journey card images are stills from the same clips and photographs. No AI-generated media remains on the homepage; the earlier generated set was removed on 18 November 2026.
-
-### Pexels clips
-
-| Used as | Clip | Pexels id |
-|---|---|---|
-| Hero film (160 frames) | Aerial view from commercial airplane over Africa | https://www.pexels.com/video/28674756/ |
-| cockpit | View from plane cockpit | https://www.pexels.com/video/4690486/ |
-| dawn | Scenic aerial view of African savannah | https://www.pexels.com/video/33660361/ |
-| lion | Majestic lion walking on African safari road | https://www.pexels.com/video/33655775/ |
-| wildebeest | Wildebeest migration in Serengeti | https://www.pexels.com/video/18435830/ |
-| track | Jeep on dirt road during safari trip | https://www.pexels.com/video/11236995/ |
-| giraffe | Giraffes in the wild | https://www.pexels.com/video/9448995/ |
-| elephants | Elephant herd | https://www.pexels.com/video/17848790/ |
-| cheetah | Cheetah strolling in African savanna | https://www.pexels.com/video/39157028/ |
-| zebra | Drone footage of zebra running on the field | https://www.pexels.com/video/6168935/ |
-| lioness | Lioness walking on the road | https://www.pexels.com/video/15747578/ |
-| rhino | Mother and baby rhino strolling in savanna | https://www.pexels.com/video/29134539/ |
-| flamingo | A flock of flamingos are flying over a lake | https://www.pexels.com/video/19132975/ |
-| crossing | Elephants crossing a road in a savanna | https://www.pexels.com/video/12596710/ |
-| sunset-elephants | African elephants at sunset in Samburu | https://www.pexels.com/video/29171868/ |
-| stars | A tree under the night sky with stars | https://www.pexels.com/video/19098847/ |
-| fire | Nighttime bonfire under starry sky | https://www.pexels.com/video/36425432/ |
-| sunrise | Serene African savanna sunrise reflection | https://www.pexels.com/video/36441545/ |
-| stonetown | Aerial view of Stone Town, Zanzibar | https://www.pexels.com/video/40591698/ |
-| dhow | Serene Zanzibar sunset with traditional dhow | https://www.pexels.com/video/29822750/ |
-| sandbar | Drone shot of a boat in a sand bar | https://www.pexels.com/video/6051209/ |
-| beach | Aerial shot of tropical beach and blue sea | https://www.pexels.com/video/11025444/ |
-
-### Commons photographs
+The homepage is built from a small set of high-resolution Wikimedia Commons photographs (`assets/fotos/`), all CC BY / CC BY-SA. The opening scroll film (`assets/frames/`) is a slow push into Diego Delso's acacia photograph, with the tree as a separate cut-out layer. The stock video clips used briefly on 18 November were removed the same day. The full table with photographer names and source pages is on `credits.html` and in `assets/fotos/credits.json`.
 
 | Used as | File | Photographer | Licence | Source |
 |---|---|---|---|---|
-| assets/photos/airstrip-taxi.webp | Taxiing Auric Air 5H-AAG Kogatende Serengeti Oct26 A7CR 15604.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Taxiing_Auric_Air_5H-AAG_Kogatende_Serengeti_Oct26_A7CR_15604.jpg |
-| assets/photos/airstrip-caravan.webp | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
-| assets/photos/airstrip-lobo.webp | Lobo Airstrip - Serengeti National Park.jpg | Pi3 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lobo_Airstrip_-_Serengeti_National_Park.jpg |
-| assets/photos/camp-tent.webp | Front Simba Ole Serai Kogatende Nov26 A7R 07554.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Front_Simba_Ole_Serai_Kogatende_Nov26_A7R_07554.jpg |
-| assets/photos/camp-deck.webp | Singita-Sabora-Tented-Camp-16.jpg | Jessica138 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Singita-Sabora-Tented-Camp-16.jpg |
-| assets/photos/lodge-sunset.webp | Sunset at Tarangire Treetops Lodge (1) (28098627184).jpg | Richard Mortel from Riyadh, Saudi Arabia | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Sunset_at_Tarangire_Treetops_Lodge_(1)_(28098627184).jpg |
-| assets/photos/lodge-villa.webp | Neptune Ngorongoro Crater Luxury Lodge - villa (28654416645).jpg | Richard Mortel from Riyadh, Saudi Arabia | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Neptune_Ngorongoro_Crater_Luxury_Lodge_-_villa_(28654416645).jpg |
-| assets/photos/lodge-pool.webp | View from Lobo Lodge, Serengeti, Tanzania.jpg | Christoph Strässler | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:View_from_Lobo_Lodge,_Serengeti,_Tanzania.jpg |
-| assets/photos/stonetown-door.webp | Rectangular Carved Door Stone Town Oct26 A7CR 14405.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Rectangular_Carved_Door_Stone_Town_Oct26_A7CR_14405.jpg |
-| assets/photos/balloon.webp | Serengeti Balloon.jpg | Eric Kilby | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Serengeti_Balloon.jpg |
-| assets/photos/balloon-aerial.webp | Balloon Safari 2012 06 01 3126 (7522678450).jpg | Harvey Barrison from Massapequa, NY, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Balloon_Safari_2012_06_01_3126_(7522678450).jpg |
-| assets/photos/mara-sunrise.webp | Mara River Sunrise Aerial View Serengeti Nov26 A7R 07185.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Mara_River_Sunrise_Aerial_View_Serengeti_Nov26_A7R_07185.jpg |
-| assets/photos/kili-propeller.webp | View of Mount Kilimanjaro from the sky, in a plane.jpg | Kevoyugi | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:View_of_Mount_Kilimanjaro_from_the_sky,_in_a_plane.jpg |
-| assets/photos/kilimanjaro.webp | Kilimanjaro by Air Plane - panoramio.jpg | Jang Woo Lee | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Kilimanjaro_by_Air_Plane_-_panoramio.jpg |
-| assets/photos/znz-pool.webp | Baraza Zanzibar.jpg | Rob from United Kingdom | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Baraza_Zanzibar.jpg |
+| hero film (160 frames) and acacia | Acacia (Vachellia tortilis), parque nacional Serengueti, Tanzania, 2024-05-26, DD 26.jpg | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
+| caravan | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
+| lion | 002 Male Lion prowling in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:002_Male_Lion_prowling_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| leopard | 001 Juvenile leopard in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:001_Juvenile_leopard_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| cheetah | 037 Cheetah close-up in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:037_Cheetah_close-up_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| giraffe | 042 Masai giraffe in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:042_Masai_giraffe_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| giraffe-tall | 007 Giraffe walking in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:007_Giraffe_walking_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| zebras | 018 Zebras in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:018_Zebras_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| elephants-track | Elephants, Tarangire National Park (12) (28417034820).jpg | Richard Mortel from Riyadh, Saudi Arabia | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Elephants,_Tarangire_National_Park_(12)_(28417034820).jpg |
+| elephants-family | Elephant - Tarangire National Park - Tanzania-8 (34980949681).jpg | Gary Bembridge from London, UK | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Elephant_-_Tarangire_National_Park_-_Tanzania-8_(34980949681).jpg |
+| vehicle-herd | Serengeti 4 (14514006600).jpg | Mike from Vancouver, Canada | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Serengeti_4_(14514006600).jpg |
+| camp-deck | Singita-Sabora-Tented-Camp-16.jpg | Jessica138 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Singita-Sabora-Tented-Camp-16.jpg |
+| crater-light | 016 Divine light illuminating the Ngorongoro Crater Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:016_Divine_light_illuminating_the_Ngorongoro_Crater_Photo_by_Giles_Laurent.jpg |
+| balloon-aerial | Balloon Safari 2012 06 01 3126 (7522678450).jpg | Harvey Barrison from Massapequa, NY, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Balloon_Safari_2012_06_01_3126_(7522678450).jpg |
+| sunrise | 019 Sunrise in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:019_Sunrise_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+| stonetown-door | Rectangular Carved Door Stone Town Oct26 A7CR 14405.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Rectangular_Carved_Door_Stone_Town_Oct26_A7CR_14405.jpg |
+| nungwi | Nungwi,Zanzibar - panoramio.jpg | Jang Woo Lee | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Nungwi,Zanzibar_-_panoramio.jpg |
+| lion-scan | 003 Male Lion scanning the horizon in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:003_Male_Lion_scanning_the_horizon_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |

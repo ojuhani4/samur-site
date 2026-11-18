@@ -14,7 +14,25 @@
     const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
     const quadros = new Array(total);
     const momentos = [...cine.querySelectorAll(".momento")];
-    let alvo = 0, atual = 0, desenhado = -1;
+    const corte = cine.querySelector(".cine-corte");
+    const H = S.hero;
+    let alvo = 0, atual = 0, desenhado = -1, dpr = 1, ultimo = null; // ultimo: onde o quadro foi desenhado (px CSS)
+
+    // A árvore é uma camada à parte: acompanha o zoom do filme e cresce um pouco mais, ancorada no tronco.
+    const posicionarCorte = (p) => {
+      if (!corte || !H || !ultimo) return;
+      const e = p * p * (3 - 2 * p) * 0.6 + p * 0.4;
+      const s = 1 + H.zoom * e, f = 1 + H.extra * e;
+      const w = H.largura / s, h = H.altura / s;
+      const cx = H.largura / 2;
+      const cy = Math.min(Math.max(H.altura / 2 + H.desloc * e, h / 2), H.altura - h / 2);
+      const k = ultimo.w / w; // px CSS por px da foto
+      const x1 = H.ancora.x + (H.corte.x - H.ancora.x) * f, y1 = H.ancora.y + (H.corte.y - H.ancora.y) * f;
+      const sx = ultimo.ox + (x1 - (cx - w / 2)) * k, sy = ultimo.oy + (y1 - (cy - h / 2)) * k;
+      corte.style.width = `${(H.corte.w * f * k).toFixed(1)}px`;
+      corte.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0)`;
+      corte.style.opacity = "1";
+    };
 
     const carregar = (i) => {
       if (quadros[i]) return quadros[i];
@@ -45,7 +63,7 @@
     };
 
     const ajustar = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(canvas.clientWidth * dpr);
       canvas.height = Math.round(canvas.clientHeight * dpr);
       desenhado = -1;
@@ -60,6 +78,7 @@
       const escala = Math.max(cw / img.naturalWidth, ch / img.naturalHeight); // "cover"
       const w = img.naturalWidth * escala, h = img.naturalHeight * escala;
       ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+      ultimo = { ox: (cw - w) / 2 / dpr, oy: (ch - h) / 2 / dpr, w: w / dpr, h: h / dpr };
       desenhado = j;
     }
 
@@ -75,6 +94,8 @@
         m.classList.toggle("ativo", p >= de && (p < ate || (ate >= 1 && p >= 1)));
       }
       cine.classList.toggle("andou", p > 0.02);
+      cine.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.78) / 0.2)).toFixed(3));
+      posicionarCorte(p);
     };
 
     const quadro = () => {
@@ -88,7 +109,7 @@
 
     addEventListener("resize", ajustar);
     ajustar();
-    if (reduzir) atualizarMomentos(0);
+    if (reduzir) { atualizarMomentos(0); posicionarCorte(0); }
     else requestAnimationFrame(quadro);
   }
 
@@ -107,86 +128,59 @@
     mover();
   }
 
-  /* ── Vídeos: carregam perto da tela, tocam só quando visíveis ─────────── */
-  const videos = [...document.querySelectorAll("video[data-src]")];
-  const carregarVideo = (v) => {
-    if (v.dataset.pronto) return;
-    v.src = (celular && v.dataset.srcM) || v.dataset.src;
-    v.dataset.pronto = "1";
-    v.load();
-  };
-  if (videos.length) {
-    const ioV = new IntersectionObserver((es) => es.forEach((e) => {
-      const v = e.target;
-      if (e.isIntersecting) { carregarVideo(v); if (!reduzir) v.play().catch(() => {}); }
-      else if (v.dataset.pronto) v.pause();
-    }), { rootMargin: "60% 0px 60% 0px" });
-    videos.forEach((v) => ioV.observe(v));
+  /* ── Letras: a palavra da abertura e os títulos das seções ──────────── */
+  const palavra = document.getElementById("palavra");
+  if (palavra) {
+    const txt = palavra.textContent.trim(); palavra.setAttribute("aria-label", txt); palavra.textContent = "";
+    [...txt].forEach((c, i) => { const s = document.createElement("span"); s.className = "hc"; s.textContent = c; s.style.setProperty("--i", i); s.setAttribute("aria-hidden", "true"); palavra.append(s); });
   }
+  const porPalavra = document.documentElement.lang === "ar"; // Arabic letters must stay joined: climb word by word
+  document.querySelectorAll("[data-letters]").forEach((el) => {
+    const plano = el.textContent.replace(/\s+/g, " ").trim();
+    let i = 0;
+    const andar = (node) => [...node.childNodes].forEach((n) => {
+      if (n.nodeType === 1) { if (n.classList.contains("ppill")) { n.style.setProperty("--i", i++); return; } return andar(n); }
+      if (n.nodeType !== 3) return;
+      if (!n.textContent.trim()) { n.remove(); return; }
+      const frag = document.createDocumentFragment();
+      n.textContent.replace(/\s+/g, " ").split(/( )/).forEach((parte) => {
+        if (!parte) return;
+        if (parte === " ") { frag.append(document.createTextNode(" ")); return; }
+        const w = document.createElement("span"); w.className = "w";
+        if (porPalavra) { const s = document.createElement("span"); s.className = "ch"; s.textContent = parte; s.style.setProperty("--i", i); i += 3; w.append(s); }
+        else for (const ch of parte) { const s = document.createElement("span"); s.className = "ch"; s.textContent = ch; s.style.setProperty("--i", i++); w.append(s); }
+        frag.append(w);
+      });
+      n.replaceWith(frag);
+    });
+    andar(el);
+    el.setAttribute("aria-label", plano);
+    el.querySelectorAll(".line").forEach((l) => l.setAttribute("aria-hidden", "true"));
+  });
+  const ticks = document.getElementById("ticks");
+  if (ticks) { let d = ""; for (let k = 0; k < 48; k++) { const a = k / 48 * Math.PI * 2, c = Math.cos(a), s = Math.sin(a), r1 = k % 4 === 0 ? 35 : 38; d += `M${(42 + c * r1).toFixed(2)} ${(42 + s * r1).toFixed(2)}L${(42 + c * 41.5).toFixed(2)} ${(42 + s * 41.5).toFixed(2)}`; } ticks.innerHTML = `<path d="${d}" fill="none"/>`; }
 
-  /* ── Cenas: janela que abre, profundidade e parallax por capítulo ─────── */
-  const cenas = [...document.querySelectorAll(".cena")].map((el) => ({
-    el,
-    midia: el.querySelector(".cena-midia"),
-    foto: el.querySelector(".cena-foto"),
-    texto: el.querySelector(".cena-texto"),
-    inset: el.querySelector(".cena-inset"),
-  }));
-  if (cenas.length && !reduzir) {
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    const suave = (t) => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
-    let mx = 0, my = 0, tx = 0, ty = 0; // inclinação pelo ponteiro (só desktop)
-    if (!celular) addEventListener("pointermove", (e) => {
-      mx = (e.clientX / innerWidth - 0.5) * 2;
-      my = (e.clientY / innerHeight - 0.5) * 2;
-    }, { passive: true });
+  /* ── Seções: is-in dispara as letras, pílulas, tabela e molduras ─────── */
+  const ioSec = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("is-in"); ioSec.unobserve(e.target); }
+  }), { threshold: 0.22, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach((s) => ioSec.observe(s));
+  document.querySelectorAll(".moldura img").forEach((img) => img.addEventListener("animationend", () => img.parentElement.classList.add("assentada")));
 
-    const passo = () => {
-      tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
-      const vh = innerHeight;
-      for (const c of cenas) {
-        const r = c.el.getBoundingClientRect();
-        if (r.bottom < -vh * 0.5 || r.top > vh * 1.5) { continue; }
-        const curso = c.el.offsetHeight - vh;
-        const entrada = suave(1 - r.top / vh);                 // 0: chegando por baixo · 1: fixada
-        const p = clamp(-r.top / (curso || 1), 0, 1);          // progresso enquanto fixada
-        const saida = suave(1 - r.bottom / vh);                 // 0: ainda presa · 1: saiu por cima
-        const ativa = entrada >= 0.999 && saida <= 0.001;
-
-        // A janela: começa menor e arredondada sobre o papel, abre até a tela inteira; ao sair, recua e escurece.
-        const escala = 0.74 + 0.26 * entrada - 0.1 * saida;
-        const raio = 36 * (1 - entrada) + 28 * saida;
-        const subir = 9 * (1 - entrada) - 6 * saida;           // vh
-        const brilho = 0.55 + 0.45 * entrada - 0.5 * saida;
-        const rx = ativa ? -ty * 2.2 : 0, ry = ativa ? tx * 2.2 : 0;
-        c.midia.style.transform = `translate3d(0, ${subir.toFixed(2)}vh, 0) scale(${escala.toFixed(3)}) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
-        c.midia.style.borderRadius = `${raio.toFixed(1)}px`;
-        c.midia.style.filter = `brightness(${brilho.toFixed(3)})`;
-
-        // Fotos: lento recuo (1.14 → 1.0) + deslocamento oposto ao ponteiro = profundidade
-        if (c.foto) {
-          const z = 1.14 - 0.14 * p;
-          const dx = ativa ? -tx * 14 : 0, dy = ativa ? -ty * 10 : 0;
-          c.foto.style.transform = `translate3d(${dx.toFixed(1)}px, ${(dy - p * 24).toFixed(1)}px, 0) scale(${z.toFixed(3)})`;
-        }
-        // Texto: entra cedo, sobe devagar, sai antes do fim
-        if (c.texto) {
-          const o = Math.min(suave(p / 0.22), 1 - suave((p - 0.74) / 0.26));
-          c.texto.style.opacity = o.toFixed(3);
-          c.texto.style.transform = `translate3d(0, ${(36 * (1 - suave(p / 0.22)) - p * 30).toFixed(1)}px, 0)`;
-        }
-        // Inset: chega depois, mais perto da câmera, anda mais rápido que o fundo
-        if (c.inset) {
-          const o = Math.min(suave((p - 0.16) / 0.26), 1 - suave((p - 0.8) / 0.2));
-          const e = suave((p - 0.16) / 0.26);
-          const dx = ativa ? tx * 22 : 0, dy = ativa ? ty * 16 : 0;
-          c.inset.style.opacity = o.toFixed(3);
-          c.inset.style.transform = `translate3d(${dx.toFixed(1)}px, ${(70 * (1 - e) - p * 120 + dy).toFixed(1)}px, 0) scale(${(0.9 + 0.1 * e).toFixed(3)}) rotate(${(-3 * (1 - e)).toFixed(2)}deg)`;
-        }
-      }
-      requestAnimationFrame(passo);
+  /* ── O elenco: o trilho anda enquanto a seção está presa ─────────────── */
+  const trilho = document.getElementById("trilho"), elenco = document.getElementById("elenco");
+  if (trilho && elenco && !reduzir) {
+    const mover = () => {
+      if (matchMedia("(max-width: 860px)").matches) { trilho.style.transform = ""; return; }
+      const r = elenco.getBoundingClientRect();
+      const prog = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+      const max = Math.max(0, trilho.scrollWidth + 2 * 56 - innerWidth);
+      const sinal = document.documentElement.dir === "rtl" ? 1 : -1;
+      trilho.style.transform = `translate3d(${(sinal * prog * max).toFixed(1)}px,0,0)`;
     };
-    requestAnimationFrame(passo);
+    addEventListener("scroll", () => requestAnimationFrame(mover), { passive: true });
+    addEventListener("resize", mover);
+    mover();
   }
 
   /* ── Topo, revelar e ano ──────────────────────────────────────────────── */

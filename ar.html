@@ -7,7 +7,7 @@
   <meta name="description" content="سمر تأخذ المسافرين السعوديين من الرياض وجدة إلى السيرينجيتي ونجورونجورو وتارانجيري وزنجبار. سفاري بالطائرة، سيارات خاصة، مخيمات فاخرة، مرشدون يتحدثون العربية، ومطبخ حلال.">
   <meta property="og:title" content="سمر · رحلات سفاري أفريقية للمسافر السعودي">
   <meta property="og:description" content="من الرياض إلى السيرينجيتي في يوم واحد. خمس رحلات، مرشدون يتحدثون العربية، مطبخ حلال، ومواعيد الصلاة محفوظة.">
-  <meta property="og:image" content="assets/clips/lion.webp">
+  <meta property="og:image" content="assets/fotos/lion.webp">
   <meta name="theme-color" content="#ECE3D1">
   <link rel="alternate" hreflang="en" href="index.html">
   <link rel="alternate" hreflang="ar" href="ar.html">
@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/frames/desktop/f_0001.webp" media="(min-width: 761px)">
   <link rel="preload" as="image" href="assets/frames/mobile/f_0001.webp" media="(max-width: 760px)">
+  <link rel="preload" as="image" href="assets/hero-acacia-cutout.webp">
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -26,7 +27,7 @@
     <span class="marca-texto"><span class="marca-ar marca-ar--primeiro" aria-hidden="true">سمر</span> Samur</span>
   </a>
   <nav class="menu" aria-label="الأقسام">
-    <a href="#plane">اليوم</a>
+    <a href="#flight">اليوم</a>
     <a href="#elenco">الحيوانات</a>
     <a href="#camp">المخيمات</a>
     <a href="#zanzibar">زنجبار</a>
@@ -38,29 +39,35 @@
 
 <main>
 
-  <!-- 01 مقعد النافذة: الفيلم يتحرك مع التمرير. لقطة حقيقية من نافذة الطائرة والغيوم تنفتح فوق أفريقيا. -->
+  <!-- 01 شجرة السمر: الفيلم يتحرك مع التمرير، والشجرة طبقة مستقلة أمام العنوان -->
   <section id="inicio" class="cine" style="--altura: 440vh">
     <div class="cine-palco">
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
+      <div class="cine-titulo" aria-hidden="true">
+        <span class="cine-olho">سفاري أفريقية من المملكة</span>
+        <h1 class="cine-palavra" id="palavra">Samur</h1>
+      </div>
+      <img class="cine-corte" src="assets/hero-acacia-cutout.webp" alt="" aria-hidden="true" width="3000" height="1208">
       <div class="cine-vinheta"></div>
+      <div class="cine-derrete" aria-hidden="true"></div>
 
-      <div class="momento" data-de="0" data-ate="0.3">
+      <div class="momento" data-de="0.14" data-ate="0.42">
         <div class="painel painel--vidro">
-          <span class="rotulo">01 · مقعد النافذة</span>
-          <h1 class="titulo-abertura">من الرياض إلى السيرينجيتي في يوم واحد</h1>
-          <p class="apoio">تغادر بعد العشاء. وحين تنفتح الغيوم، تكون الأرض تحتك تنزانيا.</p>
+          <span class="rotulo">01 · تحت شجرة السمر</span>
+          <p class="destaque">من الرياض إلى السيرينجيتي في يوم واحد.</p>
+          <p class="apoio">سمر هو اسم هذه الشجرة. نأخذ المسافرين السعوديين إلى السهول التي تقف عليها، ونعيدهم مع البحر في الختام.</p>
         </div>
       </div>
-      <div class="momento momento--direita" data-de="0.38" data-ate="0.66">
+      <div class="momento momento--direita" data-de="0.5" data-ate="0.76">
         <div class="painel painel--vidro">
-          <p class="destaque">خمس ساعات جنوباً، تخفّ الغيوم وتحمرّ الأرض.</p>
-          <p class="apoio">توقف واحد في كليمنجارو، ثم طائرة صغيرة فوق السهول. والغداء يُقدَّم تحت شجرة السمر.</p>
+          <p class="destaque">توقف واحد في كليمنجارو، أربعون دقيقة في طائرة صغيرة، ومرشدك في انتظارك عند المهبط.</p>
+          <p class="apoio">يتحدث العربية، مرخّص، ومعه لاند كروزر خاصة بسقف يُرفع وماء بارد في الصندوق.</p>
         </div>
       </div>
-      <div class="momento momento--centro" data-de="0.74" data-ate="1">
+      <div class="momento momento--centro" data-de="0.82" data-ate="1">
         <div class="painel painel--vidro">
           <p class="destaque">هذا هو اليوم، كما ستراه بعينيك.</p>
-          <a href="#plane" class="botao">تابع الرحلة</a>
+          <a href="#flight" class="botao">تابع اليوم</a>
         </div>
       </div>
 
@@ -68,351 +75,230 @@
     </div>
   </section>
 
-  <!-- 02 الطائرة الصغيرة -->
-  <section id="plane" class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/cockpit.webp" data-src="assets/clips/cockpit.mp4" data-src-m="assets/clips/cockpit-m.mp4" aria-hidden="true"></video>
+  <!-- 02 الوعد -->
+  <section class="secao secao--frase" data-reveal>
+    <div class="painel painel--frase revelar">
+      <span class="rotulo">02 · الوعد</span>
+      <h2 class="frase" data-letters>
+        <span class="line">من <span class="ppill"><img src="assets/fotos/pill-lion.webp" alt="" loading="lazy"></span> الرياض</span>
+        <span class="line">إلى <span class="ppill"><img src="assets/fotos/pill-zebra.webp" alt="" loading="lazy"></span> السيرينجيتي</span>
+        <span class="line">في يوم واحد</span>
+      </h2>
+      <div class="emblema" aria-hidden="true">
+        <svg viewBox="0 0 66 66"><circle cx="33" cy="33" r="31.5"/><circle cx="33" cy="33" r="26"/><path d="M14 29c5-9 33-9 38 0"/><path d="M16 29c6 3 28 3 34 0"/><path d="M33 31v15M33 34c-3 1-5 3-6 7M33 36c3 1 5 3 6 6M24 46h18"/></svg>
       </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">02 · الطائرة الصغيرة</span>
-        <h2>أربعون دقيقة تحت الغيوم</h2>
-        <p>في كليمنجارو تمشي من الطائرة الكبيرة إلى طائرة سيسنا كارافان. اثنا عشر مقعداً، طيار واحد، ونافذة لكل مسافر. يُغلق الباب، وتنبسط السهول تحت الجناح، وترى ظلّ الطائرة يعبر العشب.</p>
+      <p>سمر شركة سعودية للمسافر السعودي الذي يريد أفريقيا الحقيقية بلا متاعب. نطير بك من الرياض أو جدة إلى شمال تنزانيا، ونسلّمك لمرشدين يتحدثون العربية، ونُبقي الأيام بسيطة: جولات عند الفجر، غداء طويل في الظل، مطبخ حلال، مواعيد صلاة محفوظة، والبحر في الختام.</p>
+    </div>
+  </section>
+
+  <!-- 03 الرحلة -->
+  <section id="flight" class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/caravan.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">03 · الرحلة</span>
+        <h2 data-letters><span class="line">أربعون دقيقة</span><span class="line">تحت الغيوم</span></h2>
+        <p>في كليمنجارو تمشي من الطائرة الكبيرة إلى طائرة سيسنا كارافان. اثنا عشر مقعداً، طيار واحد، ونافذة لكل مسافر. تنبسط السهول تحت الجناح، تعدّ قطعان النو، ويظهر المهبط خطاً أحمر في العشب. لا صالة ولا طابور: سيارتك واقفة بجانبه.</p>
       </div>
     </div>
   </section>
 
-  <!-- 03 الهبوط -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/dawn.webp" data-src="assets/clips/dawn.mp4" data-src-m="assets/clips/dawn-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">03 · الهبوط</span>
-        <h2>السيرينجيتي من النافذة</h2>
-        <p>أربعة عشر ألف كيلومتر مربع من العشب وشجر السمر، بلا سياج من أي جهة. من هذا الارتفاع تستطيع أن تعدّ قطعان النو. يميل الطيار مرة واحدة، فيظهر المهبط خطاً أحمر في الخضرة.</p>
+  <!-- 04 الساعة الأولى -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--esquerda" src="assets/fotos/lion.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">04 · الساعة الأولى</span>
+        <h2 data-letters><span class="line">يمرّ بجانب</span><span class="line">نافذتك</span></h2>
+        <p>أنت تتوقف. هو لا يتوقف. الأسد يسلك الطريق الترابي لأنه أسهل من العشب، فيمرّ على بعد أمتار من الباب دون أن يرفع رأسه. المحرك مطفأ، وصوت المرشد خافت، ولا أحد يمدّ يده إلى هاتفه حتى يبتعد.</p>
       </div>
     </div>
   </section>
 
-  <!-- 04 المهبط (صور حقيقية: مهبط كوجاتندي ومهبط لوبو) -->
-  <section class="cena cena--foto" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/airstrip-caravan.webp" alt="طائرة سيسنا كارافان على مهبط ترابي أحمر في كوجاتندي، شمال السيرينجيتي" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset">
-        <img src="assets/photos/airstrip-lobo.webp" alt="سيارة لاند كروزر تنتظر بجانب مهبط لوبو في السيرينجيتي" loading="lazy">
-        <figcaption>مهبط لوبو. سيارتك هناك قبل وصولك.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">04 · المهبط</span>
-        <h2>مدرج ترابي، وسيارتك في انتظارك</h2>
-        <p>لا صالة ولا طابور. مرشدك واقف بجانب لاند كروزر سقفها مرفوع مسبقاً وفي صندوقها ماء بارد. تُوضع الحقائب في الخلف، تصعد، وتبدأ أول جولة سفاري في الطريق إلى المخيم.</p>
+  <!-- 05 الطريق لهم -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/vehicle-herd.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">05 · الطريق لهم</span>
+        <h2 data-letters><span class="line">مليونا حيوان</span><span class="line">لهم حق المرور</span></h2>
+        <p>في موسم الهجرة تعبر القطعان الطريق لعشرين دقيقة متواصلة. تطفئ المحرك، تقف من فتحة السقف، وتنتظر. لا أحد ينزعج. إنها أجمل عشرين دقيقة في اليوم.</p>
       </div>
     </div>
   </section>
 
-  <!-- 05 الساعة الأولى: أسد يمرّ بجانب نافذة السيارة -->
-  <section class="cena" style="--altura: 260vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/lion.webp" data-src="assets/clips/lion.mp4" data-src-m="assets/clips/lion-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">05 · الساعة الأولى</span>
-        <h2>يمرّ بجانب نافذتك</h2>
-        <p>أنت تتوقف. هو لا يتوقف. الأسد يسلك الطريق الترابي لأنه أسهل من العشب، فيمرّ على بعد متر من الباب دون أن يرفع رأسه. المحرك مطفأ، وصوت المرشد خافت، ولا أحد يمدّ يده إلى هاتفه حتى يبتعد.</p>
+  <!-- 06 تارانجيري -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/elephants-track.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">06 · تارانجيري</span>
+        <h2 data-letters><span class="line">تنتظر.</span><span class="line">هم يعبرون.</span></h2>
+        <p>في تارانجيري فيلة أكثر من أي مكان آخر في الشمال، والعائلات تسلك الدروب نفسها التي تسلكها أنت. يتوقف المرشد بعيداً، والأم الكبيرة هي من تقرّر، والصغار يعبرون في الوسط. لا أحد يستعجل.</p>
       </div>
     </div>
   </section>
 
-  <!-- 06 الطريق لهم: قطعان النو تعبر أمام السيارة -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/wildebeest.webp" data-src="assets/clips/wildebeest.mp4" data-src-m="assets/clips/wildebeest-m.mp4" aria-hidden="true"></video>
+  <!-- 07 الحيوانات -->
+  <section id="elenco" class="elenco" data-reveal>
+    <div class="elenco-pino">
+      <div class="elenco-cabeca">
+        <div class="painel painel--solto revelar">
+          <span class="rotulo">07 · من ستلتقي بهم</span>
+          <h2 class="elenco-titulo" data-letters style="--step:40ms"><span class="line">من ستلتقي بهم</span></h2>
+        </div>
+        <p class="elenco-nota painel painel--solto revelar" style="--d:.3s">أسد، نمر، فهد، زرافة، حمار وحشي، فيل. في السيرينجيتي ونجورونجورو وتارانجيري تلتقي بهم جميعاً في أسبوع، وغالباً قبل الفطور. لا يُطعَمون ولا يُنادَون ولا يُلمَسون.</p>
       </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">06 · الطريق لهم</span>
-        <h2>مليونا حيوان لهم حق المرور</h2>
-        <p>في موسم الهجرة تعبر القطعان الطريق لعشرين دقيقة متواصلة، فتطفئ المحرك وتنتظر. لا أحد ينزعج. إنها أجمل عشرين دقيقة في اليوم.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 السهول: السيارة وحدها على الدروب، من الأعلى -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/track.webp" data-src="assets/clips/track.mp4" data-src-m="assets/clips/track-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">07 · السهول</span>
-        <h2>لا أحد غيرك في الأفق</h2>
-        <p>وسط السيرينجيتي أكبر من قطر، وفيه بضع مئات من السيارات في أكثر الأيام ازدحاماً. مرشدك يعرف الدروب التي لا يسلكها الآخرون. ومعظم اليوم، الغبار الوحيد الذي تراه هو غبارك.</p>
+      <div class="elenco-trilho" id="trilho">
+        <figure class="carta"><img src="assets/fotos/cast-lion.webp" alt="أسد يتأمل الأفق في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Lion</span><span class="carta-ar">أسد</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-leopard.webp" alt="نمر صغير يستريح على شجرة في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Leopard</span><span class="carta-ar">نمر</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-cheetah.webp" alt="فهد عن قرب في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Cheetah</span><span class="carta-ar">فهد</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-giraffe.webp" alt="زرافة ماساي في عشب السيرينجيتي الذهبي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Giraffe</span><span class="carta-ar">زرافة</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-zebra.webp" alt="حمير وحشية ترعى تحت تلّ في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Zebra</span><span class="carta-ar">حمار وحشي</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-elephant.webp" alt="فيلة وصغيرها في تارانجيري" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Elephant</span><span class="carta-ar">فيل</span></figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- 08 الحيوانات: ثماني لقطات حقيقية -->
-  <section id="elenco" class="secao secao--larga secao--elenco">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">08 · الحيوانات</span>
-      <h2>من ستلتقي بهم</h2>
-      <p>لقطات حقيقية ومسافات حقيقية. في سفاري سمر لا يُطعَم الحيوان ولا يُنادى ولا يُلمَس؛ تتوقف السيارة، يُرفع السقف، وهم من يقرّر كم يقتربون.</p>
-    </div>
-    <div class="elenco">
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/giraffe.webp" data-src-m="assets/clips/giraffe-m.mp4" data-src="assets/clips/giraffe-m.mp4" aria-hidden="true"></video>
-        <figcaption>الزرافة <span>تحت شجر السمر، طوال اليوم</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/elephants.webp" data-src-m="assets/clips/elephants-m.mp4" data-src="assets/clips/elephants-m.mp4" aria-hidden="true"></video>
-        <figcaption>الفيلة <span>عائلات من ثلاثين، والصغار في الوسط</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/cheetah.webp" data-src-m="assets/clips/cheetah-m.mp4" data-src="assets/clips/cheetah-m.mp4" aria-hidden="true"></video>
-        <figcaption>الفهد <span>يصطاد في الظهيرة، حين تنام الأسود</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/zebra.webp" data-src-m="assets/clips/zebra-m.mp4" data-src="assets/clips/zebra-m.mp4" aria-hidden="true"></video>
-        <figcaption>الحمار الوحشي <span>نصف مليون، يتبعون المطر</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/lioness.webp" data-src-m="assets/clips/lioness-m.mp4" data-src="assets/clips/lioness-m.mp4" aria-hidden="true"></video>
-        <figcaption>اللبؤة <span>هي من تقوم بالصيد</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/rhino.webp" data-src-m="assets/clips/rhino-m.mp4" data-src="assets/clips/rhino-m.mp4" aria-hidden="true"></video>
-        <figcaption>وحيد القرن <span>نادر. وفوهة نجورونجورو مكان البحث عنه</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/flamingo.webp" data-src-m="assets/clips/flamingo-m.mp4" data-src="assets/clips/flamingo-m.mp4" aria-hidden="true"></video>
-        <figcaption>طيور الفلامنغو <span>على البحيرات القلوية، بالآلاف</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/crossing.webp" data-src-m="assets/clips/crossing-m.mp4" data-src="assets/clips/crossing-m.mp4" aria-hidden="true"></video>
-        <figcaption>فيلة على الطريق <span>تنتظر. تعبر. لا أحد يستعجل</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 09 المخيم (صور حقيقية: شرفة مخيم سينغيتا سابورا، وخيمة أولي سيراي) -->
-  <section id="camp" class="cena cena--foto" style="--altura: 250vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/camp-deck.webp" alt="فطور على شرفة مخيم خيام في السيرينجيتي، والحمير الوحشية ترعى على بعد أمتار" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--direita">
-        <img src="assets/photos/camp-tent.webp" alt="خيمة ضيوف من القماش على منصة خشبية تحت الأشجار في مخيم بالسيرينجيتي" loading="lazy">
-        <figcaption>جدران من القماش، أرضية خشبية، وماء ساخن.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">09 · المخيم</span>
-        <h2>فطور مع الحمير الوحشية</h2>
+  <!-- 08 المخيم -->
+  <section id="camp" class="secao" data-reveal>
+    <img class="arte arte--esquerda" src="assets/fotos/camp-deck.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">08 · المخيّم</span>
+        <h2 data-letters><span class="line">فطور مع</span><span class="line">الحمير الوحشية</span></h2>
         <p>مخيم الخيام ليس تخييماً. الجدران من القماش، لكن الأرضية خشب، والسرير سرير حقيقي، والحمّام فيه دشّ ساخن. الفطور على الشرفة، والحمير الوحشية على العشب أمامها، والمطبخ يطهو حلالاً من أول وجبة إلى آخرها.</p>
       </div>
     </div>
   </section>
 
-  <!-- 10 النُّزُل (صور حقيقية: مسبح نُزُل لوبو، وفيلا على حافة نجورونجورو) -->
-  <section class="cena cena--foto" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/lodge-pool.webp" alt="مسبح نُزُل في السيرينجيتي فوق تلّ صخري، والسهول ممتدة حتى الأفق" loading="lazy" data-depth>
+  <!-- 09 طريقة سمر -->
+  <section class="secao secao--fatos" data-reveal>
+    <div class="fatos">
+      <div class="painel painel--solto revelar">
+        <span class="rotulo">09 · طريقة سمر</span>
+        <h2 class="fatos-titulo" data-letters style="--step:30ms"><span class="line">صُنعت</span><span class="line">من أجل</span><span class="line">المملكة</span></h2>
+        <a class="selo" href="#contato" style="--d:.3s">
+          <span class="selo-anel" aria-hidden="true"><svg class="selo-ticks" viewBox="0 0 84 84" id="ticks"></svg><svg class="selo-play" viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span>
+          <span class="rotulo rotulo--linha">خطّطها في يوم واحد</span>
+        </a>
       </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset">
-        <img src="assets/photos/lodge-villa.webp" alt="فيلا حجرية بسقف من القش في نُزُل على حافة فوهة نجورونجورو" loading="lazy">
-        <figcaption>نجورونجورو. فيلا على حافة الفوهة.</figcaption>
-      </figure>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">10 · النُّزُل</span>
-        <h2>فخامة، ثم فخامة أكثر</h2>
-        <p>مستويان في كل رحلة. «الفاخر» يعني مسبحاً فوق تلّ صخري وجناحاً له شرفته الخاصة. و«ما بعد الفاخر» يعني مخيماً خاصاً وطاهياً خاصاً وطائرة خاصة. كلاهما يحفظ مواعيد الصلاة، ويقدّم الحلال، وفيه جناح عائلي ينام فيه الأطفال على بعد بابين منك.</p>
+      <div class="painel painel--solto revelar" style="--d:.2s">
+        <p>أسّسنا سمر لأن السفاري الذي أردناه لم يكن موجوداً لمسافري الخليج: مرشدون يتحدثون لغتنا، طعام نستطيع أكله، أيام مرتّبة حول الصلاة، ومخيمات تفهم عائلة من ثمانية أفراد. وكل ما عدا ذلك، الأسود والغبار وصمت الليل، تتكفّل به أفريقيا.</p>
+        <table class="tabela">
+          <tbody>
+            <tr style="--i:0"><th scope="row">الطيران</th><td>توقف واحد من الرياض أو جدة إلى كليمنجارو</td></tr>
+            <tr style="--i:1"><th scope="row">الطائرات الصغيرة</th><td>سيسنا كارافان، أربعون دقيقة بين المخيمات</td></tr>
+            <tr style="--i:2"><th scope="row">المرشدون</th><td>يتحدثون العربية، مرخّصون، من فريقنا</td></tr>
+            <tr style="--i:3"><th scope="row">المطبخ</th><td>حلال بالكامل، وفطور عربي عند الطلب</td></tr>
+            <tr style="--i:4"><th scope="row">الصلاة</th><td>مواعيدها محفوظة، والقبلة محددة في كل غرفة</td></tr>
+            <tr style="--i:5"><th scope="row">التأشيرة</th><td>التأشيرة الإلكترونية التنزانية نرتّبها نحن</td></tr>
+            <tr style="--i:6"><th scope="row">أفضل الشهور</th><td>من يونيو إلى أكتوبر · من يناير إلى مارس</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="moldura retrato" style="--d:.2s"><img src="assets/fotos/giraffe-tall.webp" alt="زرافة تمشي في سهول السيرينجيتي" loading="lazy" data-parallax></div>
+    </div>
+  </section>
+
+  <!-- 10 نجورونجورو -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/crater-light.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">10 · نجورونجورو</span>
+        <h2 data-letters><span class="line">فخامة، ثم</span><span class="line">فخامة أكثر</span></h2>
+        <p>مستويان في كل رحلة. «الفاخر» يعني نُزُلاً على حافة الفوهة بمسبح يطلّ ستمئة متر إلى الأسفل. و«ما بعد الفاخر» يعني مخيماً خاصاً وطاهياً خاصاً وطائرة خاصة. كلاهما يحفظ مواعيد الصلاة، ويقدّم الحلال، وفيه جناح عائلي ينام فيه الأطفال على بعد بابين منك.</p>
       </div>
     </div>
   </section>
 
-  <!-- 11 جولة المساء -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sunset-elephants.webp" data-src="assets/clips/sunset-elephants.mp4" data-src-m="assets/clips/sunset-elephants-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">11 · جولة المساء</span>
-        <h2>آخر الضوء من نصيب الفيلة</h2>
-        <p>تنتهي جولة العصر حين تغيب الشمس. تُصلّى المغرب في المخيم، والعشاء على الشرفة، ويصمت المولّد في العاشرة حتى لا يبقى من صوت إلا صوت السهل.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12 الليل -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/stars.webp" data-src="assets/clips/stars.mp4" data-src-m="assets/clips/stars-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta cena-vinheta--noite"></div>
-      <figure class="cena-inset cena-inset--direita cena-inset--video">
-        <video muted playsinline loop preload="none" poster="assets/clips/fire.webp" data-src-m="assets/clips/fire-m.mp4" data-src="assets/clips/fire-m.mp4" aria-hidden="true"></video>
-        <figcaption>تُشعل النار في السابعة.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro painel--escuro">
-        <span class="rotulo">12 · الليل</span>
-        <h2>نجوم أكثر مما رأيت في حياتك</h2>
-        <p>لا مدينة على بعد مئة كيلومتر، ولا ضوء إلا ضوء النار. الشاي حلو، والبطانيات تُوزَّع، ومن مكان لا تراه تبدأ الضباع بالنداء.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 الفجر -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sunrise.webp" data-src="assets/clips/sunrise.mp4" data-src-m="assets/clips/sunrise-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">13 · الفجر</span>
-        <h2>تستيقظ في السادسة، وفي السهول في السابعة</h2>
-        <p>صلاة الفجر، قهوة، وبطانيات دافئة في السيارة. أول ساعة من الضوء هي ساعة تحرّك القطط الكبيرة، والهواء ما زال يحمل رائحة المطر. تكون هناك في وقتها، وتعود إلى المخيم لفطور ثانٍ في العاشرة.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14 المنطاد (صورة حقيقية) -->
-  <section class="cena cena--foto" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/balloon-aerial.webp" alt="منطاد هواء ساخن يحلّق منخفضاً فوق سهول السيرينجيتي عند الشروق، مصوَّر من منطاد آخر" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">14 · المنطاد</span>
-        <h2>السيرينجيتي من ارتفاع أربعمئة متر</h2>
+  <!-- 11 المنطاد -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/balloon-aerial.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">11 · المنطاد</span>
+        <h2 data-letters><span class="line">السيرينجيتي من</span><span class="line">ارتفاع أربعمئة متر</span></h2>
         <p>ساعة في الهواء مع أول الضوء، تنساب فوق قطعان لا ترفع رأسها، ثم فطور يُفرَش حيث تهبط السلّة. مشمول في رحلتين من الخمس، ويستحق كل منبّه مبكر.</p>
       </div>
     </div>
   </section>
 
-  <!-- 15 إلى الساحل (صورة حقيقية: كليمنجارو من الطائرة) -->
-  <section class="cena cena--foto" style="--altura: 220vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/kilimanjaro.webp" alt="قمة كليمنجارو تعلو فوق الغيوم، مصوَّرة من نافذة الطائرة" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">15 · إلى الساحل</span>
-        <h2>فوق كليمنجارو إلى زنجبار</h2>
-        <p>تسعون دقيقة في الجو. الجبل يمرّ عن يسارك، والمحيط الهندي ينفتح أمامك، والأرض الحمراء تتحول إلى رمل أبيض قبل أن تنهي قهوتك.</p>
+  <!-- 12 الفجر -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/sunrise.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">12 · الفجر</span>
+        <h2 data-letters><span class="line">تستيقظ في السادسة،</span><span class="line">وفي السهول في السابعة</span></h2>
+        <p>صلاة الفجر، قهوة، وبطانيات دافئة في السيارة. أول ساعة من الضوء هي ساعة تحرّك القطط الكبيرة. والمساء من نصيب الفيلة، وتُصلّى المغرب في المخيم، ويصمت المولّد في العاشرة حتى لا يبقى من صوت إلا صوت السهل.</p>
       </div>
     </div>
   </section>
 
-  <!-- 16 المدينة الحجرية -->
-  <section id="zanzibar" class="cena" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/stonetown.webp" data-src="assets/clips/stonetown.mp4" data-src-m="assets/clips/stonetown-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--alta">
-        <img src="assets/photos/stonetown-door.webp" alt="باب خشبي منقوش بمسامير نحاسية في المدينة الحجرية، زنجبار" loading="lazy">
-        <figcaption>أبواب عُمانية منقوشة بالآيات.</figcaption>
-      </figure>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">16 · المدينة الحجرية</span>
-        <h2>أبواب منقوشة، وأذان، وهيل</h2>
-        <p>مدينة سواحلية من الحجر المرجاني والأبواب العُمانية، ما زالت العربية تُقرأ فيها على العتبات، ومساجدها أقدم من معظم الدول. القهوة بالهيل، والسوق يفوح بالقرنفل، وستشعر بأنك في بيتك.</p>
+  <!-- 13 المدينة الحجرية -->
+  <section id="zanzibar" class="secao" data-reveal>
+    <img class="arte arte--esquerda arte--retrato" src="assets/fotos/stonetown-door.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">13 · المدينة الحجرية</span>
+        <h2 data-letters><span class="line">أبواب منقوشة،</span><span class="line">وأذان، وهيل</span></h2>
+        <p>تسعون دقيقة فوق كليمنجارو وتكون على الساحل. مدينة سواحلية من الحجر المرجاني والأبواب العُمانية، ما زالت العربية تُقرأ فيها على العتبات، ومساجدها أقدم من معظم الدول. القهوة بالهيل، والسوق يفوح بالقرنفل، وستشعر بأنك في بيتك.</p>
       </div>
     </div>
   </section>
 
-  <!-- 17 الداو -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/dhow.webp" data-src="assets/clips/dhow.mp4" data-src-m="assets/clips/dhow-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">17 · الداو</span>
-        <h2>الغروب على متن قارب</h2>
-        <p>الشراع نفسه الذي استخدمه التجار العُمانيون، على الماء نفسه. تخرج في الخامسة وتعود مع المغيب، والفاكهة على المتن، ولا شيء تفعله سوى أن تشاهد الشمس تغيب في البحر.</p>
+  <!-- 14 الشاطئ -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/nungwi.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">14 · الشاطئ</span>
+        <h2 data-letters><span class="line">رمل أبيض</span><span class="line">وأربعون درجة من الأزرق</span></h2>
+        <p>ثلاث ليالٍ أو أربع في ختام كل رحلة. فيلا بمسبحها الخاص، وقارب داو عند الغروب، وشاطئ ينحسر فيه المدّ كيلومتراً كاملاً، وبحر دافئ يكفي للأطفال في السابعة صباحاً.</p>
       </div>
     </div>
   </section>
 
-  <!-- 18 الشاطئ -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sandbar.webp" data-src="assets/clips/sandbar.mp4" data-src-m="assets/clips/sandbar-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--direita cena-inset--video">
-        <video muted playsinline loop preload="none" poster="assets/clips/beach.webp" data-src-m="assets/clips/beach-m.mp4" data-src="assets/clips/beach-m.mp4" aria-hidden="true"></video>
-        <figcaption>نونغوي، شمال زنجبار.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">18 · الشاطئ</span>
-        <h2>رمل أبيض وأربعون درجة من الأزرق</h2>
-        <p>ثلاث ليالٍ أو أربع في ختام كل رحلة. فيلا بمسبحها الخاص، وشاطئ ينحسر فيه المدّ كيلومتراً كاملاً، وبحر دافئ يكفي للأطفال في السابعة صباحاً.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 19 الرحلات -->
-  <section id="jornadas" class="secao secao--larga">
+  <!-- 15 الرحلات -->
+  <section id="jornadas" class="secao secao--larga" data-reveal>
     <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">19 · خمس رحلات</span>
-      <h2>برامج جاهزة، نعدّلها في يوم واحد</h2>
+      <span class="rotulo">15 · خمس رحلات</span>
+      <h2 data-letters style="--step:22ms"><span class="line">برامج جاهزة،</span><span class="line">نعدّلها في يوم واحد</span></h2>
       <p>كل رحلة تشمل الطيران والمخيمات والمرشد والتنقلات والتأشيرة الإلكترونية، بالريال للشخص الواحد. غيّر ما تشاء ونعيد حساب السعر في اليوم نفسه.</p>
     </div>
     <div class="cartoes">
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-migration.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-migration.webp" alt="" loading="lazy">
         <span class="cartao-meta">8 أيام · من يوليو إلى أكتوبر</span>
         <h3>الهجرة الكبرى</h3>
         <p>مخيّمان متنقّلان يتبعان القطعان، يوم كامل في قاع فوهة نجورونجورو، ومنطاد عند الفجر فوق عبور الأنهار. التنقل بين المخيمات بالطائرة.</p>
         <span class="cartao-preco">ابتداءً من 29,500 ر.س</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-bush-zanzibar.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-bush-zanzibar.webp" alt="" loading="lazy">
         <span class="cartao-meta">10 أيام · طوال العام</span>
         <h3>البرّ وزنجبار</h3>
         <p>خمس ليالٍ من جولات السفاري في تارانجيري ووسط السيرينجيتي، ثم رحلة قصيرة بالطائرة إلى الساحل لأربع ليالٍ على شاطئ نونغوي. الرحلة التي تحجزها معظم العائلات أولاً.</p>
         <span class="cartao-preco">ابتداءً من 34,900 ر.س</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-flying.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-flying.webp" alt="" loading="lazy">
         <span class="cartao-meta">7 أيام · من يونيو إلى مارس</span>
         <h3>سفاري بالطائرة</h3>
         <p>طائرات صغيرة تنقلك بين ثلاثة مخيمات في جنوب السيرينجيتي وشماله، فيُقضى كل صباح وكل عصر مع الحيوانات لا على الطريق. المنطاد مشمول.</p>
         <span class="cartao-preco">ابتداءً من 38,500 ر.س</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-family.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-family.webp" alt="" loading="lazy">
         <span class="cartao-meta">9 أيام · العطل المدرسية والأعياد</span>
         <h3>عائلة تحت شجرة السمر</h3>
         <p>جولات قصيرة، أجنحة عائلية مع مسابح، مرشد يحوّل كل جولة إلى حكاية، وثلاثة أيام على البحر في الختام. الأطفال من سن ست سنوات؛ عائلة واحدة حتى ثمانية أفراد.</p>
         <span class="cartao-preco">ابتداءً من 31,500 ر.س للبالغ · الأطفال من 18,900 ر.س</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-private.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-private.webp" alt="" loading="lazy">
         <span class="cartao-meta">12 يوماً · بالدعوة</span>
         <h3>المملكة الخاصة</h3>
         <p>مخيم خاص، وطائرة خاصة، وفيلا خاصة على الجزيرة. طاهٍ يطبخ ما نشأت عليه، ولا أحد غيركم في الأفق. حتى عشرة ضيوف.</p>
@@ -421,12 +307,12 @@
     </div>
   </section>
 
-  <!-- 20 التواصل -->
-  <section id="contato" class="secao secao--contato">
-    <img class="arte arte--fundo arte--suave" src="assets/photos/lodge-sunset.webp" alt="" loading="lazy" data-parallax>
+  <!-- 16 التواصل -->
+  <section id="contato" class="secao secao--contato" data-reveal>
+    <img class="arte arte--fundo arte--suave" src="assets/fotos/acacia.webp" alt="" loading="lazy" data-parallax>
     <div class="painel painel--form revelar">
-      <span class="rotulo">20 · ابدأ من هنا</span>
-      <h2>خطّط رحلتك</h2>
+      <span class="rotulo">16 · ابدأ من هنا</span>
+      <h2 data-letters style="--step:28ms"><span class="line">خطّط رحلتك</span></h2>
       <p>أخبرنا متى تستطيع السفر ومن سيرافقك. نردّ خلال يوم واحد، بالعربية أو الإنجليزية، ببرنامج أولي وسعر.</p>
       <form class="form" novalidate>
         <div class="campo">
@@ -462,7 +348,7 @@
   <div class="painel rodape-painel">
     <span class="marca-texto"><span class="marca-ar marca-ar--primeiro" aria-hidden="true">سمر</span> Samur</span>
     <span>الرياض · رحلات سفاري أفريقية للمسافر السعودي</span>
-    <span>© <span data-ano></span> سمر · <a href="credits.html">مصادر اللقطات والصور</a></span>
+    <span>© <span data-ano></span> سمر · <a href="credits.html">مصادر الصور</a></span>
   </div>
 </footer>
 

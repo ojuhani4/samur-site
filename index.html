@@ -7,7 +7,7 @@
   <meta name="description" content="Samur takes Saudi travellers from Riyadh and Jeddah to the Serengeti, Ngorongoro, Tarangire and Zanzibar. Flying safaris, private vehicles, tented camps, Arabic-speaking guides, halal kitchens.">
   <meta property="og:title" content="Samur · African safaris for Saudi travellers">
   <meta property="og:description" content="From Riyadh to the Serengeti in a day. Five journeys, Arabic-speaking guides, halal kitchens, prayer times kept.">
-  <meta property="og:image" content="assets/clips/lion.webp">
+  <meta property="og:image" content="assets/fotos/lion.webp">
   <meta name="theme-color" content="#ECE3D1">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ECE3D1'/%3E%3Cpath d='M12 26c6-10 34-10 40 0-6 2-12 2-18 2 0 8 0 16 2 24h-6c2-8 2-16 2-24-6 0-14 0-20-2z' fill='%23A86438'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
   <link rel="alternate" hreflang="ar" href="ar.html">
   <link rel="preload" as="image" href="assets/frames/desktop/f_0001.webp" media="(min-width: 761px)">
   <link rel="preload" as="image" href="assets/frames/mobile/f_0001.webp" media="(max-width: 760px)">
+  <link rel="preload" as="image" href="assets/hero-acacia-cutout.webp">
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -26,8 +27,8 @@
     <span class="marca-texto">Samur <span class="marca-ar" aria-hidden="true">سمر</span></span>
   </a>
   <nav class="menu" aria-label="Sections">
-    <a href="#plane">The day</a>
-    <a href="#elenco">The animals</a>
+    <a href="#flight">The day</a>
+    <a href="#elenco">The cast</a>
     <a href="#camp">Camps</a>
     <a href="#zanzibar">Zanzibar</a>
     <a href="#jornadas">Journeys</a>
@@ -38,29 +39,36 @@
 
 <main>
 
-  <!-- 01 WINDOW SEAT: the film plays with the scroll. Real footage from an airliner window as the clouds open over Africa. -->
+  <!-- 01 THE ACACIA: the film plays with the scroll. The camera pushes slowly into a lone umbrella acacia on the Serengeti;
+       the tree is a separate layer in front of the title, so SAMUR rises behind the canopy and the canopy grows over it. -->
   <section id="inicio" class="cine" style="--altura: 440vh">
     <div class="cine-palco">
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
+      <div class="cine-titulo" aria-hidden="true">
+        <span class="cine-olho">African safaris · from the Kingdom · <span class="ar">سفاري أفريقية من المملكة</span></span>
+        <h1 class="cine-palavra" id="palavra">Samur</h1>
+      </div>
+      <img class="cine-corte" src="assets/hero-acacia-cutout.webp" alt="" aria-hidden="true" width="3000" height="1208">
       <div class="cine-vinheta"></div>
+      <div class="cine-derrete" aria-hidden="true"></div>
 
-      <div class="momento" data-de="0" data-ate="0.3">
+      <div class="momento" data-de="0.14" data-ate="0.42">
         <div class="painel painel--vidro">
-          <span class="rotulo">01 · Window seat · <span class="ar">مقعد النافذة</span></span>
-          <h1 class="titulo-abertura">From Riyadh to the Serengeti in a day</h1>
-          <p class="apoio">You leave after dinner. By the time the clouds open, the land below is Tanzania.</p>
+          <span class="rotulo">01 · Under the acacia · <span class="ar">تحت شجرة السمر</span></span>
+          <p class="destaque">From Riyadh to the Serengeti in a day.</p>
+          <p class="apoio">Samur is the Arabic name of this tree. We take Saudi travellers to the plains it stands on, and bring them home with the sea at the end.</p>
         </div>
       </div>
-      <div class="momento momento--direita" data-de="0.38" data-ate="0.66">
+      <div class="momento momento--direita" data-de="0.5" data-ate="0.76">
         <div class="painel painel--vidro">
-          <p class="destaque">Five hours south, the clouds thin and the earth turns red.</p>
-          <p class="apoio">One stop at Kilimanjaro, then a light aircraft over the plains. Lunch is served under an acacia.</p>
+          <p class="destaque">One stop at Kilimanjaro, forty minutes in a light aircraft, and your guide is waiting at the airstrip.</p>
+          <p class="apoio">Arabic-speaking, licensed, with a private pop-up-roof Land Cruiser and cold water in the box.</p>
         </div>
       </div>
-      <div class="momento momento--centro" data-de="0.74" data-ate="1">
+      <div class="momento momento--centro" data-de="0.82" data-ate="1">
         <div class="painel painel--vidro">
           <p class="destaque">This is the day, as you will see it.</p>
-          <a href="#plane" class="botao">Follow the journey</a>
+          <a href="#flight" class="botao">Follow the day</a>
         </div>
       </div>
 
@@ -68,351 +76,230 @@
     </div>
   </section>
 
-  <!-- 02 THE SMALL PLANE -->
-  <section id="plane" class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/cockpit.webp" data-src="assets/clips/cockpit.mp4" data-src-m="assets/clips/cockpit-m.mp4" aria-hidden="true"></video>
+  <!-- 02 STATEMENT -->
+  <section class="secao secao--frase" data-reveal>
+    <div class="painel painel--frase revelar">
+      <span class="rotulo">02 · The promise · <span class="ar">الوعد</span></span>
+      <h2 class="frase" data-letters>
+        <span class="line">From <span class="ppill"><img src="assets/fotos/pill-lion.webp" alt="" loading="lazy"></span> Riyadh</span>
+        <span class="line">to the <span class="ppill"><img src="assets/fotos/pill-zebra.webp" alt="" loading="lazy"></span> Serengeti</span>
+        <span class="line">in a day</span>
+      </h2>
+      <div class="emblema" aria-hidden="true">
+        <svg viewBox="0 0 66 66"><circle cx="33" cy="33" r="31.5"/><circle cx="33" cy="33" r="26"/><path d="M14 29c5-9 33-9 38 0"/><path d="M16 29c6 3 28 3 34 0"/><path d="M33 31v15M33 34c-3 1-5 3-6 7M33 36c3 1 5 3 6 6M24 46h18"/></svg>
       </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">02 · The small plane · <span class="ar">الطائرة الصغيرة</span></span>
-        <h2>Forty minutes below the clouds</h2>
-        <p>At Kilimanjaro you walk from the airliner to a Cessna Caravan. Twelve seats, one pilot, and a window each. The door closes, the plains unroll under the wing, and you can see the shadow of the aircraft crossing the grass.</p>
+      <p>Samur is a Saudi company for Saudi travellers who want the real Africa without the hard edges. We fly you from Riyadh or Jeddah to northern Tanzania, hand you to Arabic-speaking guides, and keep the days simple: dawn game drives, long lunches in the shade, halal kitchens, prayer times kept, and the sea at the end.</p>
+    </div>
+  </section>
+
+  <!-- 03 THE FLIGHT · a real Cessna Caravan on the Kogatende airstrip -->
+  <section id="flight" class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/caravan.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">03 · The flight · <span class="ar">الرحلة</span></span>
+        <h2 data-letters><span class="line">Forty minutes</span><span class="line">below the clouds</span></h2>
+        <p>At Kilimanjaro you walk from the airliner to a Cessna Caravan. Twelve seats, one pilot, a window each. The plains unroll under the wing, you can count the wildebeest, and the airstrip appears as a red line in the grass. No terminal, no queue: your car is parked beside it.</p>
       </div>
     </div>
   </section>
 
-  <!-- 03 DESCENT -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/dawn.webp" data-src="assets/clips/dawn.mp4" data-src-m="assets/clips/dawn-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">03 · Descent · <span class="ar">الهبوط</span></span>
-        <h2>The Serengeti, from the window</h2>
-        <p>Fourteen thousand square kilometres of grass and acacia, with no fence on any side. From this height you can already count the wildebeest. The pilot banks once, and the airstrip appears as a red line in the green.</p>
+  <!-- 04 THE FIRST HOUR · a male lion in the long grass of the Serengeti -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--esquerda" src="assets/fotos/lion.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">04 · The first hour · <span class="ar">الساعة الأولى</span></span>
+        <h2 data-letters><span class="line">He walks past</span><span class="line">your window</span></h2>
+        <p>You stop. He does not. A male lion uses the track because it is easier than the grass, and passes a few metres from the door without looking up. The engine is off, the guide's voice is low, and nobody reaches for a phone until he is gone.</p>
       </div>
     </div>
   </section>
 
-  <!-- 04 THE AIRSTRIP (real photographs, Kogatende and Lobo airstrips) -->
-  <section class="cena cena--foto" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/airstrip-caravan.webp" alt="A Cessna Caravan parked on the red-earth airstrip at Kogatende, northern Serengeti" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset">
-        <img src="assets/photos/airstrip-lobo.webp" alt="A Land Cruiser waiting beside the Lobo airstrip in the Serengeti" loading="lazy">
-        <figcaption>Lobo airstrip. Your car is already there.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">04 · The airstrip · <span class="ar">المهبط</span></span>
-        <h2>A dirt strip, and your car already waiting</h2>
-        <p>No terminal and no queue. Your guide stands beside a Land Cruiser with the roof already up and cold water in the box. The bags go in the back, you climb in, and the first game drive begins on the way to camp.</p>
+  <!-- 05 THE ROAD IS THEIRS · a Land Cruiser inside the migration -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/vehicle-herd.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">05 · The road is theirs · <span class="ar">الطريق لهم</span></span>
+        <h2 data-letters><span class="line">Two million animals</span><span class="line">with the right of way</span></h2>
+        <p>In migration season the herds cross the track for twenty minutes at a time. You switch the engine off, stand up through the roof and wait. Nobody minds. It is the best twenty minutes of the day.</p>
       </div>
     </div>
   </section>
 
-  <!-- 05 THE FIRST HOUR: a lion walks past the car window -->
-  <section class="cena" style="--altura: 260vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/lion.webp" data-src="assets/clips/lion.mp4" data-src-m="assets/clips/lion-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">05 · The first hour · <span class="ar">الساعة الأولى</span></span>
-        <h2>He walks past your window</h2>
-        <p>You stop. He does not. A male lion uses the track because it is easier than the grass, and passes a metre from the door without looking up. The engine is off, the guide's voice is low, and nobody reaches for a phone until he is gone.</p>
+  <!-- 06 TARANGIRE · elephants cross in front of the bonnet -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/elephants-track.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">06 · Tarangire · <span class="ar">تارانجيري</span></span>
+        <h2 data-letters><span class="line">You wait.</span><span class="line">They cross.</span></h2>
+        <p>Tarangire has more elephants than anywhere else in the north, and the families use the same tracks you do. The guide stops well back, the matriarch decides, and the calves cross in the middle. Nobody hurries.</p>
       </div>
     </div>
   </section>
 
-  <!-- 06 THE ROAD IS THEIRS: wildebeest cross in front of the vehicle -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/wildebeest.webp" data-src="assets/clips/wildebeest.mp4" data-src-m="assets/clips/wildebeest-m.mp4" aria-hidden="true"></video>
+  <!-- 07 THE CAST · a pinned rail of six portraits -->
+  <section id="elenco" class="elenco" data-reveal>
+    <div class="elenco-pino">
+      <div class="elenco-cabeca">
+        <div class="painel painel--solto revelar">
+          <span class="rotulo">07 · The cast · <span class="ar">من ستلتقي بهم</span></span>
+          <h2 class="elenco-titulo" data-letters style="--step:40ms"><span class="line">Who you will meet</span></h2>
+        </div>
+        <p class="elenco-nota painel painel--solto revelar" style="--d:.3s">Lion, leopard, cheetah, giraffe, zebra, elephant. In the Serengeti, Ngorongoro and Tarangire you meet them all in a week, often before breakfast. Never fed, never called, never touched.</p>
       </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">06 · The road is theirs · <span class="ar">الطريق لهم</span></span>
-        <h2>Two million animals with the right of way</h2>
-        <p>In migration season the herds cross the track for twenty minutes at a time, and you switch the engine off and wait. Nobody minds. It is the best twenty minutes of the day.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 THE PLAINS: the vehicle alone on the tracks, from above -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/track.webp" data-src="assets/clips/track.mp4" data-src-m="assets/clips/track-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">07 · The plains · <span class="ar">السهول</span></span>
-        <h2>Nobody else on the horizon</h2>
-        <p>The central Serengeti is bigger than Qatar and holds a few hundred vehicles on a busy day. Your guide knows the tracks the others do not take. Most of the day, the only dust you see is your own.</p>
+      <div class="elenco-trilho" id="trilho">
+        <figure class="carta"><img src="assets/fotos/cast-lion.webp" alt="A male lion scanning the horizon in the Serengeti" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Lion</span><span class="carta-ar">أسد</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-leopard.webp" alt="A young leopard resting in a tree in the Serengeti" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Leopard</span><span class="carta-ar">نمر</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-cheetah.webp" alt="A cheetah close up in the Serengeti" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Cheetah</span><span class="carta-ar">فهد</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-giraffe.webp" alt="A Masai giraffe in the golden grass of the Serengeti" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Giraffe</span><span class="carta-ar">زرافة</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-zebra.webp" alt="Zebras grazing below a hill in the Serengeti" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Zebra</span><span class="carta-ar">حمار وحشي</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-elephant.webp" alt="An elephant and her calf in Tarangire" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Elephant</span><span class="carta-ar">فيل</span></figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- 08 THE ANIMALS: eight real loops -->
-  <section id="elenco" class="secao secao--larga secao--elenco">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">08 · The animals · <span class="ar">الحيوانات</span></span>
-      <h2>Who you will meet</h2>
-      <p>Real footage, real distances. On a Samur safari the animals are never fed, called or touched; the vehicle stops, the roof goes up, and they decide how close to come.</p>
-    </div>
-    <div class="elenco">
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/giraffe.webp" data-src-m="assets/clips/giraffe-m.mp4" data-src="assets/clips/giraffe-m.mp4" aria-hidden="true"></video>
-        <figcaption>Giraffe <span>Under the acacias, all day long</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/elephants.webp" data-src-m="assets/clips/elephants-m.mp4" data-src="assets/clips/elephants-m.mp4" aria-hidden="true"></video>
-        <figcaption>Elephants <span>Families of thirty, with the calves in the middle</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/cheetah.webp" data-src-m="assets/clips/cheetah-m.mp4" data-src="assets/clips/cheetah-m.mp4" aria-hidden="true"></video>
-        <figcaption>Cheetah <span>Hunts at midday, while the lions sleep</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/zebra.webp" data-src-m="assets/clips/zebra-m.mp4" data-src="assets/clips/zebra-m.mp4" aria-hidden="true"></video>
-        <figcaption>Zebra <span>Half a million, moving with the rain</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/lioness.webp" data-src-m="assets/clips/lioness-m.mp4" data-src="assets/clips/lioness-m.mp4" aria-hidden="true"></video>
-        <figcaption>Lioness <span>The one who does the hunting</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/rhino.webp" data-src-m="assets/clips/rhino-m.mp4" data-src="assets/clips/rhino-m.mp4" aria-hidden="true"></video>
-        <figcaption>Rhino <span>Rare. The Ngorongoro crater is where you look</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/flamingo.webp" data-src-m="assets/clips/flamingo-m.mp4" data-src="assets/clips/flamingo-m.mp4" aria-hidden="true"></video>
-        <figcaption>Flamingos <span>On the soda lakes, by the thousand</span></figcaption>
-      </figure>
-      <figure class="elenco-item revelar">
-        <video muted playsinline loop preload="none" poster="assets/clips/crossing.webp" data-src-m="assets/clips/crossing-m.mp4" data-src="assets/clips/crossing-m.mp4" aria-hidden="true"></video>
-        <figcaption>Elephants on the track <span>You wait. They cross. Nobody hurries</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 09 CAMP (real photographs: Singita Sabora deck, Ole Serai tent) -->
-  <section id="camp" class="cena cena--foto" style="--altura: 250vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/camp-deck.webp" alt="Breakfast laid on the deck of a tented camp in the Serengeti, with zebras grazing a few metres away" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--direita">
-        <img src="assets/photos/camp-tent.webp" alt="A canvas guest tent on a wooden platform under the trees at a Serengeti camp" loading="lazy">
-        <figcaption>Canvas walls, hardwood floor, hot water.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">09 · Camp · <span class="ar">المخيّم</span></span>
-        <h2>Breakfast with zebras</h2>
+  <!-- 08 CAMP · breakfast on the deck of a Serengeti tented camp -->
+  <section id="camp" class="secao" data-reveal>
+    <img class="arte arte--esquerda" src="assets/fotos/camp-deck.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">08 · Camp · <span class="ar">المخيّم</span></span>
+        <h2 data-letters><span class="line">Breakfast</span><span class="line">with zebras</span></h2>
         <p>A tented camp is not camping. The walls are canvas, but the floor is hardwood, the bed is a real bed, and the bathroom has a hot shower. Breakfast is on the deck, the zebras are on the grass in front of it, and the kitchen cooks halal from the first meal to the last.</p>
       </div>
     </div>
   </section>
 
-  <!-- 10 THE LODGES (real photographs: Lobo Lodge pool, Ngorongoro villa) -->
-  <section class="cena cena--foto" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/lodge-pool.webp" alt="The pool of a Serengeti lodge on a rocky outcrop, with the plains stretching to the horizon" loading="lazy" data-depth>
+  <!-- 09 MADE FOR THE KINGDOM · facts table and a tall portrait -->
+  <section class="secao secao--fatos" data-reveal>
+    <div class="fatos">
+      <div class="painel painel--solto revelar">
+        <span class="rotulo">09 · The Samur way · <span class="ar">طريقة سمر</span></span>
+        <h2 class="fatos-titulo" data-letters style="--step:30ms"><span class="line">Made</span><span class="line">for the</span><span class="line">Kingdom</span></h2>
+        <a class="selo" href="#contato" style="--d:.3s">
+          <span class="selo-anel" aria-hidden="true"><svg class="selo-ticks" viewBox="0 0 84 84" id="ticks"></svg><svg class="selo-play" viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span>
+          <span class="rotulo rotulo--linha">Plan it in a day</span>
+        </a>
       </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset">
-        <img src="assets/photos/lodge-villa.webp" alt="A thatched stone villa at a lodge on the rim of the Ngorongoro crater" loading="lazy">
-        <figcaption>Ngorongoro. A villa on the crater rim.</figcaption>
-      </figure>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">10 · The lodges · <span class="ar">النُّزُل</span></span>
-        <h2>Luxury, then more luxury</h2>
-        <p>Two tiers on every journey. Luxury means a pool on a kopje and a suite with its own deck. Beyond means a private camp, a private chef and a private aircraft. Both keep prayer times, serve halal, and have a family suite where the children sleep two doors from you.</p>
+      <div class="painel painel--solto revelar" style="--d:.2s">
+        <p>We built Samur because the safari we wanted did not exist for travellers from the Gulf: guides who speak our language, food we can eat, days shaped around prayer, and camps that understand a family of eight. Everything else, the lions, the dust, the silence at night, Africa supplies.</p>
+        <table class="tabela">
+          <tbody>
+            <tr style="--i:0"><th scope="row">Flights</th><td>One stop from Riyadh or Jeddah to Kilimanjaro</td></tr>
+            <tr style="--i:1"><th scope="row">Bush planes</th><td>Cessna Caravan, forty minutes between camps</td></tr>
+            <tr style="--i:2"><th scope="row">Guides</th><td>Arabic-speaking, licensed, ours</td></tr>
+            <tr style="--i:3"><th scope="row">Kitchen</th><td>Halal throughout, Arabic breakfast on request</td></tr>
+            <tr style="--i:4"><th scope="row">Prayer</th><td>Times kept, qibla marked in every room</td></tr>
+            <tr style="--i:5"><th scope="row">Visas</th><td>Tanzania e-visa arranged by us</td></tr>
+            <tr style="--i:6"><th scope="row">Best months</th><td>June to October · January to March</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="moldura retrato" style="--d:.2s"><img src="assets/fotos/giraffe-tall.webp" alt="A giraffe walking across the Serengeti grassland" loading="lazy" data-parallax></div>
+    </div>
+  </section>
+
+  <!-- 10 NGORONGORO · light over the crater -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/crater-light.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">10 · Ngorongoro · <span class="ar">نجورونجورو</span></span>
+        <h2 data-letters><span class="line">Luxury, then</span><span class="line">more luxury</span></h2>
+        <p>Two tiers on every journey. Luxury means a lodge on the crater rim with a pool that looks six hundred metres down. Beyond means a private camp, a private chef and a private aircraft. Both keep prayer times, serve halal, and have a family suite where the children sleep two doors from you.</p>
       </div>
     </div>
   </section>
 
-  <!-- 11 EVENING DRIVE -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sunset-elephants.webp" data-src="assets/clips/sunset-elephants.mp4" data-src-m="assets/clips/sunset-elephants-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">11 · Evening drive · <span class="ar">جولة المساء</span></span>
-        <h2>The last light belongs to the elephants</h2>
-        <p>The afternoon drive ends when the sun does. Maghrib is prayed back at camp, dinner is on the deck, and the generator goes quiet at ten so that the only sound left is the plain.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12 NIGHT -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/stars.webp" data-src="assets/clips/stars.mp4" data-src-m="assets/clips/stars-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta cena-vinheta--noite"></div>
-      <figure class="cena-inset cena-inset--direita cena-inset--video">
-        <video muted playsinline loop preload="none" poster="assets/clips/fire.webp" data-src-m="assets/clips/fire-m.mp4" data-src="assets/clips/fire-m.mp4" aria-hidden="true"></video>
-        <figcaption>The fire is lit at seven.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro painel--escuro">
-        <span class="rotulo">12 · Night · <span class="ar">الليل</span></span>
-        <h2>More stars than you have ever seen</h2>
-        <p>No town for a hundred kilometres and no light but the fire. The tea is sweet, the blankets come out, and somewhere you cannot see, the hyenas start to call.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 DAWN -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sunrise.webp" data-src="assets/clips/sunrise.mp4" data-src-m="assets/clips/sunrise-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">13 · Dawn · <span class="ar">الفجر</span></span>
-        <h2>Up at six, on the plains by seven</h2>
-        <p>Fajr, coffee, warm blankets in the car. The first hour of light is when the cats move and the air still smells of rain. You are there for it, and back at camp for a second breakfast by ten.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14 THE BALLOON (real photograph) -->
-  <section class="cena cena--foto" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/balloon-aerial.webp" alt="A hot-air balloon drifting low over the Serengeti plains at sunrise, seen from another balloon" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">14 · The balloon · <span class="ar">المنطاد</span></span>
-        <h2>The Serengeti from four hundred metres</h2>
+  <!-- 11 THE BALLOON · the plains from the air -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/balloon-aerial.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">11 · The balloon · <span class="ar">المنطاد</span></span>
+        <h2 data-letters><span class="line">The Serengeti from</span><span class="line">four hundred metres</span></h2>
         <p>An hour in the air at first light, drifting over herds that do not look up, and a breakfast laid out wherever the basket lands. Included in two of the five journeys, and worth every early alarm.</p>
       </div>
     </div>
   </section>
 
-  <!-- 15 TO THE COAST (real photograph: Kilimanjaro from the aircraft) -->
-  <section class="cena cena--foto" style="--altura: 220vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <img class="cena-foto" src="assets/photos/kilimanjaro.webp" alt="The summit of Kilimanjaro rising above the clouds, seen from an aircraft window" loading="lazy" data-depth>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">15 · To the coast · <span class="ar">إلى الساحل</span></span>
-        <h2>Over Kilimanjaro to Zanzibar</h2>
-        <p>Ninety minutes in the air. The mountain passes on the left, the Indian Ocean opens ahead, and the red earth turns to white sand before you have finished your coffee.</p>
+  <!-- 12 DAWN · sunrise through the acacias -->
+  <section class="secao secao--cheia" data-reveal>
+    <img class="arte arte--fundo arte--forte" src="assets/fotos/sunrise.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel painel--vidro revelar">
+        <span class="rotulo">12 · Dawn · <span class="ar">الفجر</span></span>
+        <h2 data-letters><span class="line">Up at six, on the</span><span class="line">plains by seven</span></h2>
+        <p>Fajr, coffee, warm blankets in the car. The first hour of light is when the cats move. The evening belongs to the elephants, Maghrib is prayed back at camp, and the generator goes quiet at ten so that the only sound left is the plain.</p>
       </div>
     </div>
   </section>
 
-  <!-- 16 STONE TOWN -->
-  <section id="zanzibar" class="cena" style="--altura: 240vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/stonetown.webp" data-src="assets/clips/stonetown.mp4" data-src-m="assets/clips/stonetown-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--alta">
-        <img src="assets/photos/stonetown-door.webp" alt="A carved wooden door with brass studs in Stone Town, Zanzibar" loading="lazy">
-        <figcaption>Omani doors, carved with verses.</figcaption>
-      </figure>
-      <div class="cena-texto cena-texto--direita painel painel--vidro">
-        <span class="rotulo">16 · Stone Town · <span class="ar">المدينة الحجرية</span></span>
-        <h2>Carved doors, the call to prayer, cardamom</h2>
-        <p>A Swahili town of coral stone and Omani doors, where Arabic is still read on the lintels and the mosques are older than most countries. The coffee is spiced, the market smells of cloves, and you will feel oddly at home.</p>
+  <!-- 13 STONE TOWN · a carved Omani door -->
+  <section id="zanzibar" class="secao" data-reveal>
+    <img class="arte arte--esquerda arte--retrato" src="assets/fotos/stonetown-door.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade secao-grade--direita">
+      <div class="painel revelar">
+        <span class="rotulo">13 · Stone Town · <span class="ar">المدينة الحجرية</span></span>
+        <h2 data-letters><span class="line">Carved doors, the call</span><span class="line">to prayer, cardamom</span></h2>
+        <p>Ninety minutes over Kilimanjaro and you are on the coast. A Swahili town of coral stone and Omani doors, where Arabic is still read on the lintels and the mosques are older than most countries. The coffee is spiced, the market smells of cloves, and you will feel oddly at home.</p>
       </div>
     </div>
   </section>
 
-  <!-- 17 THE DHOW -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/dhow.webp" data-src="assets/clips/dhow.mp4" data-src-m="assets/clips/dhow-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">17 · The dhow · <span class="ar">الداو</span></span>
-        <h2>Sunset is a boat</h2>
-        <p>The same sail the Omani traders used, on the same water. Out at five, back by dark, with fruit on board and nothing to do but watch the sun go into the sea.</p>
+  <!-- 14 NUNGWI · the beach at the end -->
+  <section class="secao" data-reveal>
+    <img class="arte arte--direita" src="assets/fotos/nungwi.webp" alt="" loading="lazy" data-parallax>
+    <div class="secao-grade">
+      <div class="painel revelar">
+        <span class="rotulo">14 · The beach · <span class="ar">الشاطئ</span></span>
+        <h2 data-letters><span class="line">White sand and</span><span class="line">forty shades of blue</span></h2>
+        <p>Three or four nights at the end of every journey. A villa with its own pool, a dhow at sunset, a beach where the tide goes out for a kilometre, and a sea warm enough for the children at seven in the morning.</p>
       </div>
     </div>
   </section>
 
-  <!-- 18 THE BEACH -->
-  <section class="cena" style="--altura: 230vh">
-    <div class="cena-palco">
-      <div class="cena-midia">
-        <video class="cena-video" muted playsinline loop preload="none" poster="assets/clips/sandbar.webp" data-src="assets/clips/sandbar.mp4" data-src-m="assets/clips/sandbar-m.mp4" aria-hidden="true"></video>
-      </div>
-      <div class="cena-vinheta"></div>
-      <figure class="cena-inset cena-inset--direita cena-inset--video">
-        <video muted playsinline loop preload="none" poster="assets/clips/beach.webp" data-src-m="assets/clips/beach-m.mp4" data-src="assets/clips/beach-m.mp4" aria-hidden="true"></video>
-        <figcaption>Nungwi, north Zanzibar.</figcaption>
-      </figure>
-      <div class="cena-texto painel painel--vidro">
-        <span class="rotulo">18 · The beach · <span class="ar">الشاطئ</span></span>
-        <h2>White sand and forty shades of blue</h2>
-        <p>Three or four nights at the end of every journey. A villa with its own pool, a beach where the tide goes out for a kilometre, and a sea warm enough for the children at seven in the morning.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 19 JOURNEYS -->
-  <section id="jornadas" class="secao secao--larga">
+  <!-- 15 JOURNEYS -->
+  <section id="jornadas" class="secao secao--larga" data-reveal>
     <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">19 · Five journeys · <span class="ar">خمس رحلات</span></span>
-      <h2>Finished itineraries, changed in a day</h2>
+      <span class="rotulo">15 · Five journeys · <span class="ar">خمس رحلات</span></span>
+      <h2 data-letters style="--step:22ms"><span class="line">Finished itineraries,</span><span class="line">changed in a day</span></h2>
       <p>Each one comes with flights, camps, guide, transfers and the e-visa, priced in riyals per person. Change anything and we rebuild the price the same day.</p>
     </div>
     <div class="cartoes">
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-migration.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-migration.webp" alt="" loading="lazy">
         <span class="cartao-meta">8 days · July to October</span>
         <h3>The Great Migration</h3>
         <p>Two mobile camps that follow the herds, a full day on the floor of the Ngorongoro crater, and a dawn balloon over the river crossings. Flying safari between camps.</p>
         <span class="cartao-preco">From SAR 29,500</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-bush-zanzibar.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-bush-zanzibar.webp" alt="" loading="lazy">
         <span class="cartao-meta">10 days · All year</span>
         <h3>Bush &amp; Zanzibar</h3>
         <p>Five nights of game drives in Tarangire and the central Serengeti, then a short flight to the coast for four nights on Nungwi beach. The journey most families book first.</p>
         <span class="cartao-preco">From SAR 34,900</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-flying.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-flying.webp" alt="" loading="lazy">
         <span class="cartao-meta">7 days · June to March</span>
         <h3>The Flying Safari</h3>
         <p>Bush planes carry you between three camps in the southern and northern Serengeti, so every morning and afternoon is spent with the animals, not on the road. Balloon included.</p>
         <span class="cartao-preco">From SAR 38,500</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-family.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-family.webp" alt="" loading="lazy">
         <span class="cartao-meta">9 days · School holidays and Eid</span>
         <h3>Family under the acacia</h3>
         <p>Short drives, family suites with pools, a guide who turns every drive into a story, and three days of sea at the end. Children from six; one family of up to eight.</p>
         <span class="cartao-preco">From SAR 31,500 per adult · children from SAR 18,900</span>
       </article>
       <article class="painel cartao revelar">
-        <img class="cartao-foto" src="assets/cards/card-private.webp" alt="" loading="lazy">
+        <img class="cartao-foto" src="assets/fotos/card-private.webp" alt="" loading="lazy">
         <span class="cartao-meta">12 days · By invitation</span>
         <h3>The Private Kingdom</h3>
         <p>One private camp, one private aircraft, one private island villa. A chef who cooks what you grew up with, and nobody else on the horizon. Up to ten guests.</p>
@@ -421,12 +308,12 @@
     </div>
   </section>
 
-  <!-- 20 CONTACT -->
-  <section id="contato" class="secao secao--contato">
-    <img class="arte arte--fundo arte--suave" src="assets/photos/lodge-sunset.webp" alt="" loading="lazy" data-parallax>
+  <!-- 16 CONTACT -->
+  <section id="contato" class="secao secao--contato" data-reveal>
+    <img class="arte arte--fundo arte--suave" src="assets/fotos/acacia.webp" alt="" loading="lazy" data-parallax>
     <div class="painel painel--form revelar">
-      <span class="rotulo">20 · Start here · <span class="ar">ابدأ من هنا</span></span>
-      <h2>Plan your safari</h2>
+      <span class="rotulo">16 · Start here · <span class="ar">ابدأ من هنا</span></span>
+      <h2 data-letters style="--step:28ms"><span class="line">Plan your safari</span></h2>
       <p>Tell us when you can travel and who is coming. We reply within a day, in Arabic or English, with a first itinerary and price.</p>
       <form class="form" novalidate>
         <div class="campo">
@@ -462,7 +349,7 @@
   <div class="painel rodape-painel">
     <span class="marca-texto">Samur <span class="marca-ar" aria-hidden="true">سمر</span></span>
     <span>Riyadh · African safaris for Saudi travellers</span>
-    <span>© <span data-ano></span> Samur · <a href="credits.html">Footage and photo credits</a></span>
+    <span>© <span data-ano></span> Samur · <a href="credits.html">Photo credits</a></span>
   </div>
 </footer>
 

@@ -27,6 +27,10 @@ window.SITE = {
     balloon: { total: 64, desktop: "assets/capitulos/desktop/f_balloon_{n}.webp", mobile: "assets/capitulos/mobile/f_balloon_{n}.webp" },
     sunrise: { total: 64, desktop: "assets/capitulos/desktop/f_sunrise_{n}.webp", mobile: "assets/capitulos/mobile/f_sunrise_{n}.webp" },
     nungwi:  { total: 64, desktop: "assets/capitulos/desktop/f_nungwi_{n}.webp",  mobile: "assets/capitulos/mobile/f_nungwi_{n}.webp" },
+    caravan:   { total: 64, desktop: "assets/capitulos/desktop/f_caravan_{n}.webp",   mobile: "assets/capitulos/mobile/f_caravan_{n}.webp" },
+    elephants: { total: 64, desktop: "assets/capitulos/desktop/f_elephants_{n}.webp", mobile: "assets/capitulos/mobile/f_elephants_{n}.webp" },
+    camp:      { total: 64, desktop: "assets/capitulos/desktop/f_camp_{n}.webp",      mobile: "assets/capitulos/mobile/f_camp_{n}.webp" },
+    stonetown: { total: 64, desktop: "assets/capitulos/desktop/f_stonetown_{n}.webp", mobile: "assets/capitulos/mobile/f_stonetown_{n}.webp" },
   },
 
   // The acacia hero film (Daniel Case, Maasai Mara at sunset): the frames are a slow push into the photo;

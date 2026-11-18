@@ -19,6 +19,16 @@ window.SITE = {
     mobile: "assets/frames/mobile/f_film_{n}.webp",
   },
 
+  // Chapter films: 64 frames each, generated from the chapter photographs (see CREDITS.md), loaded as you approach.
+  filmes: {
+    lion:    { total: 64, desktop: "assets/capitulos/desktop/f_lion_{n}.webp",    mobile: "assets/capitulos/mobile/f_lion_{n}.webp" },
+    vehicle: { total: 64, desktop: "assets/capitulos/desktop/f_vehicle_{n}.webp", mobile: "assets/capitulos/mobile/f_vehicle_{n}.webp" },
+    crater:  { total: 64, desktop: "assets/capitulos/desktop/f_crater_{n}.webp",  mobile: "assets/capitulos/mobile/f_crater_{n}.webp" },
+    balloon: { total: 64, desktop: "assets/capitulos/desktop/f_balloon_{n}.webp", mobile: "assets/capitulos/mobile/f_balloon_{n}.webp" },
+    sunrise: { total: 64, desktop: "assets/capitulos/desktop/f_sunrise_{n}.webp", mobile: "assets/capitulos/mobile/f_sunrise_{n}.webp" },
+    nungwi:  { total: 64, desktop: "assets/capitulos/desktop/f_nungwi_{n}.webp",  mobile: "assets/capitulos/mobile/f_nungwi_{n}.webp" },
+  },
+
   // The acacia hero film (Daniel Case, Maasai Mara at sunset): the frames are a slow push into the photo;
   // the canopy is a separate cut-out layer placed over the title using this geometry. Units are pixels of
   // the original photograph; "hero" is the 16:9 desktop crop, "heroCelular" the 3:4 phone crop.

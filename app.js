@@ -118,6 +118,76 @@
     else requestAnimationFrame(quadro);
   }
 
+  /* ── Capítulos-filme: cada .filme toca o seu próprio clipe, carregado só quando se aproxima ── */
+  document.querySelectorAll(".filme[data-filme]").forEach((sec) => {
+    const cfg = S.filmes && S.filmes[sec.dataset.filme];
+    const cv = sec.querySelector(".filme-canvas");
+    if (!cfg || !cv || !cfg.total) return;
+    const ctx = cv.getContext("2d");
+    const total = cfg.total;
+    const padrao = celular ? cfg.mobile : cfg.desktop;
+    const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
+    const quadros = new Array(total);
+    const momentos = [...sec.querySelectorAll(".momento")];
+    let alvo = 0, atual = 0, desenhado = -1, dpr = 1, carregando = false, vivo = false;
+
+    const pronto = (i) => quadros[i] && quadros[i].complete && quadros[i].naturalWidth;
+    const maisProximo = (i) => { for (let d = 0; d < total; d++) { if (pronto(i - d)) return i - d; if (pronto(i + d)) return i + d; } return -1; };
+    const desenhar = (i, forcar) => {
+      const j = maisProximo(i);
+      if (j < 0 || (j === desenhado && !forcar)) return;
+      const img = quadros[j], cw = cv.width, ch = cv.height;
+      const k = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const w = img.naturalWidth * k, h = img.naturalHeight * k;
+      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+      desenhado = j;
+    };
+    const carregar = (i) => {
+      if (quadros[i]) return;
+      const img = new Image(); img.decoding = "async"; img.fetchPriority = "low"; img.src = src(i); // posters and photos go first
+      img.onload = () => { if (Math.round(atual) === i || desenhado === -1) desenhar(i, true); };
+      quadros[i] = img;
+    };
+    const iniciarCarga = () => {
+      if (carregando || reduzir) return; carregando = true;
+      const fila = [];
+      for (const passo of [8, 4, 2, 1]) for (let i = 0; i < total; i += passo) if (!fila.includes(i)) fila.push(i);
+      let k = 0;
+      const lote = () => { for (let n = 0; n < 4 && k < fila.length; n++) carregar(fila[k++]); if (k < fila.length) setTimeout(lote, 60); };
+      lote();
+    };
+    const ajustar = () => { dpr = Math.min(window.devicePixelRatio || 1, 2); cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr); desenhado = -1; desenhar(Math.round(atual), true); };
+    const progresso = () => { const r = sec.getBoundingClientRect(); const curso = sec.offsetHeight - innerHeight; return Math.min(1, Math.max(0, -r.top / (curso || 1))); };
+    const atualizar = (p) => {
+      for (const m of momentos) { const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1); m.classList.toggle("ativo", p >= de && (p < ate || (ate >= 1 && p >= 1))); }
+      sec.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.8) / 0.2)).toFixed(3));
+      sec.style.setProperty("--borda", (1 - Math.min(1, p / 0.12)).toFixed(3));
+    };
+    const quadro = () => {
+      if (!vivo) return;
+      alvo = progresso() * (total - 1);
+      atual += (alvo - atual) * 0.18;
+      if (Math.abs(alvo - atual) < 0.05) atual = alvo;
+      desenhar(Math.round(atual));
+      atualizar(atual / (total - 1));
+      requestAnimationFrame(quadro);
+    };
+    // Ao sair da zona, solta os quadros que ainda não chegaram: a banda fica para o capítulo que está na tela.
+    const cancelar = () => {
+      let soltos = 0;
+      for (let i = 0; i < total; i++) if (quadros[i] && !pronto(i)) { quadros[i].src = ""; quadros[i] = undefined; soltos++; }
+      if (soltos) carregando = false; // volta a carregar quando reaparecer
+    };
+    // Carrega quando está a uma tela e meia; anima só enquanto está perto da janela.
+    new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { iniciarCarga(); if (!vivo && !reduzir) { vivo = true; requestAnimationFrame(quadro); } }
+      else { vivo = false; cancelar(); }
+    }), { rootMargin: "150% 0px 150% 0px" }).observe(sec);
+    addEventListener("resize", ajustar);
+    ajustar();
+    if (reduzir) atualizar(0);
+  });
+
   /* ── Parallax leve nas artes ──────────────────────────────────────────── */
   const artes = reduzir ? [] : [...document.querySelectorAll(".arte")];
   if (artes.length) {

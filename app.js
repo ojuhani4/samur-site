@@ -4,97 +4,42 @@
   const celular = matchMedia("(max-width: 760px)").matches;
 
 
-  /* ── Rolagem que toca o vídeo ─────────────────────────────────────────── */
+  /* ── Abertura: vídeo em loop (sempre em movimento) + zoom lento guiado pela rolagem ─────────────
+     O vídeo e a camada da copa vivem no mesmo invólucro; a rolagem só escala/desloca o invólucro, então a copa
+     fica sempre alinhada. O corte "cover" é calculado aqui (com ponto focal no celular) para posicionar a copa. */
   const cine = document.querySelector(".cine");
-  const canvas = cine && cine.querySelector(".cine-canvas");
-  if (cine && canvas && S.frames && S.frames.total) {
-    const ctx = canvas.getContext("2d");
-    const total = S.frames.total;
-    let movel = celular;
-    let padrao = movel ? S.frames.mobile : S.frames.desktop;
-    const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
-    let quadros = new Array(total);
+  const camada = cine && cine.querySelector(".cine-camada");
+  const video = camada && camada.querySelector(".cine-video");
+  if (cine && camada && video && S.hero && S.video) {
+    const H = S.hero;
     const momentos = [...cine.querySelectorAll(".momento")];
-    const corte = cine.querySelector(".cine-corte");
-    let H = (movel && S.heroCelular) || S.hero;
-    let alvo = 0, atual = 0, desenhado = -1, dpr = 1, ultimo = null; // ultimo: onde o quadro foi desenhado (px CSS)
+    const corte = camada.querySelector(".cine-corte");
+    let movel = celular, geo = null, pAlvo = 0, pAtual = 0;
 
-    // A árvore é uma camada à parte: acompanha o zoom do filme e cresce um pouco mais, ancorada no tronco.
-    const posicionarCorte = (p) => {
-      if (!corte || !H || !ultimo) return;
+    const fonte = () => { const src = movel ? S.video.mobile : S.video.desktop; if (video.getAttribute("src") !== src) { video.setAttribute("src", src); video.load(); } };
+    const tocar = () => { if (reduzir) return; const p = video.play(); if (p && p.catch) p.catch(() => cine.classList.add("sem-video")); };
+
+    // Geometria "cover": o quadro do vídeo equivale ao espaço H.largura × H.altura. No celular o ponto focal é a árvore.
+    const medir = () => {
+      const cw = camada.clientWidth, ch = camada.clientHeight;
+      const k = Math.max(cw / H.largura, ch / H.altura);
+      const w = H.largura * k, h = H.altura * k;
+      let fx = 0.5, fy = 0.5;
+      if (movel && H.foco) { const visivel = cw / k; fx = Math.min(1, Math.max(0, (H.foco.x - visivel / 2) / Math.max(1, H.largura - visivel))); }
+      const ox = (cw - w) * fx, oy = (ch - h) * fy;
+      video.style.objectPosition = `${(fx * 100).toFixed(2)}% ${(fy * 100).toFixed(2)}%`;
+      geo = { k, ox, oy, cw, ch };
+      if (corte) { corte.style.left = `${(ox + H.corte.x * k).toFixed(1)}px`; corte.style.top = `${(oy + H.corte.y * k).toFixed(1)}px`; corte.style.width = `${(H.corte.w * k).toFixed(1)}px`; corte.style.opacity = "1"; }
+      camada.style.transformOrigin = `${(ox + H.largura / 2 * k).toFixed(1)}px ${(oy + H.altura / 2 * k).toFixed(1)}px`;
+      aplicar(pAtual);
+    };
+    const aplicar = (p) => {
+      if (!geo) return;
       const e = p * p * (3 - 2 * p) * 0.6 + p * 0.4;
-      const s = 1 + H.zoom * e, f = 1 + H.extra * e;
-      const w = H.largura / s, h = H.altura / s;
-      const cx = H.largura / 2;
-      const cy = Math.min(Math.max(H.altura / 2 + H.desloc * e, h / 2), H.altura - h / 2);
-      const k = ultimo.w / w; // px CSS por px da foto
-      const x1 = H.ancora.x + (H.corte.x - H.ancora.x) * f, y1 = H.ancora.y + (H.corte.y - H.ancora.y) * f;
-      const sx = ultimo.ox + (x1 - (cx - w / 2)) * k, sy = ultimo.oy + (y1 - (cy - h / 2)) * k;
-      corte.style.width = `${(H.corte.w * f * k).toFixed(1)}px`;
-      corte.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0)`;
-      corte.style.opacity = "1";
+      const s = 1 + H.zoom * e;
+      camada.style.transform = reduzir ? "none" : `translate3d(0, ${(-H.desloc * e * geo.k).toFixed(1)}px, 0) scale(${s.toFixed(4)})`;
     };
-
-    const carregar = (i, prioridade) => {
-      if (quadros[i]) return quadros[i];
-      const img = new Image();
-      img.decoding = "async";
-      if (prioridade) img.fetchPriority = "high";
-      img.src = src(i);
-      img.onload = () => { if (Math.round(atual) === i || desenhado === -1) desenhar(i, true); };
-      return (quadros[i] = img);
-    };
-
-    // O primeiro quadro e a árvore têm prioridade: o resto do filme só começa a baixar quando os dois já estão na tela
-    // (senão 160 pedidos disputam a banda com a abertura e a página fica em branco por segundos).
-    const primeiro = carregar(0, true);
-    let esqueletoPronto = false, completo = false;
-    // Esqueleto: um quadro a cada 8 (20 pedidos) assim que a abertura está na tela. O resto só perto do quadro atual,
-    // e o preenchimento total apenas depois que o visitante começa a rolar o filme.
-    const esqueleto = () => { if (esqueletoPronto || reduzir) return; esqueletoPronto = true; let i = 0; const lote = () => { for (let n = 0; n < 4 && i < total; n++, i += 8) carregar(i); if (i < total) setTimeout(lote, 60); }; lote(); };
-    const janela = (centro) => { for (let d = -10; d <= 10; d++) { const i = centro + d; if (i >= 0 && i < total) carregar(i); } };
-    const completar = () => { if (completo || reduzir) return; completo = true; let i = 0; const lote = () => { for (let n = 0; n < 6 && i < total; n++, i++) carregar(i); if (i < total) setTimeout(lote, 50); }; lote(); };
-    if (!reduzir) {
-      const esperar = (img) => new Promise((ok) => { if (!img || (img.complete && img.naturalWidth)) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
-      Promise.all([esperar(primeiro), esperar(corte)]).then(esqueleto);
-      setTimeout(esqueleto, 4000); // nunca fica preso se algo falhar
-    }
-
-    const pronto = (i) => quadros[i] && quadros[i].complete && quadros[i].naturalWidth;
-    const maisProximo = (i) => {
-      for (let d = 0; d < total; d++) {
-        if (pronto(i - d)) return i - d;
-        if (pronto(i + d)) return i + d;
-      }
-      return -1;
-    };
-
-    const ajustar = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.round(canvas.clientWidth * dpr);
-      canvas.height = Math.round(canvas.clientHeight * dpr);
-      desenhado = -1;
-      desenhar(Math.round(atual), true);
-    };
-
-    function desenhar(i, forcar) {
-      const j = maisProximo(i);
-      if (j < 0 || (j === desenhado && !forcar)) return;
-      const img = quadros[j];
-      const cw = canvas.width, ch = canvas.height;
-      const escala = Math.max(cw / img.naturalWidth, ch / img.naturalHeight); // "cover"
-      const w = img.naturalWidth * escala, h = img.naturalHeight * escala;
-      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
-      ultimo = { ox: (cw - w) / 2 / dpr, oy: (ch - h) / 2 / dpr, w: w / dpr, h: h / dpr };
-      desenhado = j;
-    }
-
-    const progresso = () => {
-      const r = cine.getBoundingClientRect();
-      const curso = cine.offsetHeight - innerHeight;
-      return Math.min(1, Math.max(0, -r.top / (curso || 1)));
-    };
-
+    const progresso = () => { const r = cine.getBoundingClientRect(); const curso = cine.offsetHeight - innerHeight; return Math.min(1, Math.max(0, -r.top / (curso || 1))); };
     const atualizarMomentos = (p) => {
       for (const m of momentos) {
         const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1);
@@ -103,98 +48,47 @@
       }
       cine.classList.toggle("andou", p > 0.02);
       cine.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.78) / 0.2)).toFixed(3));
-      posicionarCorte(p);
     };
-
     const quadro = () => {
-      alvo = progresso() * (total - 1);
-      atual += (alvo - atual) * 0.18; // suaviza: sensação de filme, não de slide
-      if (Math.abs(alvo - atual) < 0.05) atual = alvo;
-      if (esqueletoPronto) { janela(Math.round(atual)); if (alvo > 2) completar(); }
-      desenhar(Math.round(atual));
-      atualizarMomentos(atual / (total - 1));
+      pAlvo = progresso();
+      pAtual += (pAlvo - pAtual) * 0.18;
+      if (Math.abs(pAlvo - pAtual) < 0.0005) pAtual = pAlvo;
+      aplicar(pAtual); atualizarMomentos(pAtual);
       requestAnimationFrame(quadro);
     };
 
-    addEventListener("resize", ajustar);
-    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { // cruzou o ponto de quebra: troca de conjunto de quadros e geometria
-      movel = e.matches; padrao = movel ? S.frames.mobile : S.frames.desktop; H = (movel && S.heroCelular) || S.hero;
-      quadros = new Array(total); desenhado = -1; esqueletoPronto = false; completo = false;
-      carregar(0, true); esqueleto(); ajustar();
-    });
-    ajustar();
-    if (reduzir) { atualizarMomentos(0); posicionarCorte(0); }
+    fonte(); medir(); tocar();
+    addEventListener("resize", medir);
+    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { movel = e.matches; fonte(); medir(); tocar(); });
+    // pausa quando a abertura saiu da tela, volta quando reaparece
+    new IntersectionObserver(([en]) => { if (en.isIntersecting) tocar(); else video.pause(); }, { rootMargin: "20% 0px" }).observe(cine);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) tocar(); });
+    if (reduzir) { atualizarMomentos(0); }
     else requestAnimationFrame(quadro);
   }
 
-  /* ── Capítulos-filme: cada .filme toca o seu próprio clipe, carregado só quando se aproxima ── */
+  /* ── Capítulos-filme: vídeo em loop, carregado quando se aproxima, pausado quando sai ── */
   document.querySelectorAll(".filme[data-filme]").forEach((sec) => {
     const cfg = S.filmes && S.filmes[sec.dataset.filme];
-    const cv = sec.querySelector(".filme-canvas");
-    if (!cfg || !cv || !cfg.total) return;
-    const ctx = cv.getContext("2d");
-    const total = cfg.total;
-    let padrao = celular ? cfg.mobile : cfg.desktop;
-    const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
-    let quadros = new Array(total);
+    const v = sec.querySelector(".filme-video");
+    if (!cfg || !v) return;
     const momentos = [...sec.querySelectorAll(".momento")];
-    let alvo = 0, atual = 0, desenhado = -1, dpr = 1, carregando = false, vivo = false;
-
-    const pronto = (i) => quadros[i] && quadros[i].complete && quadros[i].naturalWidth;
-    const maisProximo = (i) => { for (let d = 0; d < total; d++) { if (pronto(i - d)) return i - d; if (pronto(i + d)) return i + d; } return -1; };
-    const desenhar = (i, forcar) => {
-      const j = maisProximo(i);
-      if (j < 0 || (j === desenhado && !forcar)) return;
-      const img = quadros[j], cw = cv.width, ch = cv.height;
-      const k = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
-      const w = img.naturalWidth * k, h = img.naturalHeight * k;
-      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
-      desenhado = j;
-    };
-    const carregar = (i) => {
-      if (quadros[i]) return;
-      const img = new Image(); img.decoding = "async"; img.fetchPriority = "low"; img.src = src(i); // posters and photos go first
-      img.onload = () => { if (Math.round(atual) === i || desenhado === -1) desenhar(i, true); };
-      quadros[i] = img;
-    };
-    const iniciarCarga = () => {
-      if (carregando || reduzir) return; carregando = true;
-      const fila = [];
-      for (const passo of [8, 4, 2, 1]) for (let i = 0; i < total; i += passo) if (!fila.includes(i)) fila.push(i);
-      let k = 0;
-      const lote = () => { for (let n = 0; n < 4 && k < fila.length; n++) carregar(fila[k++]); if (k < fila.length) setTimeout(lote, 60); };
-      lote();
-    };
-    const ajustar = () => { dpr = Math.min(window.devicePixelRatio || 1, 2); cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr); desenhado = -1; desenhar(Math.round(atual), true); };
+    let movel = celular, vivo = false;
+    const fonte = () => { const src = movel ? cfg.mobile : cfg.desktop; if (v.getAttribute("src") !== src) { v.setAttribute("src", src); v.load(); } };
+    const tocar = () => { if (reduzir) return; fonte(); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
     const progresso = () => { const r = sec.getBoundingClientRect(); const curso = sec.offsetHeight - innerHeight; return Math.min(1, Math.max(0, -r.top / (curso || 1))); };
     const atualizar = (p) => {
       for (const m of momentos) { const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1); const ativo = p >= de && (p < ate || (ate >= 1 && p >= 1)); m.classList.toggle("ativo", ativo); m.inert = !ativo; }
       sec.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.8) / 0.2)).toFixed(3));
       sec.style.setProperty("--borda", (1 - Math.min(1, p / 0.12)).toFixed(3));
     };
-    const quadro = () => {
-      if (!vivo) return;
-      alvo = progresso() * (total - 1);
-      atual += (alvo - atual) * 0.18;
-      if (Math.abs(alvo - atual) < 0.05) atual = alvo;
-      desenhar(Math.round(atual));
-      atualizar(atual / (total - 1));
-      requestAnimationFrame(quadro);
-    };
-    // Ao sair da zona, solta os quadros que ainda não chegaram: a banda fica para o capítulo que está na tela.
-    const cancelar = () => {
-      let soltos = 0;
-      for (let i = 0; i < total; i++) if (quadros[i] && !pronto(i)) { quadros[i].src = ""; quadros[i] = undefined; soltos++; }
-      if (soltos) carregando = false; // volta a carregar quando reaparecer
-    };
-    // Carrega quando está a uma tela e meia; anima só enquanto está perto da janela.
+    const quadro = () => { if (!vivo) return; atualizar(progresso()); requestAnimationFrame(quadro); };
     new IntersectionObserver((es) => es.forEach((e) => {
-      if (e.isIntersecting) { iniciarCarga(); if (!vivo && !reduzir) { vivo = true; requestAnimationFrame(quadro); } }
-      else { vivo = false; cancelar(); }
-    }), { rootMargin: "150% 0px 150% 0px" }).observe(sec);
-    addEventListener("resize", ajustar);
-    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { padrao = e.matches ? cfg.mobile : cfg.desktop; quadros = new Array(total); desenhado = -1; carregando = false; if (vivo) iniciarCarga(); ajustar(); });
-    ajustar();
+      if (e.isIntersecting) { tocar(); if (!vivo) { vivo = true; if (!reduzir) requestAnimationFrame(quadro); } }
+      else { vivo = false; v.pause(); }
+    }), { rootMargin: "100% 0px 100% 0px" }).observe(sec);
+    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { movel = e.matches; if (vivo) tocar(); });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden && vivo) tocar(); });
     if (reduzir) atualizar(0);
   });
 
@@ -257,7 +151,6 @@
   const trilho = document.getElementById("trilho"), elenco = document.getElementById("elenco");
   if (trilho && elenco && !reduzir) {
     const mover = () => {
-      if (matchMedia("(max-width: 860px)").matches) { trilho.style.transform = ""; return; }
       const r = elenco.getBoundingClientRect();
       const prog = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
       const max = Math.max(0, trilho.scrollWidth + 2 * 56 - innerWidth);

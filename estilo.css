@@ -101,9 +101,12 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 
 /* ── Abertura cinematográfica ──────────────────────────────────────────── */
 .cine { position: relative; height: var(--altura, 400vh); }
-.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo) url("assets/frames/desktop/f_film_0001.webp") center / cover no-repeat; } /* poster: first frame paints before the film is ready */
-@media (max-width: 760px) { .cine-palco { background-image: url("assets/frames/mobile/f_film_0001.webp"); } }
+.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo) url("assets/video/opening-poster.webp") center / cover no-repeat; } /* poster: first frame paints before the film is ready */
+@media (max-width: 760px) { .cine-palco { background-image: url("assets/video/opening-poster.webp"); } }
 .cine-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cine-camada { position: absolute; inset: 0; will-change: transform; }
+.cine-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; background: var(--fundo); }
+.sem-video .cine-video { opacity: 1; }
 .cine-vinheta {
   position: absolute; inset: 0; pointer-events: none;
   background:
@@ -298,16 +301,16 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 /* Arabic page: the Ruq'ah wordmark from the logo pack rises behind the canopy instead of typed letters */
 .cine-palavra--marca { font-size: 0; line-height: 0; letter-spacing: 0; padding: 0; }
 .cine-marca { display: inline-block; width: clamp(240px, 44vw, 680px); height: auto; }
-.js .cine-marca { opacity: 0; filter: blur(10px); transform: translateY(28px); animation: subir-marca 1.2s var(--ease) .5s forwards; }
-@keyframes subir-marca { to { opacity: 1; filter: blur(0) drop-shadow(0 3px 22px rgb(48 55 42 / .32)); transform: none; } }
+.js .cine-marca { opacity: 0; transform: translateY(28px); animation: subir-marca 1.2s var(--ease) .5s forwards; } /* no CSS filter: iPhone compositing turned the filtered image into a white box; the shadow is baked into the PNG */
+@keyframes subir-marca { to { opacity: 1; transform: none; } }
 .cine-palavra .hc { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(.18em); animation: subir-letra 1.1s var(--ease) forwards; animation-delay: calc(.45s + var(--i) * 95ms); }
 @keyframes subir-letra { to { opacity: 1; filter: blur(0); transform: none; } }
 @keyframes descer { to { opacity: 1; transform: none; } }
-.cine-corte { opacity: 0; position: absolute; z-index: 3; left: 0; top: 0; width: 100%; height: auto; max-width: none; pointer-events: none; will-change: transform, width; transform-origin: 0 0; }
+.cine-corte { opacity: 0; position: absolute; z-index: 3; left: 0; top: 0; width: 100%; height: auto; max-width: none; pointer-events: none; }
 .cine-vinheta { z-index: 4; }
 .cine-derrete { position: absolute; z-index: 5; left: 0; right: 0; bottom: -1px; height: calc(30% + 70% * var(--derrete, 0)); opacity: calc(.35 + .65 * var(--derrete, 0)); pointer-events: none;
   background: linear-gradient(to bottom, rgb(243 235 221 / 0) 0%, rgb(243 235 221 / .55) 40%, var(--fundo) 100%); }
-.cine-canvas, .cine-corte { filter: blur(calc(6px * var(--derrete, 0))); }
+.cine-camada { filter: blur(calc(6px * var(--derrete, 0))); }
 .momento { z-index: 6; }
 .cine-dica { z-index: 6; }
 
@@ -402,13 +405,12 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
   .frase { font-size: 8.4vw; }
   .frase .line { white-space: normal; }
   .arte--retrato { width: 100%; }
-  .elenco { height: auto; padding: 56px 0 48px; }
-  .elenco-pino { position: static; height: auto; overflow: visible; padding: 0; gap: 28px; }
-  .elenco-cabeca { flex-direction: column; align-items: flex-start; }
-  .elenco-nota { text-align: start; }
-  .elenco-trilho { overflow-x: auto; width: auto; scroll-snap-type: x mandatory; padding: 0 var(--gutter) 16px; transform: none !important; -webkit-overflow-scrolling: touch; }
-  .carta { width: 72vw; scroll-snap-align: start; }
-  .carta:nth-child(even) { transform: none; }
+  .elenco { height: 320svh; }
+  .elenco-pino { gap: 22px; padding: 24px 0; }
+  .elenco-cabeca { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .elenco-nota { text-align: start; font-size: 14px; }
+  .carta { width: 68vw; }
+  .carta:nth-child(even) { transform: translateY(24px); }
   .fatos { grid-template-columns: 1fr; gap: 40px; padding-top: 32px; }
   .fatos-titulo { font-size: 12vw; margin-bottom: 28px; }
 }
@@ -438,7 +440,7 @@ html[lang="ar"] .cine-palavra, html[lang="ar"] .carta-nome { font-family: "Libre
 html[lang="ar"] .cine-palavra--marca { font-size: 0; line-height: 0; letter-spacing: 0; }
 /* Arabic opening: the wordmark reads from the right, over the open sky above the sun, clear of the canopy */
 html[lang="ar"] .cine-titulo { text-align: right; padding-right: 7vw; }
-html[lang="ar"] .cine-marca { width: clamp(220px, 40vw, 600px); }
+html[lang="ar"] .cine-marca { width: clamp(240px, 43vw, 640px); }
 @media (max-width: 860px) { html[lang="ar"] .cine-titulo { padding-right: 6vw; } html[lang="ar"] .cine-marca { width: 60vw; } }
 html[lang="ar"] .rodape-frase { line-height: 1.6; }
 html[lang="ar"] .cine-olho { letter-spacing: 0; text-transform: none; font-size: 13px; }
@@ -458,7 +460,8 @@ html[lang="ar"] .cine-palavra { direction: ltr; unicode-bidi: isolate; }
 /* ── Capítulos-filme: um palco preso por capítulo, 64 quadros, pôster por baixo, papel em cima e derretimento no fim ── */
 .filme { position: relative; height: var(--altura, 260vh); }
 .filme-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo); }
-.filme-poster, .filme-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(calc(6px * var(--derrete, 0))); }
+.filme-poster, .filme-canvas, .filme-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--foco, 50% 50%); filter: blur(calc(6px * var(--derrete, 0))); background: var(--fundo); }
+@media (max-width: 760px) { .filme-video, .filme-poster { object-position: var(--foco-m, var(--foco, 50% 50%)); } }
 .filme-poster { z-index: 0; max-width: none; }
 .filme-canvas { z-index: 1; }
 .filme-borda { position: absolute; z-index: 2; left: 0; right: 0; top: -1px; height: 26%; pointer-events: none; opacity: var(--borda, 1);
@@ -554,4 +557,14 @@ html[lang="ar"] .topo-acoes .lang { font-family: Arial, sans-serif; }
   .cine-palavra { font-size: clamp(36px, 8vw, 110px); }
   html[lang="ar"] .cine-marca, .cine-marca { width: clamp(150px, 22vw, 320px); }
   .momento .painel { max-height: 50vh; }
+}
+
+/* ── Pontos focais no celular ───────────────────────────────────────── */
+.carta img { object-position: 50% 30%; }
+.carta:nth-child(4) img { object-position: 50% 12%; } /* giraffe: keep the head */
+.carta:nth-child(6) img { object-position: 50% 45%; }
+.cartao-foto { object-position: 50% 50%; }
+@media (max-width: 760px) {
+  .cartao:nth-child(3) .cartao-foto { object-position: 50% 45%; }
+  .arte--retrato { object-position: 50% 28%; }
 }

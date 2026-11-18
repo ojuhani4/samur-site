@@ -37,8 +37,7 @@ The homepage is built from a small set of high-resolution Wikimedia Commons phot
 
 | Used as | File | Photographer | Licence | Source |
 |---|---|---|---|---|
-| hero film (160 frames) and tree layer | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
-| acacia (contact background) | Acacia (Vachellia tortilis), parque nacional Serengueti, Tanzania, 2024-05-26, DD 26.jpg | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
+| hero film (160 frames), tree layer and contact background | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
 | caravan | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
 | lion | 002 Male Lion prowling in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:002_Male_Lion_prowling_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
 | leopard | 001 Juvenile leopard in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:001_Juvenile_leopard_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |

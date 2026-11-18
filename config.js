@@ -19,12 +19,19 @@ window.SITE = {
     mobile: "assets/frames/mobile/f_{n}.webp",
   },
 
-  // The acacia hero film: the frames are a slow push into the photo; the tree is a separate
-  // cut-out layer that the page places over the title using this geometry (frame-space pixels).
+  // The acacia hero film (Daniel Case, Maasai Mara at sunset): the frames are a slow push into the photo;
+  // the canopy is a separate cut-out layer placed over the title using this geometry. Units are pixels of
+  // the original photograph; "hero" is the 16:9 desktop crop, "heroCelular" the 3:4 phone crop.
   hero: {
-    largura: 2773, altura: 1560,           // the photo crop the frames were rendered from
-    corte: { x: -113, y: 278, w: 3000, h: 1208 }, // where the cut-out sits in that crop
-    ancora: { x: 1386, y: 1480 },          // base of the trunk: the cut-out scales around it
-    zoom: 0.07, extra: 0.06, desloc: 34,   // film zoom, additional cut-out zoom, downward drift
+    largura: 6200, altura: 3487,
+    corte: { x: 950, y: 726, w: 3400, h: 1700 },
+    ancora: { x: 2230, y: 3726 },
+    zoom: 0.07, extra: 0.0, desloc: 76,
+  },
+  heroCelular: {
+    largura: 3200, altura: 4267,
+    corte: { x: -50, y: 721, w: 3400, h: 1700 },
+    ancora: { x: 1230, y: 3721 },
+    zoom: 0.07, extra: 0.0, desloc: 93,
   },
 };

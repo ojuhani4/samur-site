@@ -15,7 +15,7 @@
     const quadros = new Array(total);
     const momentos = [...cine.querySelectorAll(".momento")];
     const corte = cine.querySelector(".cine-corte");
-    const H = S.hero;
+    const H = (celular && S.heroCelular) || S.hero;
     let alvo = 0, atual = 0, desenhado = -1, dpr = 1, ultimo = null; // ultimo: onde o quadro foi desenhado (px CSS)
 
     // A árvore é uma camada à parte: acompanha o zoom do filme e cresce um pouco mais, ancorada no tronco.

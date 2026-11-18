@@ -4,7 +4,7 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 
 | File | Title | Photographer | Licence | Source page |
 |---|---|---|---|---|
-| assets/hero-acacia.jpg | Acacia (Vachellia tortilis), parque nacional Serengueti, Tanzania, 2024-05-26, DD 26.jpg | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
+| assets/hero-acacia.jpg | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
 | assets/balloon.jpg | Balloon Safari 2012 06 01 3087 (7522685864).jpg | Harvey Barrison from Massapequa, NY, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Balloon_Safari_2012_06_01_3087_(7522685864).jpg |
 | assets/camp-deck.jpg | Singita-Sabora-Tented-Camp-16.jpg | Jessica138 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Singita-Sabora-Tented-Camp-16.jpg |
 | assets/camp-sunset.jpg | Sunset at Maramboi Tented Camp, Tanzania.jpg | Christoph Strässler | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Sunset_at_Maramboi_Tented_Camp,_Tanzania.jpg |
@@ -33,11 +33,12 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 
 ## Homepage photographs (index.html and ar.html, 18 November 2026)
 
-The homepage is built from a small set of high-resolution Wikimedia Commons photographs (`assets/fotos/`), all CC BY / CC BY-SA. The opening scroll film (`assets/frames/`) is a slow push into Diego Delso's acacia photograph, with the tree as a separate cut-out layer. The stock video clips used briefly on 18 November were removed the same day. The full table with photographer names and source pages is on `credits.html` and in `assets/fotos/credits.json`.
+The homepage is built from a small set of high-resolution Wikimedia Commons photographs (`assets/fotos/`), all CC BY / CC BY-SA. The opening scroll film (`assets/frames/`) is a slow push into Daniel Case's photograph of an acacia at sunset in the Maasai Mara, with the canopy as a separate cut-out layer. The stock video clips used briefly on 18 November were removed the same day. The full table with photographer names and source pages is on `credits.html` and in `assets/fotos/credits.json`.
 
 | Used as | File | Photographer | Licence | Source |
 |---|---|---|---|---|
-| hero film (160 frames) and acacia | Acacia (Vachellia tortilis), parque nacional Serengueti, Tanzania, 2024-05-26, DD 26.jpg | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
+| hero film (160 frames) and tree layer | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
+| acacia (contact background) | Acacia (Vachellia tortilis), parque nacional Serengueti, Tanzania, 2024-05-26, DD 26.jpg | Diego Delso | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_(Vachellia_tortilis),_parque_nacional_Serengueti,_Tanzania,_2024-05-26,_DD_26.jpg |
 | caravan | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
 | lion | 002 Male Lion prowling in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:002_Male_Lion_prowling_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
 | leopard | 001 Juvenile leopard in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:001_Juvenile_leopard_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |

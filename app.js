@@ -34,23 +34,28 @@
       corte.style.opacity = "1";
     };
 
-    const carregar = (i) => {
+    const carregar = (i, prioridade) => {
       if (quadros[i]) return quadros[i];
       const img = new Image();
       img.decoding = "async";
+      if (prioridade) img.fetchPriority = "high";
       img.src = src(i);
       img.onload = () => { if (Math.round(atual) === i || desenhado === -1) desenhar(i, true); };
       return (quadros[i] = img);
     };
 
-    // Carrega em passadas (1 a cada 8, depois 1 a cada 4…) para cobrir o filme inteiro cedo
-    carregar(0);
+    // O primeiro quadro e a árvore têm prioridade: o resto do filme só começa a baixar quando os dois já estão na tela
+    // (senão 160 pedidos disputam a banda com a abertura e a página fica em branco por segundos).
+    const primeiro = carregar(0, true);
     if (!reduzir) {
       const fila = [];
       for (const passo of [8, 4, 2, 1]) for (let i = 0; i < total; i += passo) if (!fila.includes(i)) fila.push(i);
-      let k = 0;
+      let k = 0, iniciado = false;
       const lote = () => { for (let n = 0; n < 6 && k < fila.length; n++) carregar(fila[k++]); if (k < fila.length) setTimeout(lote, 40); };
-      lote();
+      const iniciar = () => { if (iniciado) return; iniciado = true; lote(); };
+      const esperar = (img) => new Promise((ok) => { if (!img || (img.complete && img.naturalWidth)) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
+      Promise.all([esperar(primeiro), esperar(corte)]).then(iniciar);
+      setTimeout(iniciar, 4000); // nunca fica preso se algo falhar
     }
 
     const pronto = (i) => quadros[i] && quadros[i].complete && quadros[i].naturalWidth;

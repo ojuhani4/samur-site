@@ -71,23 +71,22 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
   transition: background .4s var(--ease), backdrop-filter .4s;
 }
 .topo.rolou { background: rgb(48 55 42 / .94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-/* Brand book, "Digital header": the ivory logo panel on Dark Olive with a gold rule. Below 180 px the emblem detail carries the name beside it. */
-.marca { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px 0 9px; background: var(--marfim); color: var(--oliva); border-radius: 6px; }
-.marca-emblema { height: 34px; width: auto; }
-.marca-nome { font-family: var(--fonte-titulo); font-weight: 700; font-size: 12.5px; letter-spacing: .32em; text-transform: uppercase; color: #B5822A; padding-inline-start: .1em; }
-.marca-ar { font-family: var(--fonte-arabe); font-size: 16px; line-height: 1; color: var(--oliva); }
+/* Header: the reversed horizontal lockup from the logo pack, straight on Dark Olive with the gold rule */
+.marca { text-decoration: none; display: inline-flex; align-items: center; height: var(--topo-h); }
+.marca-logo { height: 46px; width: auto; }
 .ar { font-family: var(--fonte-arabe); letter-spacing: 0; text-transform: none; direction: rtl; unicode-bidi: isolate; }
 .menu { display: flex; gap: 28px; align-items: center; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
 .menu a { text-decoration: none; opacity: .82; transition: opacity .3s; color: var(--osso); }
 .menu a:hover { opacity: 1; }
 .menu-cta { border: 1px solid var(--ouro); padding: 9px 16px; border-radius: 999px; opacity: 1 !important; white-space: nowrap; }
-@media (max-width: 760px) { .menu-cta { padding: 8px 13px; letter-spacing: .14em; } .marca { padding: 0 11px 0 8px; gap: 8px; } }
+@media (max-width: 760px) { .menu-cta { padding: 8px 13px; letter-spacing: .14em; } .marca-logo { height: 40px; } }
 .menu .lang { font-family: var(--fonte-texto); letter-spacing: .08em; opacity: .7; }
 @media (max-width: 760px) { .menu a:not(.menu-cta) { display: none; } }
 
 /* ── Abertura cinematográfica ──────────────────────────────────────────── */
 .cine { position: relative; height: var(--altura, 400vh); }
-.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo) url("assets/frames/desktop/f_0001.webp") center / cover no-repeat; } /* poster: first frame paints before the film is ready */
+@media (max-width: 760px) { .cine-palco { background-image: url("assets/frames/mobile/f_0001.webp"); } }
 .cine-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cine-vinheta {
   position: absolute; inset: 0; pointer-events: none;
@@ -232,12 +231,12 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 /* ── Rodapé: campo Dark Olive com o painel marfim do logotipo e filete dourado ── */
 .rodape { background: var(--oliva); color: rgb(243 235 221 / .8); border-top: 1px solid var(--ouro); padding: 64px var(--gutter) 44px; }
 .rodape-grade { max-width: var(--largura); margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 24px 56px; align-items: center; }
-.rodape-logo { display: block; width: 300px; max-width: 100%; background: var(--marfim); border-radius: 8px; padding: 12px 16px 10px; border-bottom: 3px solid var(--ouro); }
+.rodape-logo { display: block; width: 260px; max-width: 100%; }
 .rodape-logo img { width: 100%; height: auto; }
 .rodape-frase { font-family: var(--fonte-titulo); font-size: clamp(20px, 2vw, 28px); line-height: 1.3; color: var(--osso); margin: 0 0 18px; max-width: 30ch; }
 .rodape-meta { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 14px; }
 .rodape a { color: inherit; }
-@media (max-width: 860px) { .rodape-grade { grid-template-columns: 1fr; } .rodape-logo { width: 240px; } }
+@media (max-width: 860px) { .rodape-grade { grid-template-columns: 1fr; } .rodape-logo { width: 220px; } }
 
 /* ── Revelar ao rolar ──────────────────────────────────────────────────── */
 .revelar { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1.2s var(--ease); }
@@ -299,8 +298,8 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 .is-in .ppill img { animation: desaproximar 1.4s var(--ease) forwards; animation-delay: calc(var(--rd, 0s) + var(--i) * 26ms); }
 @keyframes pipocar { to { transform: scale(1); } }
 @keyframes desaproximar { to { transform: scale(1); } }
-.emblema { width: 108px; height: 108px; margin: 40px auto 0; border-radius: 50%; background: var(--marfim); border: 1px solid var(--ouro); display: grid; place-items: center; overflow: hidden; opacity: 0; transform: rotate(-90deg) scale(.6); }
-.emblema img { width: 82%; height: auto; margin-top: -4px; }
+.emblema { width: clamp(150px, 16vw, 220px); margin: 36px auto 0; opacity: 0; transform: translateY(16px) scale(.85); }
+.emblema img { width: 100%; height: auto; }
 .is-in .emblema { animation: girar-entrando 1.1s var(--ease) forwards; animation-delay: calc(var(--rd, 0s) + .55s); }
 @keyframes girar-entrando { to { opacity: 1; transform: none; } }
 .painel--frase > p { max-width: 54ch; margin: 36px auto 0; font-size: 15px; }
@@ -393,8 +392,7 @@ html[lang="ar"] body, html[lang="ar"] p { line-height: 1.85; }
 html[lang="ar"] .rotulo, html[lang="ar"] .menu, html[lang="ar"] .cartao-meta, html[lang="ar"] .cine-dica, html[lang="ar"] .campo label { letter-spacing: 0; text-transform: none; }
 html[lang="ar"] .rotulo, html[lang="ar"] .cartao-meta { font-size: 13px; }
 html[lang="ar"] .menu { font-size: 14px; }
-html[lang="ar"] .marca-nome { font-family: "Libre Baskerville", Baskerville, Georgia, serif; }
-html[lang="ar"] .marca-ar { font-size: 17px; }
+
 html[lang="ar"] .destaque { line-height: 1.5; }
 html[lang="ar"] .passos li::before { content: counter(p, decimal-leading-zero); }
 html[lang="ar"] .cartao-preco { font-family: var(--fonte-texto); font-weight: 600; font-size: 18px; }

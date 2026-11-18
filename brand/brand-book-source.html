@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Samur Brand Book</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Samur brand book · dark edition · 16:9 pages, English left / Arabic right */
+@page{size:1920px 1080px;margin:0}
+:root{
+  --bg:#0C0A09; --bg-2:#141110; --fg:#F4EAD7; --fg-70:rgba(244,234,215,.72); --fg-50:rgba(244,234,215,.5);
+  --gold:#D9A24A; --sun:#F0A236; --sun-2:#FCC672; --line:rgba(244,234,215,.14); --line-2:rgba(244,234,215,.08);
+  --paper:#FAF0E7; --sand:#ECE3D1; --umber:#482400;
+  --en-display:"Instrument Serif",Georgia,serif; --en-text:"Inter",system-ui,sans-serif;
+  --ar-display:"Amiri","Noto Naskh Arabic",serif; --ar-text:"IBM Plex Sans Arabic","Geeza Pro",sans-serif;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{scroll-snap-type:y mandatory}.slide{scroll-snap-align:start}html,body{margin:0;background:var(--bg);color:var(--fg);font:400 22px/1.6 var(--en-text)}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;background:var(--bg);padding:84px 112px 72px;break-after:page;page-break-after:always;display:grid;grid-template-rows:auto 1fr auto;gap:40px}
+.slide:last-child{break-after:auto;page-break-after:auto}
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.slide.alt{background:var(--bg-2)}
+.slide.paper{background:var(--paper);color:var(--umber)}
+.slide.paper .foot,.slide.paper .en p,.slide.paper .ar p,.slide.paper .cap{color:rgba(72,36,0,.72)}
+.slide.paper::after{mix-blend-mode:multiply;opacity:.09}
+
+/* header */
+.hd{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:60px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.hd .eyebrow{display:flex;align-items:center;gap:12px;font:500 15px/1 var(--en-text);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hd .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.hd .eyebrow.ar{font:500 17px/1 var(--ar-text);letter-spacing:0;text-transform:none;justify-content:flex-start}
+.hd h2{margin:0;font:400 64px/1.05 var(--en-display);letter-spacing:-.005em}
+.hd h2 i{font-style:italic;color:var(--fg-70)}
+.hd h2.ar{font:700 60px/1.3 var(--ar-display)}
+.ar{direction:rtl;text-align:right;unicode-bidi:isolate;font-family:var(--ar-text);letter-spacing:0}
+.ar-d{font-family:var(--ar-display)}
+.num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+
+/* body columns */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-content:start;min-height:0}
+.en{display:grid;gap:22px;align-content:start}
+.cols>.ar,.ar.col{display:grid;gap:22px;align-content:start}
+.ar.col{font-family:var(--ar-text)}
+p{margin:0;color:var(--fg-70);max-width:62ch}
+.ar p{line-height:1.9;font-size:23px}
+.en p{font-size:22px}
+.lede{color:var(--fg);font-size:28px;line-height:1.45}
+.ar .lede{font-size:30px;line-height:1.75}
+h3{margin:0;font:400 34px/1.15 var(--en-display)}
+.ar h3{font:700 32px/1.4 var(--ar-display)}
+.list{display:grid;border-top:1px solid var(--line)}
+.list>div{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ar .list>div{grid-template-columns:260px 1fr}
+.list b{font-weight:500;color:var(--fg)}
+.list span{color:var(--fg-70);font-size:20px;line-height:1.6}
+.ar .list span{font-size:21px;line-height:1.85}
+.label{font:500 14px/1 var(--en-text);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.ar .label,.label.ar{font:500 16px/1 var(--ar-text);letter-spacing:0;text-transform:none}
+.foot{display:flex;justify-content:space-between;align-items:center;font:400 15px/1 var(--en-text);color:var(--fg-50);border-top:1px solid var(--line-2);padding-top:22px}
+.foot .ar{font-family:var(--ar-text);font-size:15px}
+.foot .pg{font-variant-numeric:tabular-nums}
+
+/* cover */
+.cover{display:grid;place-items:center;align-content:center;gap:48px;padding:0}
+.cover img{width:760px}
+.cover .t{display:grid;gap:8px;text-align:center}
+.cover .t .big{font:400 56px/1.1 var(--en-display);letter-spacing:.02em}
+.cover .t .big-ar{font:700 54px/1.4 var(--ar-display)}
+.cover .meta{display:flex;gap:28px;justify-content:center;color:var(--fg-50);font-size:17px;letter-spacing:.14em;text-transform:uppercase}
+.cover .arc{width:420px;height:60px;border-bottom:2px solid var(--gold);border-radius:0 0 50% 50%/0 0 100% 100%;opacity:.8}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-content:start}
+.tile{display:grid;grid-template-rows:1fr auto;gap:14px}
+.tile .stage{aspect-ratio:4/3;display:grid;place-items:center;padding:34px;border:1px solid var(--line);border-radius:6px}
+.tile .stage img{width:82%}
+.stage.night{background:var(--bg)}.stage.night2{background:var(--bg-2)}.stage.paper{background:var(--paper)}.stage.sand{background:var(--sand)}
+.stage.photo{background:linear-gradient(180deg,rgba(12,10,8,.15),rgba(12,10,8,.78)),radial-gradient(120% 90% at 20% 15%,#F0A236 0%,#A86438 32%,#4A2A10 62%,#0C0A09 100%)}
+.cap{display:grid;gap:4px;font-size:18px;color:var(--fg-70);line-height:1.5}
+.cap b{color:var(--fg);font-weight:500;font-size:19px}
+.cap .ar{font-size:18px}
+
+/* logo hero */
+.logo-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+.logo-hero img{width:100%}
+.anat{display:grid;gap:18px;counter-reset:n}
+.anat>div{display:grid;grid-template-columns:44px 1fr 1fr;gap:20px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:19px;color:var(--fg-70);line-height:1.55}
+.anat>div::before{counter-increment:n;content:counter(n);font:400 30px/1 var(--en-display);color:var(--gold)}
+.anat b{color:var(--fg);font-weight:500}
+
+/* clear space */
+.clearbox{display:grid;place-items:center;padding:40px;border:1px solid var(--line);border-radius:6px}
+.clearbox .box{position:relative;padding:13%;border:1px dashed var(--gold);width:100%}
+.clearbox .box::before,.clearbox .box::after{content:"2x";position:absolute;font:500 13px/1 var(--en-text);letter-spacing:.14em;color:var(--gold)}
+.clearbox .box::before{top:8px;left:50%;transform:translateX(-50%)}
+.clearbox .box::after{left:8px;top:50%;transform:translateY(-50%) rotate(-90deg)}
+.clearbox .box img{width:100%;outline:1px solid var(--line-2)}
+.dont{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.dont .stage{aspect-ratio:4/3;display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;background:var(--bg-2);position:relative;overflow:hidden}
+.dont .stage img{width:72%}
+.dont .stage::after{content:"";position:absolute;left:12px;right:12px;top:50%;border-top:2px solid #C8473B;transform:rotate(-20deg)}
+.dont .cap{margin-top:12px}
+
+/* colour */
+.sw{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.sw>div{display:grid;grid-template-rows:170px auto;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.sw .chip{display:flex;align-items:flex-end;padding:16px;font:500 13px/1 var(--en-text);letter-spacing:.16em;text-transform:uppercase}
+.sw .info{padding:14px 16px;display:grid;gap:4px;font-size:16px;color:var(--fg-70);line-height:1.45;background:var(--bg-2)}
+.sw .info b{color:var(--fg);font-weight:500;font-size:18px}
+.sw .info code{font:15px ui-monospace,Menlo,monospace;color:var(--fg)}
+.sw .info .ar{font-size:16px}
+.ratio{display:flex;height:54px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.ratio>div{display:grid;place-items:center;font:500 12px/1 var(--en-text);letter-spacing:.14em;text-transform:uppercase}
+.contrast{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contrast>div{padding:20px 22px;border-radius:6px;display:grid;gap:6px;font:400 30px/1 var(--en-display);border:1px solid var(--line)}
+.contrast small{font:500 12px/1.3 var(--en-text);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+
+/* type */
+.spec{display:grid;gap:26px;border:1px solid var(--line);border-radius:6px;padding:48px;background:var(--bg-2);align-content:start}
+.spec .big-ar{font:700 112px/1.3 var(--ar-display);direction:rtl;text-align:right}
+.spec .big-ar i{font-style:normal;color:var(--fg-70)}
+.spec .big-en{font:400 112px/1 var(--en-display);letter-spacing:-.01em}
+.spec .big-en i{color:var(--fg-70)}
+.spec .body-ar{font:400 24px/1.9 var(--ar-text);direction:rtl;text-align:right;color:var(--fg-70)}
+.spec .body-en{font:400 22px/1.65 var(--en-text);color:var(--fg-70)}
+.spec .glyphs{font-size:36px;line-height:1.4;color:var(--fg);word-break:break-all}
+.scale{display:grid;border-top:1px solid var(--line)}
+.scale>div{display:grid;grid-template-columns:220px 1fr 1fr;gap:28px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.scale .r{font:500 14px/1.3 var(--en-text);letter-spacing:.08em;text-transform:uppercase;color:var(--fg-50)}
+.scale .r small{display:block;letter-spacing:0;text-transform:none;font-weight:400;margin-top:4px}
+
+/* voice */
+.pairs{display:grid;gap:16px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pair>div{border:1px solid var(--line);border-radius:6px;padding:20px 24px;display:grid;gap:10px;background:var(--bg-2)}
+.pair .tag{font:500 12px/1 var(--en-text);letter-spacing:.18em;text-transform:uppercase}
+.pair .tag.ar{font:500 14px/1 var(--ar-text);letter-spacing:0;text-transform:none}
+.pair .yes .tag{color:#7FB069}.pair .no .tag{color:#C8473B}
+.pair q{quotes:none;font:400 28px/1.3 var(--en-display);color:var(--fg)}
+.pair q.ar{font:400 30px/1.6 var(--ar-display)}
+
+/* imagery */
+.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.frame{aspect-ratio:3/4;border-radius:6px;position:relative;overflow:hidden;display:grid;align-content:end;padding:20px;color:var(--paper)}
+.frame span{position:relative;z-index:1;font:500 12px/1.5 var(--en-text);letter-spacing:.1em;text-transform:uppercase}
+.frame span.ar{font:500 15px/1.6 var(--ar-text);letter-spacing:0;text-transform:none;display:block}
+.frame::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(12,10,8,.75))}
+.f1{background:linear-gradient(180deg,#F6C98A 0%,#F0A236 35%,#A86438 70%,#3A2010 100%)}
+.f2{background:linear-gradient(180deg,#E9D8C2 0%,#C9A57A 45%,#8B5A2B 80%,#482400 100%)}
+.f3{background:linear-gradient(180deg,#1E1611 0%,#4A2A10 50%,#A86438 85%,#F0A236 100%)}
+.f4{background:linear-gradient(180deg,#B9D4DD 0%,#E9D8C2 55%,#D9B98C 100%)}
+
+/* graphic language */
+.devices{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.device{border:1px solid var(--line);border-radius:6px;padding:34px;display:grid;gap:22px;align-content:start;background:var(--bg-2);min-height:380px}
+.device .demo{display:grid;place-items:center;min-height:120px}
+.arc{width:70%;height:50px;border-bottom:2px solid var(--gold);border-radius:0 0 50% 50%/0 0 100% 100%}
+.pill{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:14px 22px;font:500 16px/1 var(--en-text)}
+.pill.solid{background:var(--fg);color:var(--bg)}
+.pill.solid .disc{width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--fg);display:grid;place-items:center;font-size:13px}
+.pill.glass{background:rgba(244,234,215,.06);border:1px solid var(--line);color:var(--fg);backdrop-filter:blur(10px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+.hair{width:100%;border-top:1px solid var(--line)}
+.scrimdemo{width:100%;height:120px;border-radius:6px;background:linear-gradient(180deg,#A86438 0%,#4A2A10 40%,#0C0A09 100%)}
+
+/* applications */
+.apps{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px;align-items:start}
+.mock{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.mock .bar{padding:12px 16px;border-bottom:1px solid var(--line);font:500 12px/1 var(--en-text);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-50);background:var(--bg-2)}
+.site{background:#0C0A09;color:#F4EAD7;position:relative;height:470px;display:grid;align-content:space-between;padding:22px 26px;overflow:hidden}
+.site::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 25% 45%,#D9A24A 0%,#A86438 30%,#3A2010 60%,#0C0A09 100%);opacity:.9}
+.site::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#0C0A09 100%),linear-gradient(to left,rgba(12,10,8,.6),transparent 60%)}
+.site>*{position:relative;z-index:1}
+.site .nav{display:flex;justify-content:space-between;align-items:center;font:500 13px/1 var(--ar-text);direction:rtl}
+.site .nav .wm{font:700 26px/1 var(--ar-display);display:flex;gap:8px;align-items:center}
+.site .copy{display:grid;gap:12px;justify-items:end;direction:rtl;text-align:right}
+.site .eb{font:500 13px/1 var(--ar-text);color:rgba(244,234,215,.72);display:flex;gap:8px;align-items:center}
+.site .h{font:700 46px/1.4 var(--ar-display)}
+.site .h i{font-style:normal;color:rgba(244,234,215,.62)}
+.site .cta{display:flex;gap:10px}
+.site .pill{padding:12px 18px;font:500 14px/1 var(--ar-text)}
+.post{aspect-ratio:1;background:#0C0A09;color:#F4EAD7;position:relative;display:grid;align-content:space-between;padding:26px;overflow:hidden}
+.post::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 62%,#F0A236 0%,#A86438 35%,transparent 70%),linear-gradient(180deg,#1E1611,#0C0A09)}
+.post>*{position:relative}
+.post .em{width:84px}
+.post .t{font:700 36px/1.35 var(--ar-display);direction:rtl;text-align:right}
+.post .s{font:500 12px/1.5 var(--en-text);letter-spacing:.18em;text-transform:uppercase;color:#D9A24A;text-align:right;margin-top:8px}
+.wa{background:#141110;padding:20px;display:grid;gap:12px;height:470px;align-content:start}
+.wa .bub{background:#1E1A17;border:1px solid var(--line);border-radius:16px 16px 4px 16px;padding:14px 16px;max-width:92%;font:400 16.5px/1.85 var(--ar-text);direction:rtl;text-align:right;color:#F4EAD7;justify-self:end}
+.wa .bub.en{font:400 15px/1.6 var(--en-text);direction:ltr;text-align:left;border-radius:16px 16px 16px 4px;justify-self:start;color:var(--fg-70)}
+.card{display:grid;gap:14px;padding:18px;background:var(--bg-2)}
+.card>div{aspect-ratio:85/55;border-radius:6px;display:grid;padding:18px;box-shadow:0 14px 34px -18px rgba(0,0,0,.8)}
+.card .front{background:#0C0A09;place-items:center;border:1px solid var(--line)}
+.card .front img{width:58%}
+.card .back{background:#F4EAD7;color:#482400;align-content:space-between;font:400 12.5px/1.5 var(--en-text)}
+.card .back .n{font:400 20px/1.1 var(--en-display)}
+.card .back .ar{font:700 15px/1.4 var(--ar-display);color:#9C660C}
+
+/* tokens */
+pre{margin:0;padding:28px 32px;border:1px solid var(--line);border-radius:6px;background:var(--bg-2);font:17px/1.6 ui-monospace,Menlo,monospace;color:var(--fg);overflow:hidden}
+pre .c{color:var(--fg-50)}
+.assets{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.assets>div{border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:118px auto}
+.assets .t{display:grid;place-items:center;padding:18px}
+.assets .t img{max-height:86px;width:auto;max-width:100%}
+.assets .i{padding:12px 14px;font-size:15px;color:var(--fg-70);border-top:1px solid var(--line);line-height:1.45;background:var(--bg-2)}
+.assets .i b{display:block;color:var(--fg);font-weight:500;font-family:ui-monospace,Menlo,monospace;font-size:14px}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;counter-reset:t;border-top:1px solid var(--line)}
+.toc>div{display:grid;grid-template-columns:48px 1fr 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline;font-size:21px}
+.toc>div::before{counter-increment:t;content:counter(t,decimal-leading-zero);font:400 24px/1 var(--en-display);color:var(--gold)}
+.toc .ar{font-size:22px}
+@media print{.slide::after{display:none}.pill.glass{backdrop-filter:none}}
+.list.v>div,.ar .list.v>div{grid-template-columns:1fr;gap:6px}
+.list.sm span{font-size:18px}.ar .list.sm span{font-size:19px;line-height:1.75}
+body{counter-reset:pg}.slide{counter-increment:pg}.foot .pg::before{content:counter(pg,decimal-leading-zero)}
+.tiles.row .tile .stage{aspect-ratio:auto;height:400px}
+.spec.compact{padding:36px}.spec.compact .big-ar{font-size:92px}.spec.compact .big-en{font-size:96px}.spec.compact .glyphs{font-size:30px}
+.device.short{min-height:300px}
+.tight .list>div{padding:10px 0}.tight .list.sm span{font-size:17px}.tight .ar .list.sm span{font-size:18px;line-height:1.7}
+.tight .assets>div{grid-template-rows:96px auto}.tight .assets .t img{max-height:68px}.tight .assets .i{padding:8px 12px;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- 01 COVER -->
+<section id="s1" class="slide cover">
+  <img src="assets/logo-reverse.png" alt="Samur logo">
+  <svg class="arcsvg" viewBox="0 0 420 44" width="420" height="44" aria-hidden="true"><path d="M2 42 Q210 -22 418 42" fill="none" stroke="#D9A24A" stroke-width="2.5" stroke-linecap="round"/></svg>
+  <div class="t">
+    <div class="big-ar ar-d ar">دليل هوية سَمُر</div>
+    <div class="big">Samur Brand Book</div>
+  </div>
+  <div class="meta"><span>Version 1.0</span><span>November 2026</span><span>Riyadh · Jeddah</span></div>
+</section>
+
+<!-- 02 HOW TO USE -->
+<section id="s2" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">About this book</div><h2>How to use this book</h2></div>
+    <div><div class="eyebrow ar">عن هذا الدليل</div><h2 class="ar ar-d">كيف تستخدم هذا الدليل</h2></div>
+  </div>
+  <div style="display:grid;gap:40px;align-content:start">
+  <div class="cols">
+    <div class="en">
+      <p class="lede">For everyone who writes, designs or builds in Samur's name: the team, freelancers, agencies and the website developers.</p>
+      <p>Every page has English on the left and Arabic on the right. When the two differ, the Arabic is the reference, because Samur speaks to its guests in Arabic first.</p>
+      <p>The dark look of the Arabic website is the canonical brand. The paper look is kept for print and light documents only.</p>
+    </div>
+    <div class="ar col">
+      <p class="lede">لكل من يكتب أو يصمّم أو يبني باسم سَمُر: الفريق، والمستقلّون، والوكالات، ومطوّرو الموقع.</p>
+      <p>في كل صفحة، الإنجليزية على اليسار والعربية على اليمين. وعند الاختلاف بينهما، النصّ العربي هو المرجع، لأن سَمُر تخاطب ضيوفها بالعربية أولًا.</p>
+      <p>المظهر الداكن للموقع العربي هو الهوية المعتمدة. أما المظهر الورقي الفاتح فيُستعمل للطباعة والمستندات الفاتحة فقط.</p>
+      <p>الدليل قصير عمدًا. إن لم تجد الإجابة هنا، فالقاعدة: أقلّ، وأهدأ، وأدقّ.</p>
+    </div>
+  </div>
+      <div class="toc" style="grid-template-columns:1fr 1fr 1fr">
+        <div><span>The name</span><span class="ar">الاسم</span></div>
+        <div><span>Positioning</span><span class="ar">موقع العلامة</span></div>
+        <div><span>The Samur way</span><span class="ar">طريقة سَمُر</span></div>
+        <div><span>The logo</span><span class="ar">الشعار</span></div>
+        <div><span>Colour</span><span class="ar">الألوان</span></div>
+        <div><span>Typography</span><span class="ar">الخطوط</span></div>
+        <div><span>Voice</span><span class="ar">الصوت</span></div>
+        <div><span>Imagery</span><span class="ar">الصورة</span></div>
+        <div><span>Graphic language</span><span class="ar">اللغة البصرية</span></div>
+        <div><span>Applications</span><span class="ar">التطبيقات</span></div>
+        <div><span>Tokens for the build</span><span class="ar">للمطوّرين</span></div>
+        <div><span>Assets and next steps</span><span class="ar">الملفات والخطوات التالية</span></div>
+      </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 03 THE NAME -->
+<section id="s3" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">01 · The name</div><h2>Two meanings, <i>one word</i></h2></div>
+    <div><div class="eyebrow ar">01 · الاسم</div><h2 class="ar ar-d">معنيان في كلمة واحدة</h2></div>
+  </div>
+  <div class="cols">
+    <div class="en">
+      <p class="lede">Samur was chosen because it means both of the things a safari is for. Say both when you introduce the brand, in this order.</p>
+      <div class="list">
+        <div><b>1 · The acacia</b><span>Samur is the Arabic name of the umbrella acacia (Vachellia tortilis), the flat-topped tree of the Serengeti and of the Arabian wadis. It is the tree under which every safari rests at midday, and the tree in the logo.</span></div>
+        <div><b>2 · Samar</b><span>Samar is the long evening of talk under the stars, the oldest Arabian pastime. It is what happens at camp once the drives are done.</span></div>
+        <div><b>Writing it</b><span>Latin: <b>Samur</b>, capital S. Never Samar, Samour, or SAMUR in running text. Pronounced SA-moor.</span></div>
+      </div>
+    </div>
+    <div class="ar col">
+      <p class="lede">اختير اسم سَمُر لأنه يحمل المعنيين اللذين من أجلهما يُسافر الناس إلى السفاري. اذكرهما معًا عند تقديم العلامة، وبهذا الترتيب.</p>
+      <div class="list">
+        <div><b>١ · شجرة السَّمُر</b><span>السَّمُر هو اسم شجرة الطلح المظليّة، الشجرة المسطّحة القمّة التي تظلّل سيرينغيتي وأودية الجزيرة العربية معًا. تحتها يستريح كل سفاري وقت الظهيرة، وهي الشجرة التي في الشعار.</span></div>
+        <div><b>٢ · السَّمَر</b><span>السَّمَر هو حديث الليل الطويل تحت النجوم، أقدم عادات العرب. وهو ما يحدث في المخيّم بعد انتهاء الجولات.</span></div>
+        <div><b>كتابة الاسم</b><span>بالعربية: <b>سَمُر</b> بالتشكيل في العناوين والشعار، و<b>سمر</b> بلا تشكيل في النصوص. باللاتينية: Samur دائمًا.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 04 POSITIONING -->
+<section id="s4" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">02 · Positioning</div><h2>A Saudi company <i>for Saudi travellers</i></h2></div>
+    <div><div class="eyebrow ar">02 · موقع العلامة</div><h2 class="ar ar-d">شركة سعودية للمسافر السعودي</h2></div>
+  </div>
+  <div class="cols">
+    <div class="en">
+      <p class="lede">Samur plans and hosts private safaris in Tanzania, Kenya and South Africa for Saudi couples, families and friend groups.</p>
+      <div class="list">
+        <div><b>Promise line</b><span>Follow the herds, not the crowds.</span></div>
+        <div><b>Who we serve</b><span>Couples, families and friend groups from Riyadh and Jeddah, aged 30 to 60, used to five-star travel, travelling at Eid and in the school holidays.</span></div>
+        <div><b>What we sell</b><span>Finished private journeys: camps of a dozen tents, one vehicle and one guide per party, internal flights, park fees. Change anything and the quote is rebuilt, itemised.</span></div>
+        <div><b>What we are not</b><span>Not a booking website. Not a budget operator or a group bus. Not an adventure brand; nobody in our photos is roughing it.</span></div>
+        <div><b>Personality</b><span>Quiet, warm, unhurried, exact. The host who has done this many times and never needs to raise their voice.</span></div>
+      </div>
+    </div>
+    <div class="ar col">
+      <p class="lede">تخطّط سَمُر وتستضيف رحلات سفاري خاصة في تنزانيا وكينيا وجنوب أفريقيا للأزواج والعائلات ومجموعات الأصدقاء من السعودية.</p>
+      <div class="list">
+        <div><b>جملة الوعد</b><span>اتبع القطعان، لا الزحام.</span></div>
+        <div><b>لمن نعمل</b><span>الأزواج والعائلات ومجموعات الأصدقاء من الرياض وجدة، بين <span class="num">30</span> و<span class="num">60</span> عامًا، معتادون على سفر الخمس نجوم، يسافرون في العيد وفي الإجازات المدرسية.</span></div>
+        <div><b>ماذا نبيع</b><span>رحلات خاصة مكتملة: مخيمات من بضع خيام، وسيارة ومرشد واحد لكل رفقة، ورحلات جوية داخلية، ورسوم المحميات. غيّر ما تشاء ويُعاد بناء العرض مفصّلًا بندًا بندًا.</span></div>
+        <div><b>ما لسنا عليه</b><span>لسنا موقع حجز. ولسنا شركة اقتصادية ولا حافلة مجموعات. ولسنا علامة مغامرات؛ لا أحد في صورنا يعيش الخشونة.</span></div>
+        <div><b>الشخصية</b><span>هادئة، دافئة، غير مستعجلة، دقيقة. كالمضيف الذي خاض الرحلة مرارًا ولا يحتاج إلى رفع صوته.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 05 THE SAMUR WAY -->
+<section id="s5" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">03 · The Samur way</div><h2>Camps of eight tents, <i>not eighty rooms</i></h2></div>
+    <div><div class="eyebrow ar">03 · طريقة سَمُر</div><h2 class="ar ar-d">مخيمات من ثماني خيام، لا ثمانين غرفة.</h2></div>
+  </div>
+  <div class="cols">
+    <div class="en">
+      <p class="lede">Four proof points. Every page, post and proposal should carry at least one of them.</p>
+      <div class="list">
+        <div><b>Private vehicle and guide</b><span>Yours for every drive, from the first dawn to the last.</span></div>
+        <div><b>Owner-run camps</b><span>Twelve tents or fewer, chosen for position and people.</span></div>
+        <div><b>Halal food, family privacy</b><span>Camps chosen with families in mind, and halal food arranged at every stop.</span></div>
+        <div><b>On the ground, always</b><span>A Samur host in each country, reachable at any hour, on WhatsApp.</span></div>
+      </div>
+      <p>We work with a small set of owner-run camps and keep one vehicle and one guide to your party for the whole trip. You stop when you want to stop. You leave before anyone else is awake.</p>
+    </div>
+    <div class="ar col">
+      <p class="lede">أربع نقاط إثبات. كل صفحة ومنشور وعرض ينبغي أن يحمل واحدة منها على الأقل.</p>
+      <div class="list">
+        <div><b>سيارة ومرشد خاصان</b><span>لك وحدك في كل جولة، من أول فجر إلى آخر غروب.</span></div>
+        <div><b>مخيمات يديرها أصحابها</b><span>اثنتا عشرة خيمة أو أقل، تُختار لموقعها ولأهلها.</span></div>
+        <div><b>طعام حلال وخصوصية للعائلات</b><span>مخيمات تُختار لتناسب العائلات، وطعام حلال مضمون في كل محطة.</span></div>
+        <div><b>فريق على الأرض دائمًا</b><span>مضيف من سَمُر في كل دولة، يردّ عليك في أي ساعة عبر واتساب.</span></div>
+      </div>
+      <p>نعمل مع مجموعة صغيرة من المخيمات التي يديرها أصحابها، ونخصّص لرفقتك سيارة واحدة ومرشدًا واحدًا طوال الرحلة. تتوقف حين تريد، وتنطلق قبل أن يستيقظ أحد.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 06 LOGO -->
+<section id="s6" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">04 · The logo</div><h2>Sun, acacia, <i>calligraphy</i></h2></div>
+    <div><div class="eyebrow ar">04 · الشعار</div><h2 class="ar ar-d">شمس وسَمُرة وخطّ</h2></div>
+  </div>
+  <div class="logo-hero">
+    <img src="assets/logo-reverse.png" alt="Primary Samur logo on night">
+    <div style="display:grid;gap:26px">
+      <p class="lede">The logo is one piece of artwork. The calligraphy is drawn, not typed. Never rebuild it in a font.</p>
+      <p class="lede ar">الشعار قطعة فنية واحدة. الخطّ مرسوم باليد لا مكتوب بخطّ رقمي. لا تُعد بناءه بأي خطّ.</p>
+      <div class="anat">
+        <div><span><b>The sun.</b> Orange fading to the ground. The only gradient in the identity.</span><span class="ar"><b>الشمس.</b> برتقالية تذوب نحو الأرض. التدرّج الوحيد في الهوية.</span></div>
+        <div><span><b>The acacia.</b> Its canopy breaks the sun's edge.</span><span class="ar"><b>السَّمُرة.</b> مظلّتها تقطع حافة الشمس.</span></div>
+        <div><span><b>The horizon.</b> One shallow arc. The brand's line device.</span><span class="ar"><b>الأفق.</b> قوس واحد خفيف. خطّ العلامة الأساسي.</span></div>
+        <div><span><b>The calligraphy.</b> سمر in a free brush hand. Always the largest element.</span><span class="ar"><b>الخطّ.</b> «سمر» بخطّ حرّ. أكبر عناصر الشعار دائمًا.</span></div>
+        <div><span><b>The wordmark.</b> SAMUR, wide-tracked serif, between two rules.</span><span class="ar"><b>الاسم اللاتيني.</b> SAMUR بخطّ سيريف متباعد بين خطّين قصيرين.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 07 VERSIONS -->
+<section id="s7" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">04 · The logo</div><h2>Versions</h2></div>
+    <div><div class="eyebrow ar">04 · الشعار</div><h2 class="ar ar-d">نسخ الشعار</h2></div>
+  </div>
+  <div class="tiles row">
+    <div class="tile"><div class="stage night"><img src="assets/logo-reverse.png" alt=""></div><div class="cap"><b>Primary · on night</b><span>Website, social, video, screens. Cream calligraphy, the sun stays gold.</span><span class="ar"><b>الأساسية · على الليل</b><br>الموقع والمنصات والفيديو والشاشات. الخطّ كريمي والشمس تبقى ذهبية.</span></div></div>
+    <div class="tile"><div class="stage paper"><img src="assets/logo-full.png" alt=""></div><div class="cap"><b>Full colour · on paper</b><span>Print, proposals, light documents. Paper or sand grounds only.</span><span class="ar"><b>ملوّنة · على الورق</b><br>الطباعة والعروض والمستندات الفاتحة. على الورقي أو الرملي فقط.</span></div></div>
+    <div class="tile"><div class="stage photo"><img src="assets/logo-paper.png" alt=""></div><div class="cap"><b>Single colour · cream</b><span>Over photographs with a dark scrim of at least 55%, embroidery, engraving.</span><span class="ar"><b>لون واحد · كريمي</b><br>فوق الصور مع طبقة داكنة لا تقلّ عن <span class="num">55%</span>، والتطريز والنقش.</span></div></div>
+    <div class="tile"><div class="stage sand"><img src="assets/logo-ink.png" alt=""></div><div class="cap"><b>Single colour · umber</b><span>One-ink print on light stock. The sun becomes a 30% tint.</span><span class="ar"><b>لون واحد · بُنّي</b><br>طباعة بحبر واحد على ورق فاتح. الشمس تصبح ظلًّا بنسبة <span class="num">30%</span>.</span></div></div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 07b LOCKUPS -->
+<section id="s8" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">04 · The logo</div><h2>Lockups</h2></div>
+    <div><div class="eyebrow ar">04 · الشعار</div><h2 class="ar ar-d">أجزاء الشعار</h2></div>
+  </div>
+  <div class="tiles row">
+    <div class="tile"><div class="stage night"><img src="assets/emblem.png" alt="" style="width:62%"></div><div class="cap"><b>Emblem · on night</b><span>Favicon, app icon, social avatar, the corner of a document.</span><span class="ar"><b>الرمز · على الليل</b><br>أيقونة الموقع والتطبيق، صورة الحسابات، زاوية المستند.</span></div></div>
+    <div class="tile"><div class="stage paper"><img src="assets/emblem-ink.png" alt="" style="width:62%"></div><div class="cap"><b>Emblem · umber</b><span>Same uses on light grounds and in one-ink print.</span><span class="ar"><b>الرمز · بُنّي</b><br>الاستعمالات نفسها على الخلفيات الفاتحة وبحبر واحد.</span></div></div>
+    <div class="tile"><div class="stage night"><img src="assets/calligraphy-paper.png" alt="" style="width:72%"></div><div class="cap"><b>Calligraphy alone</b><span>Arabic-first contexts: social headers, Arabic documents, merchandise. Keep the Latin name in type nearby.</span><span class="ar"><b>الخطّ وحده</b><br>للسياقات العربية: ترويسات المنصات، والمستندات العربية، والمنتجات. مع الاسم اللاتيني بخطّ عادي قريبًا منه.</span></div></div>
+    <div class="tile"><div class="stage night"><img src="assets/wordmark-paper.png" alt="" style="width:88%"></div><div class="cap"><b>Wordmark alone</b><span>Small Latin contexts: nav bars, email signatures, footers, partner rows.</span><span class="ar"><b>الاسم اللاتيني وحده</b><br>للسياقات اللاتينية الصغيرة: شريط التنقّل، توقيع البريد، التذييل، صفوف الشركاء.</span></div></div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 08 CLEAR SPACE -->
+<section id="s9" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">04 · The logo</div><h2>Clear space <i>and size</i></h2></div>
+    <div><div class="eyebrow ar">04 · الشعار</div><h2 class="ar ar-d">المساحة الحرّة والحجم</h2></div>
+  </div>
+  <div class="cols" style="grid-template-columns:520px 1fr 1fr;gap:56px">
+    <div class="clearbox" style="align-self:start"><div class="box"><img src="assets/logo-reverse.png" alt=""></div></div>
+      <div class="en">
+        <div class="list v sm">
+          <div><b>Clear space</b><span>x = the cap height of SAMUR. Keep 2x clear on every side. No text, photo edge or partner logo enters it.</span></div>
+          <div><b>Minimum size</b><span>Full logo: <span class="num">180 px</span> wide on screen, <span class="num">45 mm</span> in print. Below that drop the wordmark. Below <span class="num">100 px</span> use the emblem alone, never under <span class="num">40 px</span> or <span class="num">10 mm</span>.</span></div>
+          <div><b>Placement</b><span>Centred on covers. Top right in Arabic layouts, top left in English ones. Always on night, paper or sand.</span></div>
+          <div><b>Over photos</b><span>Cream version only, over a scrim of at least 55% night. Never the full colour logo on a photograph.</span></div>
+        </div>
+      </div>
+      <div class="ar col">
+        <div class="list v sm">
+          <div><b>المساحة الحرّة</b><span>x = ارتفاع حروف SAMUR. اترك 2x فراغًا من كل جهة. لا نصّ ولا حافة صورة ولا شعار شريك يدخل فيها.</span></div>
+          <div><b>الحدّ الأدنى للحجم</b><span>الشعار الكامل: <span class="num">180 px</span> عرضًا على الشاشة و<span class="num">45 mm</span> في الطباعة. تحت ذلك احذف الاسم اللاتيني. وتحت <span class="num">100 px</span> استعمل الرمز وحده، ولا يقلّ عن <span class="num">40 px</span> أو <span class="num">10 mm</span>.</span></div>
+          <div><b>الموضع</b><span>في الوسط على الأغلفة. أعلى اليمين في التصاميم العربية، وأعلى اليسار في الإنجليزية. دائمًا على الليل أو الورقي أو الرملي.</span></div>
+          <div><b>فوق الصور</b><span>النسخة الكريمية فقط، فوق طبقة داكنة لا تقلّ عن <span class="num">55%</span>. لا توضع النسخة الملوّنة فوق صورة أبدًا.</span></div>
+        </div>
+      </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 09 MISUSE -->
+<section id="s10" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">04 · The logo</div><h2>Do not</h2></div>
+    <div><div class="eyebrow ar">04 · الشعار</div><h2 class="ar ar-d">ممنوع</h2></div>
+  </div>
+  <div class="dont">
+    <div><div class="stage"><img src="assets/logo-reverse.png" style="transform:scaleX(1.4)" alt=""></div><div class="cap"><b>Stretch or squash</b><span class="ar">لا تمدّه ولا تضغطه</span></div></div>
+    <div><div class="stage"><img src="assets/logo-reverse.png" style="transform:rotate(-12deg)" alt=""></div><div class="cap"><b>Rotate</b><span class="ar">لا تُدِره</span></div></div>
+    <div><div class="stage"><img src="assets/logo-reverse.png" style="filter:hue-rotate(160deg) saturate(1.6)" alt=""></div><div class="cap"><b>Recolour</b><span class="ar">لا تغيّر ألوانه</span></div></div>
+    <div><div class="stage" style="background:linear-gradient(135deg,#F0A236,#A86438)"><img src="assets/logo-full.png" alt=""></div><div class="cap"><b>Full colour on coloured or busy grounds</b><span class="ar">لا تضع الملوّنة على خلفية ملوّنة أو مزدحمة</span></div></div>
+    <div><div class="stage"><img src="assets/logo-reverse.png" style="filter:drop-shadow(0 0 14px #F0A236)" alt=""></div><div class="cap"><b>Shadows, glows, outlines</b><span class="ar">لا ظلال ولا توهّج ولا حدود</span></div></div>
+    <div><div class="stage"><div style="font:700 70px/1 var(--ar-display);direction:rtl">سمر</div></div><div class="cap"><b>Typeset the name instead of the artwork</b><span class="ar">لا تكتب الاسم بخطّ رقمي بدل الشعار</span></div></div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 10 COLOUR -->
+<section id="s11" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">05 · Colour</div><h2>Night, cream, <i>gold</i></h2></div>
+    <div><div class="eyebrow ar">05 · الألوان</div><h2 class="ar ar-d">ليل وكريمي وذهب</h2></div>
+  </div>
+  <div style="display:grid;gap:34px;align-content:start">
+    <div class="sw">
+      <div><div class="chip" style="background:#0C0A09;color:#F4EAD7;border-bottom:1px solid var(--line)">Night</div><div class="info"><b>Night · ليل</b><code>#0C0A09 · hsl(20 14% 4%)</code><span>The ground. Every screen starts here.</span><span class="ar">الأرضية. كل شاشة تبدأ منه.</span></div></div>
+      <div><div class="chip" style="background:#141110;color:#F4EAD7;border-bottom:1px solid var(--line)">Night 2</div><div class="info"><b>Night 2 · ليل ٢</b><code>#141110 · hsl(24 12% 7%)</code><span>Bands, cards, forms, alternate pages.</span><span class="ar">الأشرطة والبطاقات والنماذج والصفحات البديلة.</span></div></div>
+      <div><div class="chip" style="background:#F4EAD7;color:#0C0A09">Cream</div><div class="info"><b>Cream · كريمي</b><code>#F4EAD7 · hsl(40 55% 90%)</code><span>All text and the logo on night. Solid buttons.</span><span class="ar">كل النصوص والشعار على الليل. الأزرار الصلبة.</span></div></div>
+      <div><div class="chip" style="background:#D9A24A;color:#0C0A09">Gold</div><div class="info"><b>Gold · ذهب</b><code>#D9A24A · hsl(38 64% 57%)</code><span>The one accent: eyebrow dot, index numbers, focus ring. Never body text.</span><span class="ar">اللون المميّز الوحيد: النقطة، الأرقام، إطار التركيز. ليس للنصوص.</span></div></div>
+      <div><div class="chip" style="background:linear-gradient(180deg,#F0A236,#FCC672);color:#482400">Sun</div><div class="info"><b>Sun · شمس</b><code>#F0A236 → #FCC672</code><span>Logo only. The one gradient. Never a UI colour.</span><span class="ar">للشعار فقط. التدرّج الوحيد. ليس لونًا للواجهة.</span></div></div>
+      <div><div class="chip" style="background:#FAF0E7;color:#482400">Paper + Umber</div><div class="info"><b>Paper · Umber</b><code>#FAF0E7 · #482400</code><span>Light contexts only: print, proposals, the full colour logo's own field.</span><span class="ar">للسياقات الفاتحة فقط: الطباعة والعروض وخلفية الشعار الملوّن.</span></div></div>
+    </div>
+    <div class="cols" style="gap:48px">
+      <div class="en">
+        <span class="label">Proportion on a screen</span>
+        <div class="ratio">
+          <div style="flex:66;background:#0C0A09;color:#F4EAD7">Night 66</div>
+          <div style="flex:24;background:#F4EAD7;color:#0C0A09">Cream 24</div>
+          <div style="flex:8;background:#D9A24A;color:#0C0A09">Gold 8</div>
+          <div style="flex:2;background:#F0A236"></div>
+        </div>
+        <p>Mostly night. Cream for everything you read. Gold in small doses. The sun appears once, in the logo, and once is enough.</p>
+        <p class="ar">ليل في الغالب. الكريمي لكل ما يُقرأ. الذهب بجرعات صغيرة. والشمس تظهر مرة واحدة في الشعار، ومرة تكفي.</p>
+      </div>
+      <div class="en">
+        <span class="label">Contrast</span>
+        <div class="contrast">
+          <div style="background:#0C0A09;color:#F4EAD7">Cream<small>16.5 : 1 · any size</small></div>
+          <div style="background:#0C0A09;color:#D9A24A">Gold<small>8.7 : 1 · labels and numbers</small></div>
+          <div style="background:#FAF0E7;color:#482400">Umber on paper<small>12.2 : 1 · any size</small></div>
+        </div>
+        <p class="ar" style="font-size:19px">الذهب على الورقي الفاتح لا يُقرأ (<span class="num">2 : 1</span>). على الخلفيات الفاتحة النصّ بُنّي دائمًا.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 11 ARABIC TYPE -->
+<section id="s12" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">06 · Typography</div><h2>Arabic: Amiri <i>and IBM Plex Sans Arabic</i></h2></div>
+    <div><div class="eyebrow ar">06 · الخطوط</div><h2 class="ar ar-d">العربية: أميري وبلكس</h2></div>
+  </div>
+  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+    <div class="spec compact">
+      <span class="label ar">أميري ٧٠٠ · للعناوين</span>
+      <div class="big-ar">اتبع القطعان،<br><i>لا الزحام.</i></div>
+      <span class="label ar">آي بي إم بلكس سانس عربي ٤٠٠ · للنصوص</span>
+      <div class="body-ar">رحلات سفاري خاصة في تنزانيا وكينيا وجنوب أفريقيا، مضبوطة على موسم الهجرة الكبرى وعلى إيقاعك أنت. مخيمات من بضع خيام، ومرشد خاص لكل سيارة، ولا قوافل.</div>
+      <div class="glyphs ar-d ar">أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي · 0123456789</div>
+    </div>
+    <div class="cols" style="gap:32px;grid-template-columns:1fr 1fr">
+      <div class="ar col">
+        <div class="list v sm">
+          <div><b>العناوين</b><span>أميري <span class="num">700</span>. السطر الثاني من العنوان بالكريمي الباهت بدل المائل. تباعد الأسطر من <span class="num">1.25</span> إلى <span class="num">1.4</span>.</span></div>
+          <div><b>النصوص</b><span>آي بي إم بلكس سانس عربي <span class="num">400</span> و<span class="num">500</span>. تباعد أسطر <span class="num">1.8</span> للنصّ و<span class="num">1.85</span> للمقدّمة.</span></div>
+          <div><b>ممنوع</b><span>لا تباعد بين الحروف، ولا كشيدة ممطوطة، ولا مائل، ولا سميك مصطنع، ولا أحرف كبيرة.</span></div>
+          <div><b>الأرقام</b><span>أرقام غربية دائمًا، معزولة من اليسار إلى اليمين، بعرض ثابت. الأسعار بالريال: <span class="num">29,500</span> ر.س.</span></div>
+        </div>
+      </div>
+      <div class="en">
+        <div class="list v sm">
+          <div><b>Headlines</b><span>Amiri 700. The second line in dimmed cream instead of italic. Leading 1.25 to 1.4.</span></div>
+          <div><b>Body</b><span>IBM Plex Sans Arabic 400 and 500. Leading 1.8 for body, 1.85 for ledes.</span></div>
+          <div><b>Never</b><span>No letter-spacing, no stretched kashida, no italics, no fake bold, no uppercase equivalents.</span></div>
+          <div><b>Numbers</b><span>Western digits, isolated left-to-right, tabular. Prices in SAR.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 12 ENGLISH TYPE -->
+<section id="s13" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">06 · Typography</div><h2>English: Instrument Serif <i>and Inter</i></h2></div>
+    <div><div class="eyebrow ar">06 · الخطوط</div><h2 class="ar ar-d">الإنجليزية: إنسترومنت سيريف وإنتر</h2></div>
+  </div>
+  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+    <div class="spec compact">
+      <span class="label">Instrument Serif 400 · display</span>
+      <div class="big-en">Follow the herds,<br><i>not the crowds.</i></div>
+      <span class="label">Inter 400 · body</span>
+      <div class="body-en">Private safaris across Tanzania, Kenya and South Africa, timed to the migration and paced to you. Camps of a dozen tents, one guide per vehicle, and no convoys.</div>
+      <div class="glyphs" style="font-family:var(--en-display)">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789</div>
+    </div>
+    <div class="cols" style="gap:32px;grid-template-columns:1fr 1fr">
+      <div class="en">
+        <div class="list v sm">
+          <div><b>Headlines</b><span>Instrument Serif 400. Italic for the second line or one emphasised word. Leading 1.05 to 1.15. Never bold.</span></div>
+          <div><b>Body</b><span>Inter 400 and 500, 15 to 17 px on the web, leading 1.6 to 1.9.</span></div>
+          <div><b>Labels</b><span>Inter 500, 13 px, tracked +14 to +18%, uppercase, gold or cream at 72%. English only; Arabic labels are never tracked.</span></div>
+          <div><b>Never</b><span>Bold display, condensed faces, decorative scripts, all-caps paragraphs.</span></div>
+        </div>
+      </div>
+      <div class="ar col">
+        <div class="list v sm">
+          <div><b>العناوين</b><span>إنسترومنت سيريف <span class="num">400</span>. المائل للسطر الثاني أو لكلمة واحدة مميّزة. تباعد أسطر <span class="num">1.05</span> إلى <span class="num">1.15</span>. لا سميك أبدًا.</span></div>
+          <div><b>النصوص</b><span>إنتر <span class="num">400</span> و<span class="num">500</span>، من <span class="num">15</span> إلى <span class="num">17</span> بكسل على الويب.</span></div>
+          <div><b>العناوين الصغيرة</b><span>إنتر <span class="num">500</span>، <span class="num">13</span> بكسل، متباعدة الحروف وبأحرف كبيرة. للإنجليزية فقط.</span></div>
+          <div><b>ممنوع</b><span>العناوين السميكة، والخطوط المضغوطة، وخطوط الزخرفة، وفقرات بأحرف كبيرة.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 13 TYPE SCALE -->
+<section id="s14" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">06 · Typography</div><h2>Scale, <i>on the web</i></h2></div>
+    <div><div class="eyebrow ar">06 · الخطوط</div><h2 class="ar ar-d">المقاس على الويب</h2></div>
+  </div>
+  <div class="scale">
+    <div><span class="r">H1<small>42 to 92 px</small></span><span style="font:400 72px/1.05 var(--en-display)">Three countries. <i>One horizon.</i></span><span class="ar ar-d" style="font-size:66px;line-height:1.4;font-weight:700">ثلاث دول. <span style="color:var(--fg-70)">وأفق واحد.</span></span></div>
+    <div><span class="r">H2<small>34 to 62 px</small></span><span style="font:400 50px/1.05 var(--en-display)">Pick a season. We build the rest.</span><span class="ar ar-d" style="font-size:46px;line-height:1.35;font-weight:700">اختر الموسم. ونحن نبني الباقي.</span></div>
+    <div><span class="r">H3<small>30 to 40 px</small></span><span style="font:400 36px/1.1 var(--en-display)">Serengeti and Ngorongoro</span><span class="ar ar-d" style="font-size:34px;line-height:1.35;font-weight:700">سيرينغيتي ونغورونغورو</span></div>
+    <div><span class="r">Lede<small>17 px · 1.85</small></span><span style="font-size:22px;line-height:1.6;color:var(--fg-70)">Each journey is built in one country or stitched across two.</span><span class="ar" style="font-size:23px;line-height:1.85;color:var(--fg-70)">كل رحلة تُبنى في دولة واحدة أو تجمع بين اثنتين.</span></div>
+    <div><span class="r">Body<small>15 to 17 px · 1.9</small></span><span style="font-size:19px;color:var(--fg-70)">River crossings July to October, then the crater floor.</span><span class="ar" style="font-size:20px;line-height:1.85;color:var(--fg-70)">عبور الأنهار من يوليو إلى أكتوبر، ثم قاع الفوهة.</span></div>
+    <div><span class="r">Label<small>13 px · 500</small></span><span class="label">Tanzania · Kenya · South Africa</span><span class="ar" style="font:500 16px/1 var(--ar-text);color:var(--gold)">تنزانيا · كينيا · جنوب أفريقيا</span></div>
+    <div><span class="r">Number<small>tabular · ltr</small></span><span style="font:400 48px/1 var(--en-display)" class="num">SAR 29,500</span><span class="ar" style="font-size:22px"><span class="num" style="font:400 48px/1 var(--en-display)">29,500</span> ر.س للفرد</span></div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 14 VOICE -->
+<section id="s15" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">07 · Voice</div><h2>Quiet, exact, <i>warm</i></h2></div>
+    <div><div class="eyebrow ar">07 · الصوت</div><h2 class="ar ar-d">هادئ، دقيق، دافئ</h2></div>
+  </div>
+  <div class="cols">
+    <div class="en">
+      <p class="lede">Samur writes like a host who has done the trip fifty times. Short sentences. Real detail. No exclamation marks, no superlatives, no hard sell.</p>
+      <div class="list">
+        <div><b>Say the real thing</b><span>Forty minutes in a bush plane, not "seamless transfers". Twelve tents or fewer, not "boutique luxury".</span></div>
+        <div><b>Numbers where they matter</b><span>Nights, months, prices in SAR, children's ages. Always Western digits.</span></div>
+        <div><b>Calm, not excited</b><span>No exclamation marks. No "unforgettable", "breathtaking", "once in a lifetime". The place does that work.</span></div>
+        <div><b>Family first</b><span>Write to the person planning for others: privacy, halal food, prayer, children, a host on WhatsApp.</span></div>
+        <div><b>Our words</b><span>Journey, not package. Camp, not hotel. Guide, not driver. Plan, not book. Host, not agent.</span></div>
+      </div>
+    </div>
+    <div class="ar col">
+      <p class="lede">تكتب سَمُر كمضيف خاض الرحلة خمسين مرة. جمل قصيرة. تفاصيل حقيقية. بلا علامات تعجّب، ولا مبالغات، ولا بيع ملحّ.</p>
+      <div class="list">
+        <div><b>الفصحى بنبرة معاصرة</b><span>بضمير المخاطب المفرد، جمل قصيرة ذات موقف، بلا كلمات إنجليزية ولا تسويقية معرّبة إلا «واتساب». أسماء الأماكن بصيغتها العربية: سيرينغيتي، نغورونغورو، زنجبار.</span></div>
+        <div><b>قل الشيء الحقيقي</b><span>أربعون دقيقة في طائرة صغيرة، لا «تنقّلات سلسة». اثنتا عشرة خيمة أو أقل، لا «فخامة بوتيك».</span></div>
+        <div><b>الأرقام حيث تهمّ</b><span>الليالي والأشهر والأسعار بالريال وأعمار الأطفال. بأرقام غربية دائمًا.</span></div>
+        <div><b>هدوء لا حماسة</b><span>بلا علامات تعجّب. بلا «لا يُنسى» و«يخطف الأنفاس» و«مرة في العمر». المكان يقوم بهذا الدور.</span></div>
+        <div><b>كلماتنا</b><span>رحلة لا باكج. مخيّم لا فندق. مرشد لا سائق. خطّط لا احجز. مضيف لا وكيل.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 15 VOICE EXAMPLES -->
+<section id="s16" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">07 · Voice</div><h2>Write this, <i>not that</i></h2></div>
+    <div><div class="eyebrow ar">07 · الصوت</div><h2 class="ar ar-d">اكتب هذا، لا ذاك</h2></div>
+  </div>
+  <div class="cols">
+    <div class="pairs">
+      <div class="pair">
+        <div class="yes"><span class="tag">Write this</span><q>Twelve tents or fewer, chosen for position and people.</q></div>
+        <div class="no"><span class="tag">Not this</span><q>Experience world-class boutique luxury in the heart of Africa!</q></div>
+      </div>
+      <div class="pair">
+        <div class="yes"><span class="tag">Write this</span><q>Send a few lines and a planner replies within one working day with two or three routes and honest prices.</q></div>
+        <div class="no"><span class="tag">Not this</span><q>Contact us now for exclusive VIP packages at the best rates!</q></div>
+      </div>
+      <div class="pair">
+        <div class="yes"><span class="tag">Write this</span><q>You leave before anyone else is awake.</q></div>
+        <div class="no"><span class="tag">Not this</span><q>Don't miss our amazing early-morning game drive add-on.</q></div>
+      </div>
+    </div>
+    <div class="pairs">
+      <div class="pair">
+        <div class="no"><span class="tag ar">لا هذا</span><q class="ar">باكج سفاري VIP حصري بأفضل الأسعار! احجز الآن!</q></div>
+        <div class="yes"><span class="tag ar">اكتب هذا</span><q class="ar">أرسل لنا بضعة أسطر، ويردّ عليك مخطّط من سَمُر خلال يوم عمل واحد بمسارين أو ثلاثة وأسعار واضحة.</q></div>
+      </div>
+      <div class="pair">
+        <div class="no"><span class="tag ar">لا هذا</span><q class="ar">تجربة فاخرة لا تُنسى تخطف الأنفاس في قلب أفريقيا!</q></div>
+        <div class="yes"><span class="tag ar">اكتب هذا</span><q class="ar">اثنتا عشرة خيمة أو أقل، تُختار لموقعها ولأهلها.</q></div>
+      </div>
+      <div class="pair">
+        <div class="no"><span class="tag ar">لا هذا</span><q class="ar">لا تفوّت عرض جولة الصباح الباكر المذهلة!</q></div>
+        <div class="yes"><span class="tag ar">اكتب هذا</span><q class="ar">تتوقف حين تريد، وتنطلق قبل أن يستيقظ أحد.</q></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 16 IMAGERY -->
+<section id="s17" class="slide tight">
+  <div class="hd">
+    <div><div class="eyebrow">08 · Imagery</div><h2>Golden hour, <i>at a distance</i></h2></div>
+    <div><div class="eyebrow ar">08 · الصورة</div><h2 class="ar ar-d">الساعة الذهبية، من بعيد</h2></div>
+  </div>
+  <div style="display:grid;grid-template-columns:340px 1fr 1fr;gap:44px;align-items:start">
+    <div class="frames" style="grid-template-columns:1fr 1fr;gap:12px">
+      <div class="frame f1"><span>Light · dawn and the last hour<span class="ar">الضوء · الفجر والساعة الأخيرة</span></span></div>
+      <div class="frame f2"><span>Space · one subject, wide sky<span class="ar">الفضاء · موضوع واحد وسماء واسعة</span></span></div>
+      <div class="frame f3"><span>Night · the fire, the samar<span class="ar">الليل · النار والسَّمَر</span></span></div>
+      <div class="frame f4"><span>Sea · Zanzibar, pale and calm<span class="ar">البحر · زنجبار، شاحب وهادئ</span></span></div>
+    </div>
+      <div class="en">
+        <div class="list v sm">
+          <div><b>People</b><span>Modest Saudi guests dressed for travel, never posed. Guides named in the caption. No crowds, no selfie sticks.</span></div>
+          <div><b>Vehicles</b><span>Closed pop-up-roof Land Cruisers. Never open-sided trucks or minibuses.</span></div>
+          <div><b>Animals</b><span>At a respectful distance, in their own landscape. No feeding, no hands on wildlife.</span></div>
+          <div><b>Places</b><span>Canvas camps, wooden decks, dhows, stone town. Never a chain hotel, never a visible brand.</span></div>
+          <div><b>Treatment</b><span>Natural colour, warm but true, a fine grain. No HDR, no teal-and-orange, no filters. The lower part of a hero melts into night.</span></div>
+          <div><b>AI imagery</b><span>Allowed for concepts and ads while the library is small. Same rules. Nothing invented may show a real lodge, a real brand or a recognisable person.</span></div>
+        </div>
+      </div>
+      <div class="ar col">
+        <div class="list v sm">
+          <div><b>الناس</b><span>ضيوف سعوديون بلباس محتشم ومريح، بلا وقفات مصطنعة. المرشدون بأسمائهم في التعليق. لا زحام ولا عصا سيلفي.</span></div>
+          <div><b>السيارات</b><span>لاند كروزر مغلقة بسقف يُفتح. لا شاحنات مفتوحة الجوانب ولا حافلات صغيرة.</span></div>
+          <div><b>الحيوانات</b><span>من مسافة محترمة، في بيئتها. لا إطعام ولا لمس.</span></div>
+          <div><b>الأماكن</b><span>مخيمات قماشية، ومنصات خشبية، ومراكب شراعية، والمدينة الحجرية. لا فنادق سلاسل ولا علامة تجارية ظاهرة.</span></div>
+          <div><b>المعالجة</b><span>ألوان طبيعية دافئة وصادقة، مع حبيبات خفيفة. لا HDR ولا فلاتر. أسفل الصورة الرئيسية يذوب في الليل.</span></div>
+          <div><b>صور الذكاء الاصطناعي</b><span>مسموحة للتصوّرات والإعلانات ما دامت المكتبة صغيرة. القواعد نفسها. لا يُظهر المُولَّد نُزلًا حقيقيًا ولا علامة ولا شخصًا معروفًا.</span></div>
+        </div>
+      </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 17 GRAPHIC LANGUAGE -->
+<section id="s18" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">09 · Graphic language</div><h2>Three devices, <i>nothing else</i></h2></div>
+    <div><div class="eyebrow ar">09 · اللغة البصرية</div><h2 class="ar ar-d">ثلاث أدوات، لا غير</h2></div>
+  </div>
+  <div class="devices">
+    <div class="device short">
+      <span class="label">The horizon arc · قوس الأفق</span>
+      <div class="demo"><svg class="arcsvg" viewBox="0 0 420 44" width="420" height="44" aria-hidden="true"><path d="M2 42 Q210 -22 418 42" fill="none" stroke="#D9A24A" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <p style="font-size:19px">From the logo. Under a cover title or as a section divider, in gold or cream, one per page at most.</p>
+      <p class="ar" style="font-size:19px">من الشعار. تحت عنوان الغلاف أو فاصلًا بين الأقسام، بالذهبي أو الكريمي، واحد في الصفحة على الأكثر.</p>
+    </div>
+    <div class="device short">
+      <span class="label">Hairline and dot · الخطّ الرفيع والنقطة</span>
+      <div class="demo" style="gap:22px;align-content:center"><div class="hair"></div><div style="display:flex;gap:12px;align-items:center;font-size:15px;color:var(--fg-70)"><span class="dot"></span>تنزانيا · كينيا · جنوب أفريقيا</div><div class="hair"></div></div>
+      <p style="font-size:19px">Rules at cream 12 to 14% for tables, nav and footers. The 6 to 8 px gold dot opens every eyebrow.</p>
+      <p class="ar" style="font-size:19px">خطوط بكريمي <span class="num">12</span> إلى <span class="num">14%</span> للجداول والتنقّل والتذييل. والنقطة الذهبية تفتتح كل عنوان صغير.</p>
+    </div>
+    <div class="device short">
+      <span class="label">Pills · الأزرار</span>
+      <div class="demo" style="gap:14px;grid-auto-flow:column"><span class="pill solid">خطّط رحلتي <span class="disc">↖</span></span><span class="pill glass">استعرض الرحلات ↓</span></div>
+      <p style="font-size:19px">Primary: solid cream with a night arrow disc. Secondary: dark glass with a hairline. Fully rounded, never square.</p>
+      <p class="ar" style="font-size:19px">الأساسي: كريمي صلب مع قرص سهم ليليّ. الثانوي: زجاج داكن بخطّ رفيع. مستديرة بالكامل، لا مربّعة أبدًا.</p>
+    </div>
+    <div class="device" style="grid-column:1/-1;grid-template-columns:260px 1fr 1fr;gap:40px;min-height:0;align-items:center">
+      <div class="scrimdemo"></div>
+      <p style="font-size:19px"><b style="color:var(--fg);font-weight:500">Scrim and grain.</b> Every photo on night fades into the ground along its lower 40%, in rgb(12 10 8). A fixed fractal-noise grain at 7% sits over every page. No other textures, no icon sets, no illustrations, no patterns. If something needs a symbol, use the emblem or a word.</p>
+      <p class="ar" style="font-size:19px"><b style="color:var(--fg);font-weight:500">الطبقة والحبيبات.</b> كل صورة على الليل تذوب في الأرضية عبر <span class="num">40%</span> السفلية منها. وحبيبات خفيفة بنسبة <span class="num">7%</span> فوق كل صفحة. لا خامات أخرى، ولا مجموعات أيقونات، ولا رسوم، ولا زخارف. إن احتجت رمزًا فاستعمل الرمز أو كلمة.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 18 APPLICATIONS -->
+<section id="s19" class="slide">
+  <div class="hd">
+    <div><div class="eyebrow">10 · Applications</div><h2>How it <i>comes together</i></h2></div>
+    <div><div class="eyebrow ar">10 · التطبيقات</div><h2 class="ar ar-d">كيف تجتمع العناصر</h2></div>
+  </div>
+  <div class="apps">
+    <div class="mock">
+      <div class="bar">Website · hero · الموقع</div>
+      <div class="site">
+        <div class="nav"><span class="wm">سَمُر <span class="dot"></span></span><span>الوجهات · الرحلات · طريقة سَمُر · ابدأ</span><span class="pill solid" style="padding:10px 14px;font-size:13px">خطّط رحلتي</span></div>
+        <div class="copy">
+          <div class="eb"><span class="dot"></span>تنزانيا · كينيا · جنوب أفريقيا</div>
+          <div class="h">اتبع القطعان،<br><i>لا الزحام.</i></div>
+          <div class="cta"><span class="pill glass">استعرض الرحلات ↓</span><span class="pill solid">خطّط رحلتي <span class="disc">↖</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;gap:28px">
+      <div class="mock"><div class="bar">Instagram · منشور</div>
+        <div class="post"><img class="em" src="assets/emblem.png" alt=""><div><div class="t">اتبع القطعان،<br>لا الزحام.</div><div class="s">Samur · The Great Migration · 9 nights</div></div></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:28px">
+      <div class="mock"><div class="bar">WhatsApp · first reply · أول ردّ</div>
+        <div class="wa" style="height:auto">
+          <div class="bub">أهلًا بك في سَمُر. أرسل لنا موعد السفر وعدد المسافرين، ويردّ عليك مخطّط خلال يوم عمل واحد بمسارين أو ثلاثة وأسعار واضحة.</div>
+          <div class="bub en">Welcome to Samur. Send us your dates and the number of travellers, and a planner will reply within one working day with two or three routes and clear prices.</div>
+        </div>
+      </div>
+      <div class="mock"><div class="bar">Business card · بطاقة العمل</div>
+        <div class="card" style="grid-template-columns:1fr 1fr">
+          <div class="front"><img src="assets/logo-reverse.png" alt=""></div>
+          <div class="back"><div><span class="n">Omar</span><br>Founder · المؤسّس</div><div><span class="ar">سَمُر · رحلات سفاري من المملكة</span><br>hello@samur.sa · +966 55 000 0000</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 19 TOKENS -->
+<section id="s20" class="slide alt">
+  <div class="hd">
+    <div><div class="eyebrow">11 · For the build</div><h2>Tokens</h2></div>
+    <div><div class="eyebrow ar">11 · للمطوّرين</div><h2 class="ar ar-d">قيم التصميم</h2></div>
+  </div>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+<pre>:root{
+  --bg: 20 14% 4%;      <span class="c">/* night  #0C0A09 */</span>
+  --bg-2: 24 12% 7%;    <span class="c">/* night 2 #141110 */</span>
+  --fg: 40 55% 90%;     <span class="c">/* cream  #F4EAD7 */</span>
+  --accent: 38 64% 57%; <span class="c">/* gold   #D9A24A · dot, index, focus only */</span>
+  --line: hsl(var(--fg)/.12);
+  --scrim: 12 10 8;     <span class="c">/* rgb(var(--scrim)/.55) over photos */</span>
+
+  <span class="c">/* light contexts and print only */</span>
+  --paper:#FAF0E7; --sand:#ECE3D1; --umber:#482400;
+  <span class="c">/* logo only, never UI */</span>
+  --sun:#F0A236; --sun-2:#FCC672;
+
+  --ar-display:"Amiri",serif;                 <span class="c">/* 400 700 */</span>
+  --ar-text:"IBM Plex Sans Arabic",sans-serif; <span class="c">/* 400 500 */</span>
+  --en-display:"Instrument Serif",serif;      <span class="c">/* 400 + italic */</span>
+  --en-text:"Inter",sans-serif;               <span class="c">/* 400 500 */</span>
+}
+html,body{background:hsl(var(--bg));color:hsl(var(--fg))}
+.num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}</pre>
+    <div class="cols" style="gap:36px;grid-template-columns:1fr">
+      <div class="en">
+        <div class="list">
+          <div><b>Fonts</b><span>Google Fonts: Amiri 400/700, IBM Plex Sans Arabic 400/500, Instrument Serif 400 + italic, Inter 400/500. Preconnect to fonts.gstatic.com.</span></div>
+          <div><b>Radius</b><span>Cards and forms 24 to 28 px. Inputs 14 px. Pills 999 px. Nothing square.</span></div>
+          <div><b>Rhythm</b><span>Section padding clamp(96px, 12vw, 160px). Container 1280 px. Gutter clamp(16px, 4vw, 56px).</span></div>
+          <div><b>RTL</b><span>Logical properties everywhere. Mirror arrows and side scrims. Phone inputs stay dir="ltr".</span></div>
+          <div><b>Logo</b><span>Use the SVG once vectorised; until then the transparent PNGs on the next page. Reverse version on night, full colour only on paper.</span></div>
+        </div>
+      </div>
+      <div class="ar col">
+        <p>القيم أعلاه هي قيم الموقع العربي الحالي كما بُني، مع إضافة ألوان الشعار والسياقات الفاتحة. لا تُغيَّر إلا بتحديث هذا الدليل.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0</span><span class="ar">سَمُر · دليل الهوية</span><span class="pg"></span></div>
+</section>
+
+<!-- 20 ASSETS -->
+<section id="s21" class="slide tight">
+  <div class="hd">
+    <div><div class="eyebrow">12 · Assets and next steps</div><h2>What exists, <i>what is still a placeholder</i></h2></div>
+    <div><div class="eyebrow ar">12 · الملفات والخطوات التالية</div><h2 class="ar ar-d">ما هو جاهز، وما هو مؤقّت</h2></div>
+  </div>
+  <div style="display:grid;gap:36px;align-content:start">
+    <div class="assets">
+      <div><div class="t" style="background:#0C0A09"><img src="assets/logo-reverse.png" alt=""></div><div class="i"><b>samur-logo-reverse.png</b>Primary, on night</div></div>
+      <div><div class="t" style="background:#FAF0E7"><img src="assets/logo-full.png" alt=""></div><div class="i"><b>samur-logo-full.png</b>Full colour, on paper</div></div>
+      <div><div class="t" style="background:#0C0A09"><img src="assets/logo-paper.png" alt=""></div><div class="i"><b>samur-logo-cream.png</b>Single colour, dark grounds</div></div>
+      <div><div class="t" style="background:#ECE3D1"><img src="assets/logo-ink.png" alt=""></div><div class="i"><b>samur-logo-umber.png</b>Single colour, light grounds</div></div>
+      <div><div class="t" style="background:#0C0A09"><img src="assets/emblem.png" alt=""></div><div class="i"><b>samur-emblem.png</b>Sun and acacia</div></div>
+      <div><div class="t" style="background:#FAF0E7"><img src="assets/emblem-ink.png" alt=""></div><div class="i"><b>samur-emblem-umber.png</b>Sun and acacia, one ink</div></div>
+      <div><div class="t" style="background:#0C0A09"><img src="assets/calligraphy-paper.png" alt=""></div><div class="i"><b>samur-calligraphy-cream.png</b>Arabic alone</div></div>
+      <div><div class="t" style="background:#FAF0E7"><img src="assets/calligraphy.png" alt=""></div><div class="i"><b>samur-calligraphy.png</b>Arabic alone, umber</div></div>
+      <div><div class="t" style="background:#0C0A09"><img src="assets/wordmark-paper.png" alt=""></div><div class="i"><b>samur-wordmark-cream.png</b>Latin alone</div></div>
+      <div><div class="t" style="background:#FAF0E7"><img src="assets/wordmark.png" alt=""></div><div class="i"><b>samur-wordmark.png</b>Latin alone, brass</div></div>
+    </div>
+    <div class="cols" style="gap:48px">
+      <div class="en">
+        <div class="list sm">
+          <div><b>Vectorise the logo</b><span>These files are cut from the supplied raster. Before print or signage, redraw the calligraphy and emblem as SVG from the original artwork.</span></div>
+          <div><b>Real photography</b><span>The website uses AI and Wikimedia images. Commission one shoot: a Saudi family, a Tanzanian guide, one camp, one dhow.</span></div>
+          <div><b>Real numbers and contacts</b><span>Prices, the three stats, the testimonial, the phone number and email on the site are placeholders. Replace before launch.</span></div>
+        </div>
+      </div>
+      <div class="ar col">
+        <div class="list sm">
+          <div><b>تحويل الشعار إلى فيكتور</b><span>هذه الملفات مقتطعة من الصورة النقطية المرسلة. قبل الطباعة واللوحات، أعد رسم الخطّ والرمز بصيغة SVG من الملف الأصلي.</span></div>
+          <div><b>تصوير حقيقي</b><span>الموقع يستعمل صورًا مولّدة ومن ويكيميديا. كلّف بجلسة تصوير واحدة: عائلة سعودية، ومرشد تنزاني، ومخيّم، ومركب شراعي.</span></div>
+          <div><b>أرقام وبيانات حقيقية</b><span>الأسعار والإحصاءات الثلاث والشهادة ورقم الهاتف والبريد على الموقع كلها مؤقّتة. استبدلها قبل الإطلاق.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Samur · Brand book 1.0 · November 2026</span><span class="ar">سَمُر · دليل الهوية · نوفمبر 2026</span><span class="pg"></span></div>
+</section>
+
+<script>var h=location.hash.slice(1);if(h){document.querySelectorAll(".slide").forEach(function(e){if(e.id!==h)e.style.display="none"});}</script>
+</body>
+</html>

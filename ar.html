@@ -16,18 +16,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/frames/desktop/f_0001.webp" media="(min-width: 761px)">
-  <link rel="preload" as="image" href="assets/frames/mobile/f_0001.webp" media="(max-width: 760px)">
-  <link rel="preload" as="image" href="assets/hero-acacia-cutout.webp">
+  <link rel="preload" as="image" href="assets/frames/desktop/f_0001.webp" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/frames/mobile/f_0001.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-acacia-cutout.webp" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-acacia-cutout-m.webp" media="(max-width: 760px)" fetchpriority="high">
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
 <header class="topo">
   <a href="#inicio" class="marca" aria-label="سمر، العودة إلى الأعلى">
-    <img class="marca-emblema" src="assets/brand/samur-emblem.webp" alt="" width="635" height="332">
-    <span class="marca-ar" aria-hidden="true">سمر</span>
-    <span class="marca-nome" lang="en" aria-hidden="true">Samur</span>
+    <img class="marca-logo" src="assets/brand/samur-horizontal-reversed.webp" alt="سمر · Samur" width="2750" height="720" fetchpriority="high">
   </a>
   <nav class="menu" aria-label="الأقسام">
     <a href="#flight">اليوم</a>
@@ -50,7 +49,10 @@
         <span class="cine-olho">سفاري أفريقية من المملكة</span>
         <h1 class="cine-palavra" id="palavra">Samur</h1>
       </div>
-      <img class="cine-corte" src="assets/hero-acacia-cutout.webp" alt="" aria-hidden="true" width="3000" height="1208">
+      <picture>
+        <source media="(max-width: 760px)" srcset="assets/hero-acacia-cutout-m.webp">
+        <img class="cine-corte" src="assets/hero-acacia-cutout.webp" alt="" aria-hidden="true" width="2400" height="966" fetchpriority="high">
+      </picture>
       <div class="cine-vinheta"></div>
       <div class="cine-derrete" aria-hidden="true"></div>
 
@@ -88,7 +90,7 @@
         <span class="line">في يوم واحد</span>
       </h2>
       <div class="emblema" aria-hidden="true">
-        <img src="assets/brand/samur-emblem.webp" alt="" width="635" height="332" loading="lazy">
+        <img src="assets/brand/samur-mark.webp" alt="" width="900" height="448" loading="lazy">
       </div>
       <p>سمر شركة سعودية للمسافر السعودي الذي يريد أفريقيا الحقيقية بلا متاعب. نطير بك من الرياض أو جدة إلى شمال تنزانيا، ونسلّمك لمرشدين يتحدثون العربية، ونُبقي الأيام بسيطة: جولات عند الفجر، غداء طويل في الظل، مطبخ حلال، مواعيد صلاة محفوظة، والبحر في الختام.</p>
     </div>
@@ -349,7 +351,7 @@
 
 <footer class="rodape">
   <div class="rodape-grade">
-    <a href="#inicio" class="rodape-logo" aria-label="سمر، العودة إلى الأعلى"><img src="assets/brand/samur-lockup.webp" alt="سمر · Samur" width="1108" height="869" loading="lazy"></a>
+    <a href="#inicio" class="rodape-logo" aria-label="سمر، العودة إلى الأعلى"><img src="assets/brand/samur-reversed.webp" alt="سمر · Samur" width="1200" height="876" loading="lazy"></a>
     <div>
       <p class="rodape-frase">تحت شجرة السمر. رحلات سفاري أفريقية للمسافر السعودي.</p>
       <div class="rodape-meta">

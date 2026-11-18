@@ -4,7 +4,7 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 
 | File | Title | Photographer | Licence | Source page |
 |---|---|---|---|---|
-| assets/hero-acacia.jpg | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
+| assets/hero/sunset-still.jpg | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
 | assets/balloon.jpg | Balloon Safari 2012 06 01 3087 (7522685864).jpg | Harvey Barrison from Massapequa, NY, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Balloon_Safari_2012_06_01_3087_(7522685864).jpg |
 | assets/camp-deck.jpg | Singita-Sabora-Tented-Camp-16.jpg | Jessica138 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Singita-Sabora-Tented-Camp-16.jpg |
 | assets/camp-sunset.jpg | Sunset at Maramboi Tented Camp, Tanzania.jpg | Christoph Strässler | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Sunset_at_Maramboi_Tented_Camp,_Tanzania.jpg |

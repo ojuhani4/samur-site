@@ -15,8 +15,8 @@ window.SITE = {
 
   frames: {
     total: 160,
-    desktop: "assets/frames/desktop/f_{n}.webp",
-    mobile: "assets/frames/mobile/f_{n}.webp",
+    desktop: "assets/frames/desktop/f_sunset_{n}.webp",
+    mobile: "assets/frames/mobile/f_sunset_{n}.webp",
   },
 
   // The acacia hero film (Daniel Case, Maasai Mara at sunset): the frames are a slow push into the photo;

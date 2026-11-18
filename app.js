@@ -135,7 +135,7 @@
 
   /* ── Letras: a palavra da abertura e os títulos das seções ──────────── */
   const palavra = document.getElementById("palavra");
-  if (palavra) {
+  if (palavra && !palavra.children.length) { // the Arabic page carries the calligraphic wordmark as an image instead
     const txt = palavra.textContent.trim(); palavra.setAttribute("aria-label", txt); palavra.textContent = "";
     [...txt].forEach((c, i) => { const s = document.createElement("span"); s.className = "hc"; s.textContent = c; s.style.setProperty("--i", i); s.setAttribute("aria-hidden", "true"); palavra.append(s); });
   }

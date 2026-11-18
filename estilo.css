@@ -265,10 +265,14 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 /* ── Abertura: título atrás da copa, corte da árvore por cima, derretimento no papel ── */
 .cine-canvas { z-index: 1; }
 .cine-titulo { position: absolute; z-index: 2; left: 0; right: 0; top: calc(var(--topo-h) + 4vh); text-align: center; pointer-events: none; }
-.cine-olho { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgb(48 55 42 / .82); margin-bottom: 1.6vh; opacity: 0; transform: translateY(-12px); animation: descer .9s var(--ease) .25s forwards; }
-.cine-olho .ar { font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--oliva); }
+.cine-olho { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgb(250 240 232 / .92); text-shadow: 0 1px 14px rgb(48 55 42 / .35); margin-bottom: 1.6vh; opacity: 0; transform: translateY(-12px); animation: descer .9s var(--ease) .25s forwards; }
+.cine-olho .ar { font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--marfim); }
 /* The hero word echoes the logo's Latin signature: widely spaced Baskerville capitals */
-.cine-palavra { margin: 0; font-size: clamp(56px, 13.5vw, 260px); line-height: .9; letter-spacing: .14em; padding-inline-start: .14em; text-transform: uppercase; color: var(--texto); white-space: nowrap; }
+.cine-palavra { margin: 0; font-size: clamp(56px, 13.5vw, 260px); line-height: .9; letter-spacing: .14em; padding-inline-start: .14em; text-transform: uppercase; color: var(--marfim); text-shadow: 0 2px 28px rgb(48 55 42 / .32); white-space: nowrap; }
+/* Arabic page: the Ruq'ah wordmark from the logo pack rises behind the canopy instead of typed letters */
+.cine-palavra--marca { font-size: 0; line-height: 0; letter-spacing: 0; padding: 0; }
+.cine-marca { display: inline-block; width: clamp(240px, 44vw, 680px); height: auto; opacity: 0; filter: blur(10px); transform: translateY(28px); animation: subir-marca 1.2s var(--ease) .5s forwards; }
+@keyframes subir-marca { to { opacity: 1; filter: blur(0) drop-shadow(0 3px 22px rgb(48 55 42 / .32)); transform: none; } }
 .cine-palavra .hc { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(.18em); animation: subir-letra 1.1s var(--ease) forwards; animation-delay: calc(.45s + var(--i) * 95ms); }
 @keyframes subir-letra { to { opacity: 1; filter: blur(0); transform: none; } }
 @keyframes descer { to { opacity: 1; transform: none; } }
@@ -360,6 +364,7 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 @media (max-width: 860px) {
   .cine-titulo { top: calc(var(--topo-h) + 3vh); }
   .cine-palavra { font-size: 16.5vw; }
+  .cine-marca { width: 74vw; }
   .cine-olho { font-size: 9px; }
   .cine-olho .ar { display: none; }
   .frase { font-size: 8.4vw; }
@@ -376,7 +381,7 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
   .fatos-titulo { font-size: 12vw; margin-bottom: 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cine-olho, .cine-palavra .hc, .ch, .ppill, .ppill img, .emblema, .tabela tr, .moldura, .moldura img, .selo-ticks { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+  .cine-olho, .cine-palavra .hc, .cine-marca, .ch, .ppill, .ppill img, .emblema, .tabela tr, .moldura, .moldura img, .selo-ticks { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
   .elenco-trilho { transform: none !important; }
 }
 
@@ -398,8 +403,11 @@ html[lang="ar"] .passos li::before { content: counter(p, decimal-leading-zero); 
 html[lang="ar"] .cartao-preco { font-family: var(--fonte-texto); font-weight: 600; font-size: 18px; }
 html[lang="ar"] .menu .lang { font-family: Arial, "Helvetica Neue", sans-serif; letter-spacing: .08em; }
 html[lang="ar"] .cine-palavra, html[lang="ar"] .carta-nome { font-family: "Libre Baskerville", Baskerville, Georgia, serif; text-transform: uppercase; font-weight: 400; }
-html[lang="ar"] .cine-palavra { letter-spacing: .14em; font-size: clamp(56px, 13.5vw, 260px); line-height: .9; }
-@media (max-width: 860px) { html[lang="ar"] .cine-palavra { font-size: 16.5vw; } }
+html[lang="ar"] .cine-palavra--marca { font-size: 0; line-height: 0; letter-spacing: 0; }
+/* Arabic opening: the wordmark reads from the right, over the open sky above the sun, clear of the canopy */
+html[lang="ar"] .cine-titulo { text-align: right; padding-right: 7vw; }
+html[lang="ar"] .cine-marca { width: clamp(220px, 40vw, 600px); }
+@media (max-width: 860px) { html[lang="ar"] .cine-titulo { padding-right: 6vw; } html[lang="ar"] .cine-marca { width: 60vw; } }
 html[lang="ar"] .rodape-frase { line-height: 1.6; }
 html[lang="ar"] .cine-olho { letter-spacing: 0; text-transform: none; font-size: 13px; }
 html[lang="ar"] .frase { line-height: 1.3; }

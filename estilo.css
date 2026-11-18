@@ -246,6 +246,80 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
   .momento:not(:first-of-type), .cine-dica { display: none; }
 }
 
+/* ── Cenas: um capítulo por tela. A mídia entra como uma janela sobre o papel e vira tela cheia ── */
+.cena { position: relative; height: var(--altura, 230vh); }
+.cena-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo); isolation: isolate; perspective: 1400px; }
+.cena-midia {
+  position: absolute; inset: 0; overflow: hidden; border-radius: 0;
+  transform-origin: 50% 58%; will-change: transform, border-radius, filter;
+  box-shadow: 0 50px 140px -40px rgb(67 40 42 / .55);
+}
+.cena-video, .cena-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cena-foto { transform-origin: 50% 50%; will-change: transform; }
+.cena-vinheta {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background:
+    radial-gradient(125% 95% at 50% 45%, transparent 55%, rgb(67 40 42 / .32) 100%),
+    linear-gradient(to bottom, rgb(67 40 42 / .22), transparent 24%, transparent 72%, var(--fundo) 100%);
+}
+.cena-vinheta--noite {
+  background:
+    radial-gradient(125% 95% at 50% 45%, transparent 50%, rgb(0 0 0 / .55) 100%),
+    linear-gradient(to bottom, rgb(0 0 0 / .35), transparent 26%, transparent 72%, var(--fundo) 100%);
+}
+.cena-texto { position: absolute; z-index: 3; left: var(--gutter); bottom: 9vh; max-width: 600px; will-change: transform, opacity; }
+.cena-texto--direita { left: auto; right: var(--gutter); }
+.painel--escuro { background: rgb(40 24 26 / .56); color: #ECE3D1; border-color: rgb(236 227 209 / .22); }
+.painel--escuro p { color: rgb(236 227 209 / .8); }
+.cena-inset {
+  position: absolute; z-index: 2; left: var(--gutter); top: 13vh; width: min(32vw, 400px); margin: 0;
+  border-radius: 14px; overflow: hidden; border: 1px solid rgb(236 227 209 / .4);
+  box-shadow: 0 34px 90px -22px rgb(0 0 0 / .6); will-change: transform, opacity;
+}
+.cena-inset img, .cena-inset video { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.cena-inset--alta { width: min(22vw, 280px); }
+.cena-inset--alta img { aspect-ratio: 3 / 4; }
+.cena-inset--direita { left: auto; right: var(--gutter); }
+.cena-inset figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 16px 12px;
+  font-size: 12px; letter-spacing: .04em; color: #ECE3D1;
+  background: linear-gradient(transparent, rgb(0 0 0 / .6));
+}
+
+/* ── Os animais: oito loops reais ─────────────────────────────────────── */
+.secao--elenco { gap: 28px; }
+.elenco { width: 100%; max-width: var(--largura); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.elenco-item {
+  margin: 0; position: relative; border-radius: var(--raio); overflow: hidden; aspect-ratio: 4 / 5;
+  background: var(--fundo-2); box-shadow: 0 28px 70px -26px rgb(67 40 42 / .55);
+}
+.elenco-item:nth-child(even) { margin-top: 40px; }
+.elenco-item video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.4s var(--ease); }
+.elenco-item:hover video { transform: scale(1.06); }
+.elenco-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 18px 16px; color: #ECE3D1;
+  font-family: var(--fonte-titulo); font-weight: 500; font-variation-settings: "opsz" 11; font-size: 23px; line-height: 1.1;
+  background: linear-gradient(transparent, rgb(30 18 20 / .72));
+}
+.elenco-item figcaption span { display: block; font-family: var(--fonte-texto); font-weight: 400; font-size: 12.5px; letter-spacing: .02em; opacity: .85; margin-top: 6px; }
+
+@media (max-width: 860px) {
+  .cena-texto, .cena-texto--direita { left: var(--gutter); right: var(--gutter); bottom: 6vh; max-width: none; }
+  .cena-texto { --pad: 20px; }
+  .cena-texto h2 { font-size: clamp(26px, 7.2vw, 34px); }
+  .cena-texto p { font-size: 15px; }
+  .cena-inset, .cena-inset--direita { width: 44vw; top: 11vh; left: auto; right: var(--gutter); }
+  .cena-inset--alta { width: 32vw; }
+  .cena-inset figcaption { font-size: 11px; padding: 20px 10px 8px; }
+  .elenco { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .elenco-item:nth-child(even) { margin-top: 26px; }
+  .elenco-item figcaption { font-size: 18px; padding: 30px 14px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cena { height: 100svh; }
+  .cena-midia, .cena-texto, .cena-inset, .cena-foto { transform: none !important; opacity: 1 !important; filter: none !important; }
+}
+
 /* ── Arabic edition (ar.html) ─────────────────────────────────────────── */
 html[lang="ar"] {
   --fonte-titulo: "Amiri", "Noto Naskh Arabic", "Geeza Pro", serif;

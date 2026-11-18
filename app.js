@@ -107,6 +107,88 @@
     mover();
   }
 
+  /* ── Vídeos: carregam perto da tela, tocam só quando visíveis ─────────── */
+  const videos = [...document.querySelectorAll("video[data-src]")];
+  const carregarVideo = (v) => {
+    if (v.dataset.pronto) return;
+    v.src = (celular && v.dataset.srcM) || v.dataset.src;
+    v.dataset.pronto = "1";
+    v.load();
+  };
+  if (videos.length) {
+    const ioV = new IntersectionObserver((es) => es.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) { carregarVideo(v); if (!reduzir) v.play().catch(() => {}); }
+      else if (v.dataset.pronto) v.pause();
+    }), { rootMargin: "60% 0px 60% 0px" });
+    videos.forEach((v) => ioV.observe(v));
+  }
+
+  /* ── Cenas: janela que abre, profundidade e parallax por capítulo ─────── */
+  const cenas = [...document.querySelectorAll(".cena")].map((el) => ({
+    el,
+    midia: el.querySelector(".cena-midia"),
+    foto: el.querySelector(".cena-foto"),
+    texto: el.querySelector(".cena-texto"),
+    inset: el.querySelector(".cena-inset"),
+  }));
+  if (cenas.length && !reduzir) {
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const suave = (t) => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
+    let mx = 0, my = 0, tx = 0, ty = 0; // inclinação pelo ponteiro (só desktop)
+    if (!celular) addEventListener("pointermove", (e) => {
+      mx = (e.clientX / innerWidth - 0.5) * 2;
+      my = (e.clientY / innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    const passo = () => {
+      tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
+      const vh = innerHeight;
+      for (const c of cenas) {
+        const r = c.el.getBoundingClientRect();
+        if (r.bottom < -vh * 0.5 || r.top > vh * 1.5) { continue; }
+        const curso = c.el.offsetHeight - vh;
+        const entrada = suave(1 - r.top / vh);                 // 0: chegando por baixo · 1: fixada
+        const p = clamp(-r.top / (curso || 1), 0, 1);          // progresso enquanto fixada
+        const saida = suave(1 - r.bottom / vh);                 // 0: ainda presa · 1: saiu por cima
+        const ativa = entrada >= 0.999 && saida <= 0.001;
+
+        // A janela: começa menor e arredondada sobre o papel, abre até a tela inteira; ao sair, recua e escurece.
+        const escala = 0.74 + 0.26 * entrada - 0.1 * saida;
+        const raio = 36 * (1 - entrada) + 28 * saida;
+        const subir = 9 * (1 - entrada) - 6 * saida;           // vh
+        const brilho = 0.55 + 0.45 * entrada - 0.5 * saida;
+        const rx = ativa ? -ty * 2.2 : 0, ry = ativa ? tx * 2.2 : 0;
+        c.midia.style.transform = `translate3d(0, ${subir.toFixed(2)}vh, 0) scale(${escala.toFixed(3)}) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+        c.midia.style.borderRadius = `${raio.toFixed(1)}px`;
+        c.midia.style.filter = `brightness(${brilho.toFixed(3)})`;
+
+        // Fotos: lento recuo (1.14 → 1.0) + deslocamento oposto ao ponteiro = profundidade
+        if (c.foto) {
+          const z = 1.14 - 0.14 * p;
+          const dx = ativa ? -tx * 14 : 0, dy = ativa ? -ty * 10 : 0;
+          c.foto.style.transform = `translate3d(${dx.toFixed(1)}px, ${(dy - p * 24).toFixed(1)}px, 0) scale(${z.toFixed(3)})`;
+        }
+        // Texto: entra cedo, sobe devagar, sai antes do fim
+        if (c.texto) {
+          const o = Math.min(suave(p / 0.22), 1 - suave((p - 0.74) / 0.26));
+          c.texto.style.opacity = o.toFixed(3);
+          c.texto.style.transform = `translate3d(0, ${(36 * (1 - suave(p / 0.22)) - p * 30).toFixed(1)}px, 0)`;
+        }
+        // Inset: chega depois, mais perto da câmera, anda mais rápido que o fundo
+        if (c.inset) {
+          const o = Math.min(suave((p - 0.16) / 0.26), 1 - suave((p - 0.8) / 0.2));
+          const e = suave((p - 0.16) / 0.26);
+          const dx = ativa ? tx * 22 : 0, dy = ativa ? ty * 16 : 0;
+          c.inset.style.opacity = o.toFixed(3);
+          c.inset.style.transform = `translate3d(${dx.toFixed(1)}px, ${(70 * (1 - e) - p * 120 + dy).toFixed(1)}px, 0) scale(${(0.9 + 0.1 * e).toFixed(3)}) rotate(${(-3 * (1 - e)).toFixed(2)}deg)`;
+        }
+      }
+      requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
+  }
+
   /* ── Topo, revelar e ano ──────────────────────────────────────────────── */
   const topo = document.querySelector(".topo");
   const whats = document.querySelector(".whats");

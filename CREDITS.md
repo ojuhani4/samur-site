@@ -33,11 +33,11 @@ All photographs come from Wikimedia Commons under the licences below. CC BY and 
 
 ## Homepage photographs (index.html and ar.html, 18 November 2026)
 
-The homepage is built from a small set of high-resolution Wikimedia Commons photographs (`assets/fotos/`), all CC BY / CC BY-SA. The opening scroll film (`assets/frames/`) is a slow push into Daniel Case's photograph of an acacia at sunset in the Maasai Mara, with the canopy as a separate cut-out layer. The stock video clips used briefly on 18 November were removed the same day. The full table with photographer names and source pages is on `credits.html` and in `assets/fotos/credits.json`.
+The homepage is built from a small set of high-resolution Wikimedia Commons photographs (`assets/fotos/`), all CC BY / CC BY-SA. The opening scroll film (`assets/frames/f_film_*`) starts from Daniel Case's photograph of an acacia at sunset in the Maasai Mara; its motion (clouds, grass, sun, distant birds) was generated from that photograph with Google Veo 3.1 (8 s, 1080p, locked-off camera, source clip in `source/film/opening-v1.mp4`), the push-in is applied in the frame render, and the canopy is a separate layer cut from the photograph. The stock video clips used briefly on 18 November were removed the same day. The full table with photographer names and source pages is on `credits.html` and in `assets/fotos/credits.json`.
 
 | Used as | File | Photographer | Licence | Source |
 |---|---|---|---|---|
-| hero film (160 frames), tree layer and contact background | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
+| opening film (160 frames, motion generated from this photograph), tree layer and contact background | Acacia tree at sunset, Maasai Mara, Kenya.jpg | Daniel Case | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Acacia_tree_at_sunset,_Maasai_Mara,_Kenya.jpg |
 | caravan | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
 | lion | 002 Male Lion prowling in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:002_Male_Lion_prowling_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
 | leopard | 001 Juvenile leopard in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:001_Juvenile_leopard_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |

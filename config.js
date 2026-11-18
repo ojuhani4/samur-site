@@ -15,8 +15,8 @@ window.SITE = {
 
   frames: {
     total: 160,
-    desktop: "assets/frames/desktop/f_sunset_{n}.webp",
-    mobile: "assets/frames/mobile/f_sunset_{n}.webp",
+    desktop: "assets/frames/desktop/f_film_{n}.webp",
+    mobile: "assets/frames/mobile/f_film_{n}.webp",
   },
 
   // The acacia hero film (Daniel Case, Maasai Mara at sunset): the frames are a slow push into the photo;
@@ -29,9 +29,9 @@ window.SITE = {
     zoom: 0.07, extra: 0.0, desloc: 76,
   },
   heroCelular: {
-    largura: 3200, altura: 4267,
-    corte: { x: -50, y: 721, w: 3400, h: 1700 },
-    ancora: { x: 1230, y: 3721 },
+    largura: 2616, altura: 3487,
+    corte: { x: -442, y: 726, w: 3400, h: 1700 },
+    ancora: { x: 838, y: 3726 },
     zoom: 0.07, extra: 0.0, desloc: 93,
   },
 };

@@ -1,65 +1,66 @@
 {
   "nome": "Samur",
   "slug": "samur",
-  "negocio": "Saudi safari company selling East African safaris (Serengeti, Ngorongoro, Tarangire, Zanzibar) to Saudi travellers: flying safaris, open-vehicle game drives, luxury camps, Arabic-speaking guides, halal kitchens, prayer times kept",
-  "publico": "Saudi families, couples and groups from Riyadh and Jeddah, 30 to 60, used to five-star travel, travelling for Eid and school holidays",
+  "negocio": "Saudi company selling Tanzania and Zanzibar safaris to Saudi travellers: flying safaris, private open vehicles, tented camps, Arabic-speaking guides, halal kitchens, prayer times kept",
+  "publico": "Saudi families and couples from Riyadh and Jeddah, first safari, travelling in school holidays and Eid",
   "identidade": {
     "cores": {
-      "fundo": "#ECE3D1",
-      "fundo2": "#E6DCC8",
-      "texto": "#43282A",
-      "acento": "#A86438"
+      "fundo": "#F3EBDD",
+      "texto": "#30372A",
+      "acento": "#C89542",
+      "secundaria": "#65724F",
+      "marfim_logo": "#FAF0E8"
     },
     "fontes": {
-      "titulo": "Bodoni Moda",
-      "texto": "Inter"
+      "titulo": "Libre Baskerville (Baskerville per brand book)",
+      "texto": "Arial",
+      "arabe": "Geeza Pro, Noto Naskh Arabic fallback"
     },
-    "clima": [
-      "quiet",
-      "editorial",
-      "warm"
-    ],
+    "clima": ["warm", "quiet", "golden-hour"],
     "tema": "claro",
-    "simbolo": "the umbrella acacia (samur, سمر, is its Arabic name)"
+    "fonte": "SAMUR Brand Book, Acacia Grove edition 02 (~/Desktop/SAMUR-Brand-Book-Acacia-Grove.pdf)"
   },
-  "logo": "",
+  "logo": "~/Downloads/SAMUR_Logo_Asset_Pack.zip (reversed ivory lockup on Dark Olive, Ruq'ah wordmark, acacia-sun mark; copies in assets/brand/)",
   "copy": {
-    "frase_abertura": "From Riyadh to the Serengeti in a day",
+    "frase_abertura": "From Riyadh to the Serengeti in a day.",
     "diferenciais": [
-      "Arabic-speaking guides",
-      "halal kitchens and prayer times kept",
-      "flying safaris between camps",
-      "Zanzibar at the end of every long journey"
+      "one stop from Riyadh or Jeddah to Kilimanjaro, bush planes between camps",
+      "Arabic-speaking licensed guides, private open safari vehicles",
+      "halal kitchens throughout, prayer times kept, qibla marked",
+      "Zanzibar at the end of every journey"
     ],
-    "textos_prontos": "reuse the five journeys, stays and Samur-way copy from the editorial homepage",
+    "textos_prontos": "Existing index.html and ar.html copy (16 chapters, five journeys with placeholder SAR prices)",
     "depoimentos_reais": []
   },
   "referencias": [
-    "Tana Camps editorial species page (MotionSites)",
-    "quiet nature magazines",
-    "Diego Delso Serengeti photography"
+    "Tana Camps editorial sections (Didone capitals rising behind a cut-out subject, hero melting into paper)",
+    "Daniel Case, Acacia tree at sunset, Maasai Mara (opening photograph, CC BY-SA 4.0)",
+    "Giles Laurent Serengeti series (chapter photographs)"
   ],
   "whatsapp": {
     "numero": "966500000000",
-    "mensagem": "Hello Samur, I would like to plan a safari."
+    "mensagem": "Hello Samur, I would like to plan a safari.",
+    "nota": "placeholder until Omar sends the real number"
   },
-  "email_contato": "hello@samur.sa",
+  "email_contato": "hello@samur.sa (placeholder)",
   "secoes": [
-    "opening",
-    "about",
-    "journeys",
-    "how it works",
-    "stays",
-    "contact"
+    "opening film", "promise", "flight", "first hour", "open vehicle", "Tarangire", "the cast", "camp",
+    "made for the Kingdom", "Ngorongoro", "balloon", "dawn", "Stone Town", "beach", "journeys", "contact"
   ],
-  "conceito": "One family's safari told in order: the airstrip film, the flight, the drive, the animals, the camp, the tent, the pool, the table, the Maasai boma, Zanzibar, then the five journeys and the form.",
-  "media": "AI-generated story: Nano Banana Pro images + Veo 3.1 opening film (approved by Omar 17 Nov 2026); accuracy rules: modest Saudi guests, Tanzanian guides, closed pop-up-roof Land Cruisers, animals at distance, canvas camps, no logos",
+  "conceito": "One sunset under the samar tree: the camera sits still while the light moves, then the page melts into paper and the day begins.",
+  "abertura": {
+    "modo": "image-to-video from the real photograph, locked-off camera; the push-in is added in the frame render so the canopy layer stays aligned",
+    "primeiro_quadro": "assets/hero/sunset-still.jpg",
+    "duracao_s": 8,
+    "resolucao": "1080p"
+  },
+  "regras": [
+    "no AI-generated still imagery on the homepage; chapter photographs stay real and credited",
+    "no staged people; the visitor is the point of view",
+    "push to GitHub only on Omar's explicit instruction"
+  ],
   "modelos": {
     "video": "google/veo-3.1",
-    "imagem": "google/gemini-3-pro-image"
-  },
-  "custo_usd": {
-    "imagens": 1.48,
-    "video": 1.6
+    "imagem": "none (photographs only)"
   }
 }

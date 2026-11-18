@@ -1,3 +1,8 @@
-{ "total": 160, "largura": 1920, "altura": 1080,
-  "desktop": "assets/frames/desktop/f_{n}.webp",
-  "mobile": "assets/frames/mobile/f_{n}.webp" }
+{
+  "total": 160,
+  "largura": 1920,
+  "altura": 1080,
+  "desktop": "assets/frames/desktop/f_film_{n}.webp",
+  "mobile": "assets/frames/mobile/f_film_{n}.webp",
+  "fonte": "source/film/opening-v1.mp4 (Veo 3.1 image-to-video from assets/hero/sunset-still.jpg)"
+}

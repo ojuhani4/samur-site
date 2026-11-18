@@ -85,8 +85,8 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 
 /* ── Abertura cinematográfica ──────────────────────────────────────────── */
 .cine { position: relative; height: var(--altura, 400vh); }
-.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo) url("assets/frames/desktop/f_sunset_0001.webp") center / cover no-repeat; } /* poster: first frame paints before the film is ready */
-@media (max-width: 760px) { .cine-palco { background-image: url("assets/frames/mobile/f_sunset_0001.webp"); } }
+.cine-palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--fundo) url("assets/frames/desktop/f_film_0001.webp") center / cover no-repeat; } /* poster: first frame paints before the film is ready */
+@media (max-width: 760px) { .cine-palco { background-image: url("assets/frames/mobile/f_film_0001.webp"); } }
 .cine-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cine-vinheta {
   position: absolute; inset: 0; pointer-events: none;

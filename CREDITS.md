@@ -55,3 +55,14 @@ The homepage is built from a small set of high-resolution Wikimedia Commons phot
 | stonetown-door | Rectangular Carved Door Stone Town Oct26 A7CR 14405.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Rectangular_Carved_Door_Stone_Town_Oct26_A7CR_14405.jpg |
 | nungwi | Nungwi,Zanzibar - panoramio.jpg | Jang Woo Lee | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Nungwi,Zanzibar_-_panoramio.jpg |
 | lion-scan | 003 Male Lion scanning the horizon in the Serengeti National Park Photo by Giles Laurent.jpg | Giles Laurent | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:003_Male_Lion_scanning_the_horizon_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg |
+
+
+## Trip cards
+
+| Used as | File | Photographer | Licence | Source |
+|---|---|---|---|---|
+| card-migration | Serengeti 4 (14514006600).jpg | Mike from Vancouver, Canada | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Serengeti_4_(14514006600).jpg |
+| card-bush-zanzibar | Nungwi,Zanzibar - panoramio.jpg | Jang Woo Lee | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Nungwi,Zanzibar_-_panoramio.jpg |
+| card-flying | Air Excel 5H-MEK Parked Kogatende Serengeti Oct26 A7CR 15607.jpg | Timothy A | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Air_Excel_5H-MEK_Parked_Kogatende_Serengeti_Oct26_A7CR_15607.jpg |
+| card-family | Elephant - Tarangire National Park - Tanzania-8 (34980949681).jpg | Gary Bembridge from London, UK | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Elephant_-_Tarangire_National_Park_-_Tanzania-8_(34980949681).jpg |
+| card-private | Singita-Sabora-Tented-Camp-16.jpg | Jessica138 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Singita-Sabora-Tented-Camp-16.jpg |

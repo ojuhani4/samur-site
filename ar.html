@@ -20,8 +20,9 @@
   <link rel="preload" as="image" href="assets/frames/mobile/f_film_0001.webp" media="(max-width: 760px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero/sunset-canopy.webp" media="(min-width: 761px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero/sunset-canopy-m.webp" media="(max-width: 760px)" fetchpriority="high">
-  <link rel="stylesheet" href="estilo.css?v=20261118l">
-  <link rel="stylesheet" href="arabic.css?v=20261118l">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="estilo.css?v=20261118n">
+  <link rel="stylesheet" href="arabic.css?v=20261118n">
 </head>
 <body>
 
@@ -29,18 +30,25 @@
   <a href="#inicio" class="marca" aria-label="سمر، العودة إلى الأعلى">
     <img class="marca-logo" src="assets/brand/samur-horizontal-reversed.webp" alt="سمر · Samur" width="2750" height="720" fetchpriority="high">
   </a>
-  <nav class="menu" aria-label="الأقسام">
+  <nav class="menu" id="menu-secoes" aria-label="الأقسام">
     <a href="#flight">السفاري</a>
     <a href="#elenco">الحياة البرية</a>
     <a href="#camp">المخيمات</a>
     <a href="#zanzibar">زنجبار</a>
     <a href="#jornadas">الرحلات</a>
+  </nav>
+  <div class="topo-acoes">
     <a href="index.html" class="lang" lang="en" hreflang="en">English</a>
     <a href="#contato" class="menu-cta">خطّط لرحلتك</a>
-  </nav>
+    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-secoes" aria-label="القائمة">
+      <svg class="abrir" viewBox="0 0 18 18" aria-hidden="true"><path d="M1 4h16M1 9h16M1 14h16" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+      <svg class="fechar" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+    </button>
+  </div>
 </header>
 
 <main>
+  <h1 class="sr-only">سمر: رحلات سفاري خاصة في تنزانيا</h1>
 
   <!-- 01 شجرة السمر: الفيلم يتحرك مع التمرير، والشجرة طبقة مستقلة أمام العنوان -->
   <section id="inicio" class="cine" style="--altura: 440vh">
@@ -48,7 +56,7 @@
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
       <div class="cine-titulo" aria-hidden="true">
         <span class="cine-olho">رحلات سفاري خاصة في تنزانيا</span>
-        <h1 class="cine-palavra cine-palavra--marca" id="palavra"><img class="cine-marca" src="assets/brand/samur-wordmark-ar.webp" alt="سمر" width="1800" height="552" fetchpriority="high"></h1>
+        <div class="cine-palavra cine-palavra--marca" id="palavra"><img class="cine-marca" src="assets/brand/samur-wordmark-ar.webp" alt="سمر" width="1800" height="552" fetchpriority="high"></div>
       </div>
       <picture>
         <source media="(max-width: 760px)" srcset="assets/hero/sunset-canopy-m.webp">
@@ -57,7 +65,7 @@
       <div class="cine-vinheta"></div>
       <div class="cine-derrete" aria-hidden="true"></div>
 
-      <div class="momento" data-de="0.14" data-ate="0.42">
+      <div class="momento momento--primeiro" data-de="0.14" data-ate="0.42">
         <div class="painel painel--vidro">
           <span class="rotulo">01 · سمر</span>
           <p class="destaque">رحلات سفاري خاصة في تنزانيا</p>
@@ -109,10 +117,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">03 · الوصول إلى المخيم</span>
-          <h2 data-letters><span class="line">بالسيارة</span><span class="line">أو بطائرة صغيرة</span></h2>
+          <h2 data-letters><span class="line">بالسيارة</span> <span class="line">أو بطائرة صغيرة</span></h2>
           <p>حين نقترح رحلة جوية داخلية، نحسب الطريق كاملًا، بما فيه الانتقال من المطار إلى المهبط ومن المهبط إلى المخيم. أحيانًا تختصر الطائرة مسافة طويلة، خصوصًا إذا كان المخيم في جزء بعيد من السيرينغيتي. وقبل السفر تعرف أين تلتقي مرشدك وأي أجزاء من الرحلة تقطعها برًّا.</p>
         </div>
       </div>
@@ -130,10 +138,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento momento--direita" data-de="0.18" data-ate="1">
+      <div class="momento momento--direita" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">04 · الجولة الأولى</span>
-          <h2 data-letters><span class="line">كيف يختار</span><span class="line">المرشد الطريق؟</span></h2>
+          <h2 data-letters><span class="line">كيف يختار</span> <span class="line">المرشد الطريق؟</span></h2>
           <p>للمرشد مسار في ذهنه حين تخرج من المخيم. وقد يغيّره إذا رأى آثارًا حديثة على الرمل أو لاحظ أن الحيوانات تتجه إلى الماء. إذا توقّف، اسأله عمّا رآه. كثير من تفاصيل الجولة تبدأ بشيء صغير كهذا.</p>
         </div>
       </div>
@@ -151,17 +159,17 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">05 · السيارة والمرشد</span>
-          <h2 data-letters><span class="line">الجولة</span><span class="line">لرفقتك</span></h2>
+          <h2 data-letters><span class="line">الجولة</span> <span class="line">لرفقتك</span></h2>
           <p>قد يود أحدكم البقاء قليلًا لمراقبة قطيع، وقد يكتفي الصغار بجولة أقصر. مع سيارة خاصة، تتفقون مع المرشد على وقت العودة. وهو يختار موضع التوقف والمسافة المناسبة من الحيوانات.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 06 تارانجيري · film -->
+  <!-- 06 تارانغيري · film -->
   <section class="filme" data-filme="elephants" style="--altura: 260vh" data-reveal>
     <div class="filme-palco">
       <picture>
@@ -172,10 +180,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento momento--direita" data-de="0.18" data-ate="1">
+      <div class="momento momento--direita" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">06 · تارانغيري</span>
-          <h2 data-letters><span class="line">النهر</span><span class="line">في موسم الجفاف</span></h2>
+          <h2 data-letters><span class="line">النهر</span> <span class="line">في موسم الجفاف</span></h2>
           <p>تشتهر تارانغيري بأشجار الباوباب وقطعان الأفيال. وحين تقل المياه في موسم الجفاف، يتركّز كثير من نشاط الحيوانات حول النهر. يمكن أن يخصّص المرشد جزءًا من الجولة للضفاف، حيث قد ترى الأفيال قادمة إلى الماء.</p>
         </div>
       </div>
@@ -190,15 +198,15 @@
           <span class="rotulo">07 · الحياة البرية</span>
           <h2 class="elenco-titulo" data-letters style="--step:40ms">حيوانات السهول</h2>
         </div>
-        <p class="elenco-nota painel painel--solto revelar" style="--d:.3s">أسد، نمر، فهد، زرافة، حمار وحشي، فيل. في السيرينجيتي ونجورونجورو وتارانجيري تلتقي بهم جميعاً في أسبوع، وغالباً قبل الفطور. لا يُطعَمون ولا يُنادَون ولا يُلمَسون.</p>
+        <p class="elenco-nota painel painel--solto revelar" style="--d:.3s">تختلف المشاهدات من محمية إلى أخرى، ومن جولة إلى أخرى في اليوم نفسه. يشرح لك المرشد ما يميّز الحيوانات التي تظهر أمامك، مثل الفرق بين الفهد والنمر أو كيف تتنقّل الأفيال مع صغارها.</p>
       </div>
       <div class="elenco-trilho" id="trilho">
-        <figure class="carta"><img src="assets/fotos/cast-lion.webp" alt="أسد يتأمل الأفق في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Lion</span><span class="carta-ar">أسد</span></figcaption></figure>
-        <figure class="carta"><img src="assets/fotos/cast-leopard.webp" alt="نمر صغير يستريح على شجرة في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Leopard</span><span class="carta-ar">نمر</span></figcaption></figure>
-        <figure class="carta"><img src="assets/fotos/cast-cheetah.webp" alt="فهد عن قرب في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Cheetah</span><span class="carta-ar">فهد</span></figcaption></figure>
-        <figure class="carta"><img src="assets/fotos/cast-giraffe.webp" alt="زرافة ماساي في عشب السيرينجيتي الذهبي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Giraffe</span><span class="carta-ar">زرافة</span></figcaption></figure>
-        <figure class="carta"><img src="assets/fotos/cast-zebra.webp" alt="حمير وحشية ترعى تحت تلّ في السيرينجيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Zebra</span><span class="carta-ar">حمار وحشي</span></figcaption></figure>
-        <figure class="carta"><img src="assets/fotos/cast-elephant.webp" alt="فيلة وصغيرها في تارانجيري" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome">Elephant</span><span class="carta-ar">فيل</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-lion.webp" alt="أسد يتأمل الأفق في السيرينغيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">أسد</span><span class="carta-ar" lang="en">Lion</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-leopard.webp" alt="نمر صغير يستريح على شجرة في السيرينغيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">نمر</span><span class="carta-ar" lang="en">Leopard</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-cheetah.webp" alt="فهد عن قرب في السيرينغيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">فهد</span><span class="carta-ar" lang="en">Cheetah</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-giraffe.webp" alt="زرافة ماساي في عشب السيرينغيتي الذهبي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">زرافة</span><span class="carta-ar" lang="en">Giraffe</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-zebra.webp" alt="حمير وحشية ترعى تحت تلّ في السيرينغيتي" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">حمار وحشي</span><span class="carta-ar" lang="en">Zebra</span></figcaption></figure>
+        <figure class="carta"><img src="assets/fotos/cast-elephant.webp" alt="فيلة وصغيرها في تارانغيري" loading="lazy"><figcaption class="carta-meta"><span class="carta-nome" lang="ar">فيل</span><span class="carta-ar" lang="en">Elephant</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -214,10 +222,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">08 · المخيمات</span>
-          <h2 data-letters><span class="line">أين تقيم</span><span class="line">بين الجولات؟</span></h2>
+          <h2 data-letters><span class="line">أين تقيم</span> <span class="line">بين الجولات؟</span></h2>
           <p>موقع المخيم يحدّد كم من الوقت تقضيه في الطريق كل صباح ومساء. لهذا نبحث عن إقامة قريبة من المنطقة التي سنرتّب فيها جولاتك. وإذا كان معك أطفال، نراجع توزيع الخيام أو الغرف، وهل يمكن أن تعود العائلة للغداء والراحة قبل جولة المساء.</p>
         </div>
       </div>
@@ -229,9 +237,9 @@
     <div class="fatos">
       <div class="painel painel--solto revelar">
         <span class="rotulo">09 · ترتيبات الرحلة</span>
-        <h2 class="fatos-titulo" data-letters style="--step:30ms"><span class="line">ما الذي</span><span class="line">نرتّبه</span><span class="line">قبل سفرك؟</span></h2>
+        <h2 class="fatos-titulo" data-letters style="--step:30ms"><span class="line">ما الذي</span> <span class="line">نرتّبه</span> <span class="line">قبل سفرك؟</span></h2>
         <a class="selo" href="#contato" style="--d:.3s">
-          <span class="selo-anel" aria-hidden="true"><svg class="selo-ticks" viewBox="0 0 84 84" id="ticks"></svg><svg class="selo-play" viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span>
+          <span class="selo-anel" aria-hidden="true"><svg class="selo-ticks" viewBox="0 0 84 84" id="ticks"></svg><svg class="selo-play" viewBox="0 0 16 16"><path d="M2 8h10M8 3.5 12.5 8 8 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <span class="rotulo rotulo--linha">خطّط لرحلتك</span>
         </a>
       </div>
@@ -245,11 +253,11 @@
           </tbody>
         </table>
       </div>
-      <div class="moldura retrato" style="--d:.2s"><img src="assets/fotos/giraffe-tall.webp" alt="زرافة تمشي في سهول السيرينجيتي" loading="lazy" data-parallax></div>
+      <div class="moldura retrato" style="--d:.2s"><img src="assets/fotos/giraffe-tall.webp" alt="زرافة تمشي في سهول السيرينغيتي" loading="lazy" data-parallax></div>
     </div>
   </section>
 
-  <!-- 10 نجورونجورو · film -->
+  <!-- 10 نغورونغورو · film -->
   <section class="filme" data-filme="crater" style="--altura: 260vh" data-reveal>
     <div class="filme-palco">
       <picture>
@@ -260,10 +268,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">10 · نغورونغورو</span>
-          <h2 data-letters><span class="line">من حافة الفوّهة</span><span class="line">إلى قاعها</span></h2>
+          <h2 data-letters><span class="line">من حافة الفوّهة</span> <span class="line">إلى قاعها</span></h2>
           <p>جزء من الجولة هو النزول نفسه. تبدأ السيارة عند الحافة، ثم ينفتح أمامك قاع الفوّهة بمراعيه ومناطقه الرطبة. يمكن إضافة نغورونغورو في الطريق إلى السيرينغيتي. ونختار مكان المبيت بحسب وقت الجولة والطريق الذي ستكمله في اليوم التالي.</p>
         </div>
       </div>
@@ -281,10 +289,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento momento--direita" data-de="0.18" data-ate="1">
+      <div class="momento momento--direita" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">11 · المنطاد</span>
-          <h2 data-letters><span class="line">صباح</span><span class="line">فوق السيرينغيتي</span></h2>
+          <h2 data-letters><span class="line">صباح</span> <span class="line">فوق السيرينغيتي</span></h2>
           <p>تقلع المناطيد في الصباح الباكر، حين تسمح الأحوال الجوية. من الجو يظهر امتداد السهل وتفرّع مجاري الماء، وهي تفاصيل يصعب أن تراها مجتمعة من السيارة. إذا رغبت في إضافة المنطاد، نراجع توافر الرحلة وشروط العمر، ونرتّب حولها برنامج ذلك الصباح.</p>
         </div>
       </div>
@@ -302,10 +310,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">12 · الصباح في البر</span>
-          <h2 data-letters><span class="line">موعد</span><span class="line">أول جولة</span></h2>
+          <h2 data-letters><span class="line">موعد</span> <span class="line">أول جولة</span></h2>
           <p>إذا كنت تفضّل الخروج مبكرًا، نتفق على وقت الانطلاق والعودة مع المرشد في المساء السابق. ويمكنك أن تجعل الصباح لجولة واحدة ثم تعود إلى المخيم، أو تواصل الجولة لوقت أطول إذا كان ذلك أنسب لبرنامجك.</p>
         </div>
       </div>
@@ -335,10 +343,10 @@
       <div class="filme-borda" aria-hidden="true"></div>
       <div class="filme-vinheta" aria-hidden="true"></div>
       <div class="filme-derrete" aria-hidden="true"></div>
-      <div class="momento" data-de="0.18" data-ate="1">
+      <div class="momento" data-de="0.04" data-ate="1">
         <div class="painel painel--vidro">
           <span class="rotulo">14 · زنجبار</span>
-          <h2 data-letters><span class="line">الإقامة</span><span class="line">على الساحل</span></h2>
+          <h2 data-letters><span class="line">الإقامة</span> <span class="line">على الساحل</span></h2>
           <p>إذا أردت أن تقضي بعض الوقت في المدينة الحجرية، نضع الزيارة في يوم الوصول إلى الجزيرة أو نخصّص لها جزءًا من يوم مستقل. بعد ذلك يمكنك أن تقضي بقية الإقامة على الساحل، مع وقت للشاطئ أو لجولة بقارب شراعي بحسب الطقس.</p>
         </div>
       </div>
@@ -349,7 +357,7 @@
   <section id="jornadas" class="secao secao--larga" data-reveal>
     <div class="painel painel--cabecalho revelar">
       <span class="rotulo">15 · الرحلات</span>
-      <h2 data-letters style="--step:22ms"><span class="line">خمس رحلات</span><span class="line">مقترحة</span></h2>
+      <h2 data-letters style="--step:22ms"><span class="line">خمس رحلات</span> <span class="line">مقترحة</span></h2>
       <p>اختر الرحلة الأقرب لما تريده منها. نراجع معك عدد الليالي وترتيب المحطات قبل تحديد الإقامة والتنقلات.</p>
     </div>
     <div class="cartoes">
@@ -357,31 +365,36 @@
         <img class="cartao-foto" src="assets/fotos/card-migration.webp" alt="" loading="lazy">
         <h3>الهجرة الكبرى</h3>
         <p class="cartao-lead">أقم في السيرينغيتي قرب المنطقة التي يُتوقّع أن تمرّ بها قطعان النو في موسم سفرك.</p>
-        <p>تتحرّك القطعان خلال السنة بحثًا عن الماء والمرعى. نبدأ بموعد سفرك، ثم نختار مخيمًا يتيح لك أكثر من جولة في المنطقة نفسها. إذا تغيّر اتجاه القطيع، يقدر المرشد أن يجرّب مسارًا آخر في الجولة التالية. ويتوقف مشهد عبور النهر على حركة القطعان في ذلك اليوم. يمكن إضافة نغورونغورو في بداية الرحلة أو نهايتها.</p>
+        <p>تتحرّك القطعان خلال السنة بحثًا عن الماء والمرعى. نبدأ بموعد سفرك، ثم نختار مخيمًا يتيح لك أكثر من جولة في المنطقة نفسها. إذا تغيّر اتجاه القطيع، يمكن للمرشد أن يجرّب مسارًا آخر في الجولة التالية. ويتوقف مشهد عبور النهر على حركة القطعان في ذلك اليوم. يمكن إضافة نغورونغورو في بداية الرحلة أو نهايتها.</p>
+        <a class="cartao-link" href="#contato" data-trip="الهجرة الكبرى">خطّط لهذه الرحلة</a>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/fotos/card-bush-zanzibar.webp" alt="" loading="lazy">
         <h3>السفاري وزنجبار</h3>
         <p class="cartao-lead">جولات في تارانغيري والسيرينغيتي، ثم بضعة أيام في زنجبار.</p>
         <p>تبدأ في تارانغيري، ثم تنتقل إلى السيرينغيتي لتقضي فيه عدة جولات. بعد آخر إقامة في البر، نرتّب الانتقال إلى زنجبار. يمكنك توزيع أيام الجزيرة بين جولة في المدينة الحجرية وإقامة على الشاطئ. يناسب هذا المسار الرفقة التي تريد وقتًا للحيوانات ووقتًا على البحر في الإجازة نفسها.</p>
+        <a class="cartao-link" href="#contato" data-trip="السفاري وزنجبار">خطّط لهذه الرحلة</a>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/fotos/card-flying.webp" alt="" loading="lazy">
         <h3>سفاري بالطائرة</h3>
         <p class="cartao-lead">رحلات داخلية إلى مهابط قريبة من المخيمات، مع جولات سفاري خاصة بعد الوصول.</p>
         <p>نحدّد أولًا أي انتقال برّي يستغرق وقتًا طويلًا، ثم نبحث عن رحلة جوية مناسبة. نوضح لك أين تهبط وكيف تكمل الطريق إلى المخيم. إذا كانت الإجازة قصيرة، يمكن للوقت الذي توفّره في التنقل أن يمنحك جولة إضافية أو يتيح لك البقاء فترة أطول في مخيم واحد.</p>
+        <a class="cartao-link" href="#contato" data-trip="سفاري بالطائرة">خطّط لهذه الرحلة</a>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/fotos/card-family.webp" alt="" loading="lazy">
         <h3>سفاري للعائلة</h3>
         <p class="cartao-lead">إقامة أطول في مخيم واحد، مع جولات تناسب أعمار الأطفال ووقت للراحة خلال اليوم.</p>
         <p>نبدأ بأعمار الأطفال وبالمدة التي يرتاحون لقضائها في السيارة. نقترح الإقامة عدة ليالٍ في مخيم واحد، بحيث تخرجون للجولات منه وتعودون إليه للغداء أو الراحة. نراجع إمكان الإقامة في خيمة عائلية أو في غرف متقاربة. وتبقى إضافة زنجبار خيارًا إذا أردت أن تقضي العائلة بضعة أيام على الساحل قبل العودة.</p>
+        <a class="cartao-link" href="#contato" data-trip="سفاري للعائلة">خطّط لهذه الرحلة</a>
       </article>
       <article class="painel cartao revelar">
         <img class="cartao-foto" src="assets/fotos/card-private.webp" alt="" loading="lazy">
         <h3>مخيم خاص لمجموعتك</h3>
         <p class="cartao-lead">إقامة في مخيم يمكن تخصيصه لكم بالكامل، بحسب عدد المسافرين وموعد الرحلة.</p>
         <p>إذا كنت تسافر مع عائلات أخرى أو مع أصدقاء، يمكن أن يكون المخيم مكانًا تجتمعون فيه على الوجبات وتخرجون منه للجولات. نبحث عن مخيم يمكن تخصيصه لكم، ونراجع عدد الخيام وتوزيعها، وما إذا كنتم تحتاجون إلى أكثر من سيارة. ثم نوضح لك ما يتوافر في موعد السفر.</p>
+        <a class="cartao-link" href="#contato" data-trip="مخيم خاص لمجموعتك">خطّط لهذه الرحلة</a>
       </article>
     </div>
   </section>
@@ -390,7 +403,7 @@
   <section id="perguntas" class="secao secao--faq" data-reveal>
     <div class="painel painel--faq revelar">
       <span class="rotulo">16 · أسئلة قبل السفر</span>
-      <h2 data-letters style="--step:22ms"><span class="line">أسئلة</span><span class="line">قبل السفر</span></h2>
+      <h2 data-letters style="--step:22ms"><span class="line">أسئلة</span> <span class="line">قبل السفر</span></h2>
       <div class="faq">
         <div class="faq-item"><h3>كم ليلة أقضي في المخيم الواحد؟</h3><p>يعتمد ذلك على المسافة إلى محطتك التالية وما تريد أن تراه. الإقامة أكثر من ليلة في المنطقة نفسها تتيح لك تكرار الجولة في أوقات مختلفة وتخفّف عدد أيام التنقل.</p></div>
         <div class="faq-item"><h3>هل هناك حد أدنى لعمر الأطفال؟</h3><p>تختلف شروط العمر بين المخيمات والأنشطة. نراجعها معك بحسب أعمار الأطفال قبل اختيار الإقامة، ونتأكد أيضًا من شروط أي نشاط إضافي مثل المنطاد.</p></div>
@@ -404,21 +417,22 @@
     <img class="arte arte--fundo arte--suave" src="assets/fotos/acacia-sunset.webp" alt="" loading="lazy" data-parallax>
     <div class="painel painel--form revelar">
       <span class="rotulo">17 · خطّط لرحلتك</span>
-      <h2 data-letters style="--step:28ms"><span class="line">ابدأ بموعد السفر</span><span class="line">ومن سيرافقك</span></h2>
+      <h2 data-letters style="--step:28ms"><span class="line">ابدأ بموعد السفر</span> <span class="line">ومن سيرافقك</span></h2>
       <p>حدّد شهر السفر وعدد الليالي المتاحة لك. فكّر في أكثر ما تريد أن تقضي فيه وقتك، سواء كان متابعة الهجرة، أو قضاء عدة أيام في مخيم واحد مع الأطفال، أو الجمع بين السفاري وزنجبار. هذه التفاصيل تساعدنا على اقتراح ترتيب يناسب وقتك.</p>
       <p class="contato-link"><a href="#jornadas">قارن الرحلات</a></p>
-      <form class="form" novalidate>
+      <form class="form" method="post" action="https://formsubmit.co/hello@samur.sa" novalidate>
+        <input type="hidden" name="_captcha" value="false">
         <div class="campo">
-          <label for="f-nome">الاسم</label>
+          <label for="f-nome">الاسم <span class="req" aria-hidden="true">*</span></label>
           <input id="f-nome" name="name" autocomplete="name" required>
         </div>
         <div class="campo">
-          <label for="f-email">البريد الإلكتروني</label>
+          <label for="f-email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label>
           <input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" required>
         </div>
         <div class="campo">
-          <label for="f-tel">واتساب</label>
-          <input id="f-tel" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" required>
+          <label for="f-tel">واتساب <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-tel" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="+966 5x xxx xxxx" dir="ltr" required>
         </div>
         <div class="campo">
           <label for="f-quando">متى، وكم عدد المسافرين؟</label>
@@ -431,6 +445,7 @@
         <input type="text" name="_honey" class="pote" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="botao campo--inteiro">إرسال</button>
         <p class="form-status campo--inteiro" role="status" aria-live="polite"></p>
+        <noscript><p class="contato-nojs">إذا لم يعمل النموذج، راسلنا على <a href="mailto:hello@samur.sa">hello@samur.sa</a>.</p></noscript>
       </form>
     </div>
   </section>
@@ -456,7 +471,7 @@
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.1c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3Zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.2 1.3-4-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.5 9.8 10.2 5.2 16 5.2s10.5 4.6 10.5 10.4S21.8 26.1 16 26.1Zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>
 </a>
 
-<script src="config.js?v=20261118l"></script>
+<script src="config.js?v=20261118n"></script>
 <script>
   // Arabic strings for the shared config: WhatsApp opener, email subject and form messages.
   window.SITE.whatsapp.mensagem = "السلام عليكم، أرغب في التخطيط لرحلة سفاري مع سمر.";
@@ -465,9 +480,11 @@
     checar: "يرجى مراجعة الحقول المحددة.",
     enviando: "جارٍ الإرسال…",
     ok: "وصلتنا رسالتك. سنتواصل معك خلال يوم واحد.",
-    falha: "تعذّر الإرسال الآن. راسلنا عبر واتساب بدلاً من ذلك."
+    falha: "تعذّر الإرسال الآن. بياناتك ما زالت هنا: حاول مرة أخرى، أو تواصل معنا مباشرة:",
+    erroNome: "يرجى كتابة اسمك.", erroEmail: "يرجى كتابة بريد إلكتروني صحيح.", erroTel: "يرجى كتابة رقم واتساب مع رمز الدولة، مثل +966 5x xxx xxxx.",
+    whatsappRotulo: "واتساب", emailRotulo: "البريد الإلكتروني", ou: "أو", viagem: "الرحلة: "
   };
 </script>
-<script src="app.js?v=20261118l"></script>
+<script src="app.js?v=20261118n"></script>
 </body>
 </html>

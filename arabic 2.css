@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/amiri-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/amiri-arabic-700-normal.woff2") format("woff2");
+  unicode-range: U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+200C-200F,U+2010,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/ibm-plex-sans-arabic-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/ibm-plex-sans-arabic-arabic-400-normal.woff2") format("woff2");
+  unicode-range: U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+200C-200F,U+2010,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/ibm-plex-sans-arabic-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/samur-arabic/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2");
+  unicode-range: U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+200C-200F,U+2010,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFF;
+}
+
+/* Typography and spacing for the Arabic edition. */
+html[lang="ar"] {
+  --fonte-titulo: "Amiri", serif;
+  --fonte-texto: "IBM Plex Sans Arabic", Arial, sans-serif;
+  --fonte-arabe: var(--fonte-texto);
+}
+
+html[lang="ar"] .cine .destaque {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(28px, 3.6vw, 51px);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+html[lang="ar"] .cartao-meta,
+html[lang="ar"] .rotulo,
+html[lang="ar"] .menu,
+html[lang="ar"] .botao {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .botao { line-height: 1.35; }
+html[lang="ar"] .cine .rotulo { margin-bottom: 6px; }
+
+html[lang="ar"] .carta-nome {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  direction: rtl;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[lang="ar"] .cine-palco .momento { max-width: 480px; }
+html[lang="ar"] .cine-palco .momento--centro { max-width: 640px; }
+html[lang="ar"] .cine .painel--vidro { background: rgb(243 235 221 / .9); }
+html[lang="ar"] .frase { font-size: clamp(40px, 6.3vw, 92px); }
+
+@media (max-width: 760px) {
+  html[lang="ar"] .cine-palco .momento { max-width: none; }
+  html[lang="ar"] .cine-palco .destaque { font-size: clamp(28px, 7vw, 38px); }
+  html[lang="ar"] .menu .lang { display: inline; }
+  html[lang="ar"] .menu { gap: 10px; }
+  html[lang="ar"] .marca-logo { max-width: min(41vw, 145px); height: auto; }
+}
+
+@media (max-width: 380px) {
+  html[lang="ar"] .topo,
+  html[lang="ar"] .menu { gap: 8px; }
+  html[lang="ar"] .marca-logo { max-width: 110px; }
+  html[lang="ar"] .menu .lang { font-size: 12px; letter-spacing: 0; }
+  html[lang="ar"] .menu-cta { font-size: 12px; padding-inline: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[lang="ar"] .cine .momento.ativo { display: block; }
+}

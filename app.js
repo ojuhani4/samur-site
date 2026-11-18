@@ -10,12 +10,13 @@
   if (cine && canvas && S.frames && S.frames.total) {
     const ctx = canvas.getContext("2d");
     const total = S.frames.total;
-    const padrao = celular ? S.frames.mobile : S.frames.desktop;
+    let movel = celular;
+    let padrao = movel ? S.frames.mobile : S.frames.desktop;
     const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
-    const quadros = new Array(total);
+    let quadros = new Array(total);
     const momentos = [...cine.querySelectorAll(".momento")];
     const corte = cine.querySelector(".cine-corte");
-    const H = (celular && S.heroCelular) || S.hero;
+    let H = (movel && S.heroCelular) || S.hero;
     let alvo = 0, atual = 0, desenhado = -1, dpr = 1, ultimo = null; // ultimo: onde o quadro foi desenhado (px CSS)
 
     // A árvore é uma camada à parte: acompanha o zoom do filme e cresce um pouco mais, ancorada no tronco.
@@ -47,15 +48,16 @@
     // O primeiro quadro e a árvore têm prioridade: o resto do filme só começa a baixar quando os dois já estão na tela
     // (senão 160 pedidos disputam a banda com a abertura e a página fica em branco por segundos).
     const primeiro = carregar(0, true);
+    let esqueletoPronto = false, completo = false;
+    // Esqueleto: um quadro a cada 8 (20 pedidos) assim que a abertura está na tela. O resto só perto do quadro atual,
+    // e o preenchimento total apenas depois que o visitante começa a rolar o filme.
+    const esqueleto = () => { if (esqueletoPronto || reduzir) return; esqueletoPronto = true; let i = 0; const lote = () => { for (let n = 0; n < 4 && i < total; n++, i += 8) carregar(i); if (i < total) setTimeout(lote, 60); }; lote(); };
+    const janela = (centro) => { for (let d = -10; d <= 10; d++) { const i = centro + d; if (i >= 0 && i < total) carregar(i); } };
+    const completar = () => { if (completo || reduzir) return; completo = true; let i = 0; const lote = () => { for (let n = 0; n < 6 && i < total; n++, i++) carregar(i); if (i < total) setTimeout(lote, 50); }; lote(); };
     if (!reduzir) {
-      const fila = [];
-      for (const passo of [8, 4, 2, 1]) for (let i = 0; i < total; i += passo) if (!fila.includes(i)) fila.push(i);
-      let k = 0, iniciado = false;
-      const lote = () => { for (let n = 0; n < 6 && k < fila.length; n++) carregar(fila[k++]); if (k < fila.length) setTimeout(lote, 40); };
-      const iniciar = () => { if (iniciado) return; iniciado = true; lote(); };
       const esperar = (img) => new Promise((ok) => { if (!img || (img.complete && img.naturalWidth)) ok(); else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ok, { once: true }); } });
-      Promise.all([esperar(primeiro), esperar(corte)]).then(iniciar);
-      setTimeout(iniciar, 4000); // nunca fica preso se algo falhar
+      Promise.all([esperar(primeiro), esperar(corte)]).then(esqueleto);
+      setTimeout(esqueleto, 4000); // nunca fica preso se algo falhar
     }
 
     const pronto = (i) => quadros[i] && quadros[i].complete && quadros[i].naturalWidth;
@@ -96,7 +98,8 @@
     const atualizarMomentos = (p) => {
       for (const m of momentos) {
         const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1);
-        m.classList.toggle("ativo", p >= de && (p < ate || (ate >= 1 && p >= 1)));
+        const ativo = p >= de && (p < ate || (ate >= 1 && p >= 1));
+        m.classList.toggle("ativo", ativo); m.inert = !ativo;
       }
       cine.classList.toggle("andou", p > 0.02);
       cine.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.78) / 0.2)).toFixed(3));
@@ -107,12 +110,18 @@
       alvo = progresso() * (total - 1);
       atual += (alvo - atual) * 0.18; // suaviza: sensação de filme, não de slide
       if (Math.abs(alvo - atual) < 0.05) atual = alvo;
+      if (esqueletoPronto) { janela(Math.round(atual)); if (alvo > 2) completar(); }
       desenhar(Math.round(atual));
       atualizarMomentos(atual / (total - 1));
       requestAnimationFrame(quadro);
     };
 
     addEventListener("resize", ajustar);
+    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { // cruzou o ponto de quebra: troca de conjunto de quadros e geometria
+      movel = e.matches; padrao = movel ? S.frames.mobile : S.frames.desktop; H = (movel && S.heroCelular) || S.hero;
+      quadros = new Array(total); desenhado = -1; esqueletoPronto = false; completo = false;
+      carregar(0, true); esqueleto(); ajustar();
+    });
     ajustar();
     if (reduzir) { atualizarMomentos(0); posicionarCorte(0); }
     else requestAnimationFrame(quadro);
@@ -125,9 +134,9 @@
     if (!cfg || !cv || !cfg.total) return;
     const ctx = cv.getContext("2d");
     const total = cfg.total;
-    const padrao = celular ? cfg.mobile : cfg.desktop;
+    let padrao = celular ? cfg.mobile : cfg.desktop;
     const src = (i) => padrao.replace("{n}", String(i + 1).padStart(4, "0"));
-    const quadros = new Array(total);
+    let quadros = new Array(total);
     const momentos = [...sec.querySelectorAll(".momento")];
     let alvo = 0, atual = 0, desenhado = -1, dpr = 1, carregando = false, vivo = false;
 
@@ -159,7 +168,7 @@
     const ajustar = () => { dpr = Math.min(window.devicePixelRatio || 1, 2); cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr); desenhado = -1; desenhar(Math.round(atual), true); };
     const progresso = () => { const r = sec.getBoundingClientRect(); const curso = sec.offsetHeight - innerHeight; return Math.min(1, Math.max(0, -r.top / (curso || 1))); };
     const atualizar = (p) => {
-      for (const m of momentos) { const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1); m.classList.toggle("ativo", p >= de && (p < ate || (ate >= 1 && p >= 1))); }
+      for (const m of momentos) { const de = parseFloat(m.dataset.de || 0), ate = parseFloat(m.dataset.ate || 1); const ativo = p >= de && (p < ate || (ate >= 1 && p >= 1)); m.classList.toggle("ativo", ativo); m.inert = !ativo; }
       sec.style.setProperty("--derrete", Math.min(1, Math.max(0, (p - 0.8) / 0.2)).toFixed(3));
       sec.style.setProperty("--borda", (1 - Math.min(1, p / 0.12)).toFixed(3));
     };
@@ -184,6 +193,7 @@
       else { vivo = false; cancelar(); }
     }), { rootMargin: "150% 0px 150% 0px" }).observe(sec);
     addEventListener("resize", ajustar);
+    matchMedia("(max-width: 760px)").addEventListener("change", (e) => { padrao = e.matches ? cfg.mobile : cfg.desktop; quadros = new Array(total); desenhado = -1; carregando = false; if (vivo) iniciarCarga(); ajustar(); });
     ajustar();
     if (reduzir) atualizar(0);
   });
@@ -211,7 +221,8 @@
   }
   const porPalavra = document.documentElement.lang === "ar"; // Arabic letters must stay joined: climb word by word
   document.querySelectorAll("[data-letters]").forEach((el) => {
-    const plano = el.textContent.replace(/\s+/g, " ").trim();
+    const linhas = [...el.querySelectorAll(".line")].map((l) => l.textContent.replace(/\s+/g, " ").trim()).filter(Boolean);
+    const plano = (linhas.length ? linhas.join(" ") : el.textContent).replace(/\s+/g, " ").trim();
     let i = 0;
     const andar = (node) => [...node.childNodes].forEach((n) => {
       if (n.nodeType === 1) { if (n.classList.contains("ppill")) { n.style.setProperty("--i", i++); return; } return andar(n); }
@@ -258,13 +269,29 @@
     mover();
   }
 
-  /* ── Topo, revelar e ano ──────────────────────────────────────────────── */
+  /* ── Menu no celular, troca de idioma com a seção, "planeje esta viagem" ── */
   const topo = document.querySelector(".topo");
+  const menuBotao = document.querySelector(".menu-botao");
+  if (topo && menuBotao) {
+    const fechar = () => { topo.classList.remove("aberto"); menuBotao.setAttribute("aria-expanded", "false"); };
+    menuBotao.addEventListener("click", () => { const aberto = topo.classList.toggle("aberto"); menuBotao.setAttribute("aria-expanded", String(aberto)); if (aberto) topo.querySelector(".menu a")?.focus(); });
+    topo.querySelectorAll(".menu a").forEach((a) => a.addEventListener("click", fechar));
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && topo.classList.contains("aberto")) { fechar(); menuBotao.focus(); } });
+  }
+  document.querySelectorAll("a.lang").forEach((a) => a.addEventListener("click", () => { if (location.hash && location.hash.length > 1) a.href = a.getAttribute("href").split("#")[0] + location.hash; }));
+  document.querySelectorAll("[data-trip]").forEach((a) => a.addEventListener("click", () => {
+    const campo = document.getElementById("f-msg");
+    if (campo && !campo.value.trim()) campo.value = (S.textos && S.textos.viagem ? S.textos.viagem : "Trip: ") + a.dataset.trip;
+  }));
+
+  /* ── Topo, revelar e ano ──────────────────────────────────────────────── */
   const whats = document.querySelector(".whats");
   let formNaTela = false; // o botão flutuante se recolhe para não cobrir o "Enviar"
+  const abertura = document.querySelector(".cine");
   const aoRolar = () => {
     topo && topo.classList.toggle("rolou", scrollY > 40);
-    whats && whats.classList.toggle("visivel", scrollY > innerHeight * 0.6 && !formNaTela);
+    const aberturaNaTela = abertura ? scrollY < abertura.offsetHeight - innerHeight * 0.4 : false; // o botão só aparece depois do filme de abertura
+    whats && whats.classList.toggle("visivel", !aberturaNaTela && !formNaTela);
   };
   const formEl = document.querySelector(".form");
   if (formEl) new IntersectionObserver(([e]) => { formNaTela = e.isIntersecting; aoRolar(); }).observe(formEl);
@@ -286,24 +313,42 @@
   /* ── Formulário → e-mail ──────────────────────────────────────────────── */
   const form = document.querySelector(".form");
   if (form && S.contato) {
-    const T = Object.assign({ checar: "Please check the highlighted fields.", enviando: "Sending…", ok: "Received. We will be in touch within a day.", falha: "It could not be sent right now. Message us on WhatsApp instead." }, S.textos || {});
+    const T = Object.assign({ checar: "Please check the highlighted fields.", enviando: "Sending…", ok: "Received. We will be in touch within a day.", falha: "It could not be sent right now. Your details are still here: try again, or reach us directly:",
+      erroNome: "Please enter your name.", erroEmail: "Please enter a valid email address.", erroTel: "Please enter a WhatsApp number with the country code, e.g. +966 5x xxx xxxx.", whatsappRotulo: "WhatsApp", emailRotulo: "Email", ou: "or" }, S.textos || {});
     const status = form.querySelector(".form-status");
     const botao = form.querySelector("button[type=submit]");
-    const avisar = (txt, tipo) => { status.textContent = txt; status.className = `form-status campo--inteiro ${tipo || ""}`; };
+    const numero = String((S.whatsapp && S.whatsapp.numero) || "").replace(/\D/g, "");
+    const contatos = () => {
+      const frag = document.createDocumentFragment();
+      if (numero) { const a = document.createElement("a"); a.href = `https://wa.me/${numero}`; a.target = "_blank"; a.rel = "noopener"; a.textContent = T.whatsappRotulo; frag.append(" ", a); }
+      if (S.contato.email) { const b = document.createElement("a"); b.href = `mailto:${S.contato.email}`; b.textContent = T.emailRotulo; frag.append(numero ? ` ${T.ou} ` : " ", b); }
+      return frag;
+    };
+    const avisar = (txt, tipo, comContatos) => { status.textContent = txt; if (comContatos) status.append(contatos()); status.className = `form-status campo--inteiro ${tipo || ""}`; };
+    // Arabic-Indic and Persian digits become ASCII; spaces and punctuation go; a leading 00 becomes +
+    const normalizarTel = (v) => v.replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[\s().\-\u2010-\u2015]/g, "").replace(/^00/, "+");
+    const telValido = (v) => /^\+?\d{8,15}$/.test(normalizarTel(v));
+    const erroDe = (c) => { const campo = c.closest(".campo"); let el = campo.querySelector(".campo-erro"); if (!el) { el = document.createElement("small"); el.className = "campo-erro"; el.id = `${c.id}-erro`; campo.append(el); } return el; };
+    const marcar = (c, msg) => { const campo = c.closest(".campo"); const el = erroDe(c); campo.classList.toggle("erro", !!msg); el.textContent = msg || ""; el.hidden = !msg; c.setAttribute("aria-invalid", msg ? "true" : "false"); if (msg) c.setAttribute("aria-describedby", el.id); else c.removeAttribute("aria-describedby"); };
+    form.querySelectorAll("[required]").forEach((c) => c.addEventListener("input", () => { if (c.closest(".campo").classList.contains("erro")) marcar(c, ""); }));
 
     form.addEventListener("submit", async (ev) => {
       ev.preventDefault();
       if (form.elements._honey.value) return; // robô
-      let valido = true;
+      let primeiroInvalido = null;
       form.querySelectorAll("[required]").forEach((c) => {
-        const ok = c.type === "email" ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value) : c.value.trim().length > 1;
-        c.closest(".campo").classList.toggle("erro", !ok);
-        if (!ok) valido = false;
+        let msg = "";
+        if (c.type === "email") { if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value.trim())) msg = T.erroEmail; }
+        else if (c.type === "tel") { if (!telValido(c.value)) msg = T.erroTel; }
+        else if (c.value.trim().length < 2) msg = T.erroNome;
+        marcar(c, msg);
+        if (msg && !primeiroInvalido) primeiroInvalido = c;
       });
-      if (!valido) return avisar(T.checar, "falha");
+      if (primeiroInvalido) { avisar(T.checar, "falha"); primeiroInvalido.focus(); return; }
 
       const dados = Object.fromEntries(new FormData(form));
-      delete dados._honey;
+      delete dados._honey; delete dados._next;
+      if (dados.whatsapp) dados.whatsapp = normalizarTel(dados.whatsapp);
       const assunto = S.contato.assunto || `New enquiry from the ${S.nome || ""} website`;
       let url, corpo;
       if (S.contato.web3formsChave) {
@@ -322,13 +367,15 @@
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify(corpo),
         });
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status);
+        const j = await r.json().catch(() => null);
+        const confirmado = j && (j.success === true || j.success === "true"); // só um "sim" explícito do provedor conta
+        if (!r.ok || !confirmado) throw new Error((j && j.message) || r.status);
         form.reset();
+        form.querySelectorAll(".campo.erro").forEach((c) => c.classList.remove("erro"));
         avisar(T.ok, "ok");
       } catch (e) {
-        console.warn("Falha no envio do formulário:", e);
-        avisar(T.falha, "falha");
+        console.warn("Falha no envio do formulário:", e); // os valores digitados ficam no formulário
+        avisar(T.falha, "falha", true);
       } finally {
         botao.disabled = false;
       }
